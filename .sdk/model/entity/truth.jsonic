@@ -1,0 +1,73 @@
+# Entity: truth
+
+main: kit: entity: truth: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "question"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "rating"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "truth"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "rating"
+                orig: "rating"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/truth"
+          parts: [
+            "truth"
+          ]
+          select: {
+            exist: [
+              "rating"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,28 @@
+# BasicTruthFlow
+
+main: kit: flow: BasicTruthFlow:
+{
+  entity: "truth",
+  kind: "basic",
+  name: "BasicTruthFlow",
+  step: [
+    {
+      input: {
+        ref: "truth_ref01",
+        srcdatavar: "truth_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-truth_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTruthFlow"
+}

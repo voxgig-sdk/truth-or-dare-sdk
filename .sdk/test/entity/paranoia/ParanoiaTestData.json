@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "paranoia": {
+      "PARANOIA00": {
+        "id": "PARANOIA00",
+        "question": "s29",
+        "rating": "s2a",
+        "type": "s2b"
+      },
+      "PARANOIA01": {
+        "id": "PARANOIA01",
+        "question": "s51",
+        "rating": "s52",
+        "type": "s53"
+      },
+      "PARANOIA02": {
+        "id": "PARANOIA02",
+        "question": "s79",
+        "rating": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "paranoia": {
+      "paranoia_ref01": {
+        "question": "sa1",
+        "rating": "sa2",
+        "type": "sa3"
+      }
+    }
+  }
+}

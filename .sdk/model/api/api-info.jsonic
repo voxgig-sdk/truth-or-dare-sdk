@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://docs.truthordarebot.xyz/api-docs"
+      }
+      description: "API for truth, dare, would you rather, never have I ever, and paranoia questions with different ratings available."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.truthordarebot.xyz/v1"
+        }
+      ]
+      title: "Truth or Dare API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

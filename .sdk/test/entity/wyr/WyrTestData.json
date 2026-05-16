@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "wyr": {
+      "WYR00": {
+        "id": "WYR00",
+        "question": "s29",
+        "rating": "s2a",
+        "type": "s2b"
+      },
+      "WYR01": {
+        "id": "WYR01",
+        "question": "s51",
+        "rating": "s52",
+        "type": "s53"
+      },
+      "WYR02": {
+        "id": "WYR02",
+        "question": "s79",
+        "rating": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "wyr": {
+      "wyr_ref01": {
+        "question": "sa1",
+        "rating": "sa2",
+        "type": "sa3"
+      }
+    }
+  }
+}

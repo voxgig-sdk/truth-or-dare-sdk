@@ -1,0 +1,38 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 5
+  metrics: count: path: 5
+  metrics: count: method: 5
+
+  entity: dare: {
+    path: "/dare": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: nhie: {
+    path: "/nhie": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: paranoia: {
+    path: "/paranoia": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: truth: {
+    path: "/truth": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wyr: {
+    path: "/wyr": {
+      op: load: method: *GET
+    }
+  }
+
+}

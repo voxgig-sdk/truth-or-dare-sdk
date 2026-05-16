@@ -1,0 +1,28 @@
+# BasicWyrFlow
+
+main: kit: flow: BasicWyrFlow:
+{
+  entity: "wyr",
+  kind: "basic",
+  name: "BasicWyrFlow",
+  step: [
+    {
+      input: {
+        ref: "wyr_ref01",
+        srcdatavar: "wyr_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-wyr_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWyrFlow"
+}

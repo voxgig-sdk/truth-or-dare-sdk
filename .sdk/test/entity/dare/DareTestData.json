@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "dare": {
+      "DARE00": {
+        "id": "DARE00",
+        "question": "s29",
+        "rating": "s2a",
+        "type": "s2b"
+      },
+      "DARE01": {
+        "id": "DARE01",
+        "question": "s51",
+        "rating": "s52",
+        "type": "s53"
+      },
+      "DARE02": {
+        "id": "DARE02",
+        "question": "s79",
+        "rating": "s7a",
+        "type": "s7b"
+      }
+    }
+  },
+  "new": {
+    "dare": {
+      "dare_ref01": {
+        "question": "sa1",
+        "rating": "sa2",
+        "type": "sa3"
+      }
+    }
+  }
+}

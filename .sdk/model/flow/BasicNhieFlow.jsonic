@@ -1,0 +1,28 @@
+# BasicNhieFlow
+
+main: kit: flow: BasicNhieFlow:
+{
+  entity: "nhie",
+  kind: "basic",
+  name: "BasicNhieFlow",
+  step: [
+    {
+      input: {
+        ref: "nhie_ref01",
+        srcdatavar: "nhie_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-nhie_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNhieFlow"
+}

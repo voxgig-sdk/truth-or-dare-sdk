@@ -1,0 +1,295 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Truth or Dare API",
+    "description": "API for truth, dare, would you rather, never have I ever, and paranoia questions with different ratings available.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://docs.truthordarebot.xyz/api-docs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.truthordarebot.xyz/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/truth": {
+      "get": {
+        "summary": "Get Truth",
+        "description": "This endpoint returns a truth question. R rating is disabled by default unless you specify it in the rating query.",
+        "operationId": "getTruth",
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                },
+                "example": {
+                  "id": "ku9abgpj6u59",
+                  "type": "TRUTH",
+                  "rating": "PG13",
+                  "question": "Would you break up with someone over text?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dare": {
+      "get": {
+        "summary": "Get Dare",
+        "description": "This endpoint returns a dare question. R rating is disabled by default unless you specify it in the rating query.",
+        "operationId": "getDare",
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                },
+                "example": {
+                  "id": "ku9abgpjs933",
+                  "type": "DARE",
+                  "rating": "PG13",
+                  "question": "Rate everyone here 1-10 in terms of looks."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wyr": {
+      "get": {
+        "summary": "Get Would You Rather",
+        "description": "This endpoint returns a would you rather question. R rating is disabled by default unless you specify it in the rating query.",
+        "operationId": "getWouldYouRather",
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                },
+                "example": {
+                  "id": "ku9abgpkd2mo",
+                  "type": "WYR",
+                  "rating": "PG13",
+                  "question": "Would you rather be unhappily single OR unhappily married?"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nhie": {
+      "get": {
+        "summary": "Get Never Have I Ever",
+        "description": "This endpoint returns a never have I ever question. R rating is disabled by default unless you specify it in the rating query.",
+        "operationId": "getNeverHaveIEver",
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                },
+                "example": {
+                  "id": "ku9abgpk74r5",
+                  "type": "NHIE",
+                  "rating": "PG13",
+                  "question": "Never have I ever dated someone in this server."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paranoia": {
+      "get": {
+        "summary": "Get Paranoia Question",
+        "description": "This endpoint returns a paranoia question. R rating is disabled by default unless you specify it in the rating query.",
+        "operationId": "getParanoia",
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "rating",
+            "in": "query",
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                },
+                "example": {
+                  "id": "ku9abgpk00fs",
+                  "type": "PARANOIA",
+                  "rating": "PG13",
+                  "question": "Who's most likely to move to stay with a partner?"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Question": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the question"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of question",
+            "enum": [
+              "TRUTH",
+              "DARE",
+              "WYR",
+              "NHIE",
+              "PARANOIA"
+            ]
+          },
+          "rating": {
+            "type": "string",
+            "description": "The rating of the question",
+            "enum": [
+              "PG",
+              "PG13",
+              "R"
+            ]
+          },
+          "question": {
+            "type": "string",
+            "description": "The question text"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "rating",
+          "question"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Questions",
+      "description": "Endpoints for retrieving various types of questions"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://docs.truthordarebot.xyz/api-docs"
+  },
+  "x-rate-limit": {
+    "description": "The global rate limit for all API requests is 5 requests per 5 seconds"
+  }
+}
