@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/truth-or-dare-sdk"
-	"github.com/voxgig-sdk/truth-or-dare-sdk/core"
+	sdk "github.com/voxgig-sdk/truth-or-dare-sdk/go"
+	"github.com/voxgig-sdk/truth-or-dare-sdk/go/core"
 )
 
 func TestDareDirect(t *testing.T) {

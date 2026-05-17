@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/truth-or-dare-sdk/core"
+	"github.com/voxgig-sdk/truth-or-dare-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/truth-or-dare-sdk/go/utility/struct"
 )
 
 type DareEntity struct {

@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/truth-or-dare-sdk"
+	sdk "github.com/voxgig-sdk/truth-or-dare-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

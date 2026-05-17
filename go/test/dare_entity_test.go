@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/truth-or-dare-sdk"
-	"github.com/voxgig-sdk/truth-or-dare-sdk/core"
+	sdk "github.com/voxgig-sdk/truth-or-dare-sdk/go"
+	"github.com/voxgig-sdk/truth-or-dare-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/truth-or-dare-sdk/go/utility/struct"
 )
 
 func TestDareEntity(t *testing.T) {
