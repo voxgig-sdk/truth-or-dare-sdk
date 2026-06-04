@@ -16,7 +16,19 @@
           }
         ],
         "title": "Truth or Dare API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Pull truth, dare, would-you-rather, never-have-I-ever, and paranoia prompts for party games and chat bots",
+        "homepage": "https://docs.truthordarebot.xyz/api-docs",
+        "docs_url": "https://docs.truthordarebot.xyz/api-docs",
+        "about_md": "The [Truth or Dare API](https://docs.truthordarebot.xyz/api-docs) serves party-game prompts across five classic categories: truth questions, dares, would-you-rather choices, never-have-I-ever statements, and paranoia questions. It backs the Truth or Dare Discord bot and is exposed publicly for anyone building chat bots, games, or party apps.\n\nWhat you get from the API:\n\n- A random prompt per request, returned as JSON with `id`, `type`, `rating`, and `question` fields.\n- Five prompt categories: `TRUTH`, `DARE`, `WYR`, `NHIE`, and `PARANOIA`.\n- A `rating` query parameter accepting `pg`, `pg13`, or `r` to control content level; the `r` rating is excluded by default unless explicitly requested.\n\nThe API is open and requires no authentication. A global rate limit of 5 requests per 5 seconds applies across all endpoints, and CORS is enabled so browser clients can call it directly.",
+        "entity_desc": {
+          "dare": "A dare challenge prompt; fetched via `GET /api/dare`.",
+          "nhie": "A never-have-I-ever statement; fetched via `GET /api/nhie`.",
+          "paranoia": "A paranoia-style question intended to be whispered to one player; fetched via `GET /api/paranoia`.",
+          "truth": "A truth question prompt; fetched via `GET /v1/truth`.",
+          "wyr": "A would-you-rather scenario with two choices; fetched via `GET /api/wyr`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +36,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "dare": {

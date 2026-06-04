@@ -95,7 +95,6 @@ def _nhie_basic_setup(extra):
         "TRUTHORDARE_TEST_NHIE_ENTID": idmap,
         "TRUTHORDARE_TEST_LIVE": "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN": "FALSE",
-        "TRUTHORDARE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +105,6 @@ def _nhie_basic_setup(extra):
     if env.get("TRUTHORDARE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TRUTHORDARE_APIKEY"),
             },
             extra or {},
         ])

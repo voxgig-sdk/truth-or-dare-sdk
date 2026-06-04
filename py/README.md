@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from truthordare_sdk import TruthOrDareSDK
 
-client = TruthOrDareSDK({
-    "apikey": os.environ.get("TRUTH-OR-DARE_APIKEY"),
-})
+client = TruthOrDareSDK({})
 ```
 
 ### 3. Load a dare
@@ -117,7 +114,6 @@ Create a `.env.local` file at the project root:
 
 ```
 TRUTH-OR-DARE_TEST_LIVE=TRUE
-TRUTH-OR-DARE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,7 +137,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

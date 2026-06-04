@@ -99,14 +99,12 @@ func paranoiaDirectSetup(mockres any) *paranoiaDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TRUTHORDARE_TEST_PARANOIA_ENTID": map[string]any{},
 		"TRUTHORDARE_TEST_LIVE":    "FALSE",
-		"TRUTHORDARE_APIKEY":       "NONE",
 	})
 
 	live := env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["TRUTHORDARE_APIKEY"],
 		}
 		client := sdk.NewTruthOrDareSDK(mergedOpts)
 

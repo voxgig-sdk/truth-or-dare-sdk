@@ -123,7 +123,6 @@ func truthBasicSetup(extra map[string]any) *entityTestSetup {
 		"TRUTHORDARE_TEST_TRUTH_ENTID": idmap,
 		"TRUTHORDARE_TEST_LIVE":      "FALSE",
 		"TRUTHORDARE_TEST_EXPLAIN":   "FALSE",
-		"TRUTHORDARE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["TRUTHORDARE_TEST_TRUTH_ENTID"])
@@ -134,7 +133,6 @@ func truthBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["TRUTHORDARE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["TRUTHORDARE_APIKEY"],
 			},
 			extra,
 		})

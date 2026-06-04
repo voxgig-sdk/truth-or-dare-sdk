@@ -59,14 +59,12 @@ def _paranoia_direct_setup(mockres):
     env = runner.env_override({
         "TRUTHORDARE_TEST_PARANOIA_ENTID": {},
         "TRUTHORDARE_TEST_LIVE": "FALSE",
-        "TRUTHORDARE_APIKEY": "NONE",
     })
 
     live = env.get("TRUTHORDARE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("TRUTHORDARE_APIKEY"),
         }
         client = TruthOrDareSDK(merged_opts)
         return {
