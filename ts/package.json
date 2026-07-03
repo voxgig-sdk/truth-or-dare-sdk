@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/truth-or-dare",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Truth or Dare public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "truth-or-dare"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/truth-or-dare-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/truth-or-dare-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/truth-or-dare-sdk/issues"
+  },
   "main": "dist/TruthOrDareSDK.js",
   "type": "commonjs",
   "types": "dist/TruthOrDareSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "TruthOrDare",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

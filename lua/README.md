@@ -10,7 +10,7 @@ The Lua SDK for the TruthOrDare API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install truth-or-dare-sdk
+luarocks install voxgig-sdk-truth-or-dare
 ```
 
 If the module is not yet published, add the source directory to

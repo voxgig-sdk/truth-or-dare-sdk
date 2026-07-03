@@ -10,7 +10,7 @@ The Python SDK for the TruthOrDare API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install truth-or-dare-sdk
+pip install voxgig-sdk-truth-or-dare
 ```
 
 Or install from source:

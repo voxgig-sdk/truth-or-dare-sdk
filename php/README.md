@@ -10,7 +10,7 @@ The PHP SDK for the TruthOrDare API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/truth-or-dare-sdk
+composer require voxgig-sdk/truth-or-dare
 ```
 
 

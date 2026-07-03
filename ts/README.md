@@ -10,7 +10,7 @@ The TypeScript SDK for the TruthOrDare API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install truth-or-dare
+npm install @voxgig-sdk/truth-or-dare
 ```
 ## Tutorial: your first API call
 

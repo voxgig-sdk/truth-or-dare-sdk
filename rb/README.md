@@ -10,13 +10,13 @@ The Ruby SDK for the TruthOrDare API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install truth-or-dare-sdk
+gem install voxgig-sdk-truth-or-dare
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "truth-or-dare-sdk"
+gem "voxgig-sdk-truth-or-dare"
 ```
 
 Then run:
