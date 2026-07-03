@@ -89,6 +89,7 @@ function paranoia_basic_setup($extra)
         "TRUTHORDARE_TEST_PARANOIA_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
+        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -100,6 +101,7 @@ function paranoia_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);

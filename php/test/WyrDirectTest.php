@@ -67,12 +67,14 @@ function wyr_direct_setup($mockres)
     $env = Runner::env_override([
         "TRUTHORDARE_TEST_WYR_ENTID" => [],
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
+        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $live = $env["TRUTHORDARE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["TRUTHORDARE_APIKEY"],
         ];
         $client = new TruthOrDareSDK($merged_opts);
         return [

@@ -99,12 +99,14 @@ func truthDirectSetup(mockres any) *truthDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TRUTHORDARE_TEST_TRUTH_ENTID": map[string]any{},
 		"TRUTHORDARE_TEST_LIVE":    "FALSE",
+		"TRUTHORDARE_APIKEY":       "NONE",
 	})
 
 	live := env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["TRUTHORDARE_APIKEY"],
 		}
 		client := sdk.NewTruthOrDareSDK(mergedOpts)
 

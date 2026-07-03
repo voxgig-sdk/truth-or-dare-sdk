@@ -95,6 +95,7 @@ function dare_basic_setup(extra)
     ["TRUTHORDARE_TEST_DARE_ENTID"] = idmap,
     ["TRUTHORDARE_TEST_LIVE"] = "FALSE",
     ["TRUTHORDARE_TEST_EXPLAIN"] = "FALSE",
+    ["TRUTHORDARE_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -106,6 +107,7 @@ function dare_basic_setup(extra)
   if env["TRUTHORDARE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["TRUTHORDARE_APIKEY"],
       },
       extra or {},
     })

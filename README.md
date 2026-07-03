@@ -1,20 +1,8 @@
 # TruthOrDare SDK
 
-Pull truth, dare, would-you-rather, never-have-I-ever, and paranoia prompts for party games and chat bots
+Truth or Dare API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Truth or Dare API
-
-The [Truth or Dare API](https://docs.truthordarebot.xyz/api-docs) serves party-game prompts across five classic categories: truth questions, dares, would-you-rather choices, never-have-I-ever statements, and paranoia questions. It backs the Truth or Dare Discord bot and is exposed publicly for anyone building chat bots, games, or party apps.
-
-What you get from the API:
-
-- A random prompt per request, returned as JSON with `id`, `type`, `rating`, and `question` fields.
-- Five prompt categories: `TRUTH`, `DARE`, `WYR`, `NHIE`, and `PARANOIA`.
-- A `rating` query parameter accepting `pg`, `pg13`, or `r` to control content level; the `r` rating is excluded by default unless explicitly requested.
-
-The API is open and requires no authentication. A global rate limit of 5 requests per 5 seconds applies across all endpoints, and CORS is enabled so browser clients can call it directly.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install truth-or-dare-sdk
 luarocks install truth-or-dare-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { TruthOrDareSDK } from 'truth-or-dare'
 
-const client = new TruthOrDareSDK({})
+const client = new TruthOrDareSDK({
+  apikey: process.env.TRUTH-OR-DARE_APIKEY,
+})
 
+// Load dare data
+const dare = await client.Dare().load({})
+console.log(dare.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,11 +90,11 @@ The API exposes 5 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Dare** | A dare challenge prompt; fetched via `GET /api/dare`. | `/dare` |
-| **Nhie** | A never-have-I-ever statement; fetched via `GET /api/nhie`. | `/nhie` |
-| **Paranoia** | A paranoia-style question intended to be whispered to one player; fetched via `GET /api/paranoia`. | `/paranoia` |
-| **Truth** | A truth question prompt; fetched via `GET /v1/truth`. | `/truth` |
-| **Wyr** | A would-you-rather scenario with two choices; fetched via `GET /api/wyr`. | `/wyr` |
+| **Dare** |  | `/dare` |
+| **Nhie** |  | `/nhie` |
+| **Paranoia** |  | `/paranoia` |
+| **Truth** |  | `/truth` |
+| **Wyr** |  | `/wyr` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,15 +104,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from truthordare_sdk import TruthOrDareSDK
 
-client = TruthOrDareSDK({})
+client = TruthOrDareSDK({
+    "apikey": os.environ.get("TRUTH-OR-DARE_APIKEY"),
+})
 
 
 # Load a specific dare
-dare, err = client.Dare(None).load(
-    {"id": "example_id"}, None
-)
+dare, err = client.Dare().load({"id": "example_id"})
+print(dare)
 ```
 
 ### PHP
@@ -129,13 +123,14 @@ dare, err = client.Dare(None).load(
 <?php
 require_once 'truthordare_sdk.php';
 
-$client = new TruthOrDareSDK([]);
+$client = new TruthOrDareSDK([
+    "apikey" => getenv("TRUTH-OR-DARE_APIKEY"),
+]);
 
 
 // Load a specific dare
-[$dare, $err] = $client->Dare(null)->load(
-    ["id" => "example_id"], null
-);
+[$dare, $err] = $client->Dare()->load(["id" => "example_id"]);
+print_r($dare);
 ```
 
 ### Golang
@@ -143,8 +138,13 @@ $client = new TruthOrDareSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/truth-or-dare-sdk/go"
 
-client := sdk.NewTruthOrDareSDK(map[string]any{})
+client := sdk.NewTruthOrDareSDK(map[string]any{
+    "apikey": os.Getenv("TRUTH-OR-DARE_APIKEY"),
+})
 
+// Load dare data
+dare, err := client.Dare(nil).Load(map[string]any{}, nil)
+fmt.Println(dare)
 ```
 
 ### Ruby
@@ -152,13 +152,14 @@ client := sdk.NewTruthOrDareSDK(map[string]any{})
 ```ruby
 require_relative "TruthOrDare_sdk"
 
-client = TruthOrDareSDK.new({})
+client = TruthOrDareSDK.new({
+  "apikey" => ENV["TRUTH-OR-DARE_APIKEY"],
+})
 
 
 # Load a specific dare
-dare, err = client.Dare(nil).load(
-  { "id" => "example_id" }, nil
-)
+dare, err = client.Dare().load({ "id" => "example_id" })
+puts dare
 ```
 
 ### Lua
@@ -166,13 +167,14 @@ dare, err = client.Dare(nil).load(
 ```lua
 local sdk = require("truth-or-dare_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("TRUTH-OR-DARE_APIKEY"),
+})
 
 
 -- Load a specific dare
-local dare, err = client:Dare(nil):load(
-  { id = "example_id" }, nil
-)
+local dare, err = client:Dare():load({ id = "example_id" })
+print(dare)
 ```
 
 ## Unit testing in offline mode
@@ -191,25 +193,21 @@ const result = await client.Dare().load({ id: 'test01' })
 ### Python
 
 ```python
-client = TruthOrDareSDK.test(None, None)
-result, err = client.Dare(None).load(
-    {"id": "test01"}, None
-)
+client = TruthOrDareSDK.test()
+result, err = client.Dare().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = TruthOrDareSDK::test(null, null);
-[$result, $err] = $client->Dare(null)->load(
-    ["id" => "test01"], null
-);
+$client = TruthOrDareSDK::test();
+[$result, $err] = $client->Dare()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Dare(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -218,19 +216,15 @@ result, err := client.Dare(nil).Load(
 ### Ruby
 
 ```ruby
-client = TruthOrDareSDK.test(nil, nil)
-result, err = client.Dare(nil).load(
-  { "id" => "test01" }, nil
-)
+client = TruthOrDareSDK.test
+result, err = client.Dare().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Dare(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Dare():load({ id = "test01" })
 ```
 
 ## How it works
@@ -334,10 +328,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Truth or Dare API
-
-- Upstream: [https://docs.truthordarebot.xyz/api-docs](https://docs.truthordarebot.xyz/api-docs)
 
 ---
 
