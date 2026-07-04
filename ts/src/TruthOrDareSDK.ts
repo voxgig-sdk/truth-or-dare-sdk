@@ -6,6 +6,8 @@ import { ParanoiaEntity } from './entity/ParanoiaEntity'
 import { TruthEntity } from './entity/TruthEntity'
 import { WyrEntity } from './entity/WyrEntity'
 
+export type * from './TruthOrDareTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -206,30 +208,70 @@ class TruthOrDareSDK {
 
 
 
+  _dare?: DareEntity
+
+  // Idiomatic facade: `client.dare.list()` / `client.dare.load({ id })`.
+  get dare(): DareEntity {
+    return (this._dare ??= new DareEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.dare` instead. */
   Dare(data?: any) {
     const self = this
     return new DareEntity(self,data)
   }
 
 
+  _nhie?: NhieEntity
+
+  // Idiomatic facade: `client.nhie.list()` / `client.nhie.load({ id })`.
+  get nhie(): NhieEntity {
+    return (this._nhie ??= new NhieEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.nhie` instead. */
   Nhie(data?: any) {
     const self = this
     return new NhieEntity(self,data)
   }
 
 
+  _paranoia?: ParanoiaEntity
+
+  // Idiomatic facade: `client.paranoia.list()` / `client.paranoia.load({ id })`.
+  get paranoia(): ParanoiaEntity {
+    return (this._paranoia ??= new ParanoiaEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.paranoia` instead. */
   Paranoia(data?: any) {
     const self = this
     return new ParanoiaEntity(self,data)
   }
 
 
+  _truth?: TruthEntity
+
+  // Idiomatic facade: `client.truth.list()` / `client.truth.load({ id })`.
+  get truth(): TruthEntity {
+    return (this._truth ??= new TruthEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.truth` instead. */
   Truth(data?: any) {
     const self = this
     return new TruthEntity(self,data)
   }
 
 
+  _wyr?: WyrEntity
+
+  // Idiomatic facade: `client.wyr.list()` / `client.wyr.load({ id })`.
+  get wyr(): WyrEntity {
+    return (this._wyr ??= new WyrEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.wyr` instead. */
   Wyr(data?: any) {
     const self = this
     return new WyrEntity(self,data)

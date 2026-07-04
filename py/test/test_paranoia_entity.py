@@ -51,8 +51,7 @@ class TestParanoiaEntity:
         paranoia_ref01_match_dt0 = {
             "id": paranoia_ref01_data["id"],
         }
-        paranoia_ref01_data_dt0_loaded, err = paranoia_ref01_ent.load(paranoia_ref01_match_dt0, None)
-        assert err is None
+        paranoia_ref01_data_dt0_loaded = paranoia_ref01_ent.load(paranoia_ref01_match_dt0, None)
         paranoia_ref01_data_dt0_load_result = helpers.to_map(paranoia_ref01_data_dt0_loaded)
         assert paranoia_ref01_data_dt0_load_result is not None
         assert paranoia_ref01_data_dt0_load_result["id"] == paranoia_ref01_data["id"]
@@ -95,7 +94,6 @@ def _paranoia_basic_setup(extra):
         "TRUTHORDARE_TEST_PARANOIA_ENTID": idmap,
         "TRUTHORDARE_TEST_LIVE": "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN": "FALSE",
-        "TRUTHORDARE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _paranoia_basic_setup(extra):
     if env.get("TRUTHORDARE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TRUTHORDARE_APIKEY"),
             },
             extra or {},
         ])

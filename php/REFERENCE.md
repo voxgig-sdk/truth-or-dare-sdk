@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `$options` | `array` | SDK configuration options. |
-| `$options["apikey"]` | `string` | API key for authentication. |
 | `$options["base"]` | `string` | Base URL for API requests. |
 | `$options["prefix"]` | `string` | URL prefix appended after base. |
 | `$options["suffix"]` | `string` | URL suffix appended after path. |
@@ -72,7 +71,10 @@ Return a copy of the SDK utility object.
 
 #### `direct(array $fetchargs = []): array`
 
-Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
+Make a direct HTTP request to any API endpoint. This is the raw-HTTP escape
+hatch: it does **not** throw. It returns a result array
+`["ok" => bool, "status" => int, "headers" => array, "data" => mixed]`, or
+`["ok" => false, "err" => \Exception]` on failure. Branch on `$result["ok"]`.
 
 **Parameters:**
 
@@ -86,11 +88,12 @@ Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
 | `$fetchargs["body"]` | `mixed` | Request body (arrays are JSON-serialized). |
 | `$fetchargs["ctrl"]` | `array` | Control options. |
 
-**Returns:** `array [$result, $err]`
+**Returns:** `array` — the result dict (see above); never throws.
 
-#### `prepare(array $fetchargs = []): array`
+#### `prepare(array $fetchargs = []): mixed`
 
-Prepare a fetch definition without sending the request. Returns `[$fetchdef, $err]`.
+Prepare a fetch definition without sending the request. Returns the
+`$fetchdef` array. Throws on error.
 
 
 ---
@@ -98,7 +101,7 @@ Prepare a fetch definition without sending the request. Returns `[$fetchdef, $er
 ## DareEntity
 
 ```php
-$dare = $client->Dare();
+$dare = $client->dare();
 ```
 
 ### Fields
@@ -112,12 +115,12 @@ $dare = $client->Dare();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Dare()->load(["id" => "dare_id"]);
+$result = $client->dare()->load(["id" => "dare_id"]);
 ```
 
 ### Common Methods
@@ -153,7 +156,7 @@ Return the entity name.
 ## NhieEntity
 
 ```php
-$nhie = $client->Nhie();
+$nhie = $client->nhie();
 ```
 
 ### Fields
@@ -167,12 +170,12 @@ $nhie = $client->Nhie();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Nhie()->load(["id" => "nhie_id"]);
+$result = $client->nhie()->load(["id" => "nhie_id"]);
 ```
 
 ### Common Methods
@@ -208,7 +211,7 @@ Return the entity name.
 ## ParanoiaEntity
 
 ```php
-$paranoia = $client->Paranoia();
+$paranoia = $client->paranoia();
 ```
 
 ### Fields
@@ -222,12 +225,12 @@ $paranoia = $client->Paranoia();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Paranoia()->load(["id" => "paranoia_id"]);
+$result = $client->paranoia()->load(["id" => "paranoia_id"]);
 ```
 
 ### Common Methods
@@ -263,7 +266,7 @@ Return the entity name.
 ## TruthEntity
 
 ```php
-$truth = $client->Truth();
+$truth = $client->truth();
 ```
 
 ### Fields
@@ -277,12 +280,12 @@ $truth = $client->Truth();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Truth()->load(["id" => "truth_id"]);
+$result = $client->truth()->load(["id" => "truth_id"]);
 ```
 
 ### Common Methods
@@ -318,7 +321,7 @@ Return the entity name.
 ## WyrEntity
 
 ```php
-$wyr = $client->Wyr();
+$wyr = $client->wyr();
 ```
 
 ### Fields
@@ -332,12 +335,12 @@ $wyr = $client->Wyr();
 
 ### Operations
 
-#### `load(array $reqmatch, ?array $ctrl = null): array`
+#### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Throws on error.
 
 ```php
-[$result, $err] = $client->Wyr()->load(["id" => "wyr_id"]);
+$result = $client->wyr()->load(["id" => "wyr_id"]);
 ```
 
 ### Common Methods

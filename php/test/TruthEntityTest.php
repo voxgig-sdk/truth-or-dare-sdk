@@ -51,8 +51,7 @@ class TruthEntityTest extends TestCase
         $truth_ref01_match_dt0 = [
             "id" => $truth_ref01_data["id"],
         ];
-        [$truth_ref01_data_dt0_loaded, $err] = $truth_ref01_ent->load($truth_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $truth_ref01_data_dt0_loaded = $truth_ref01_ent->load($truth_ref01_match_dt0, null);
         $truth_ref01_data_dt0_load_result = Helpers::to_map($truth_ref01_data_dt0_loaded);
         $this->assertNotNull($truth_ref01_data_dt0_load_result);
         $this->assertEquals($truth_ref01_data_dt0_load_result["id"], $truth_ref01_data["id"]);
@@ -89,7 +88,6 @@ function truth_basic_setup($extra)
         "TRUTHORDARE_TEST_TRUTH_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function truth_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);

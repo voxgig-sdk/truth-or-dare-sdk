@@ -114,7 +114,6 @@ function basicSetup(extra?: any) {
     'TRUTH_OR_DARE_TEST_TRUTH_ENTID': idmap,
     'TRUTH_OR_DARE_TEST_LIVE': 'FALSE',
     'TRUTH_OR_DARE_TEST_EXPLAIN': 'FALSE',
-    'TRUTH_OR_DARE_APIKEY': 'NONE',
   })
 
   idmap = env['TRUTH_OR_DARE_TEST_TRUTH_ENTID']
@@ -124,7 +123,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new TruthOrDareSDK(merge([
       {
-        apikey: env.TRUTH_OR_DARE_APIKEY,
       },
       extra
     ]))

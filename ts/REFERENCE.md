@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -158,7 +157,7 @@ Alias for `TruthOrDareSDK.test()`.
 ## DareEntity
 
 ```ts
-const dare = client.Dare()
+const dare = client.dare
 ```
 
 ### Fields
@@ -177,7 +176,7 @@ const dare = client.Dare()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dare().load({ id: 'dare_id' })
+const result = await client.dare.load({ id: 'dare_id' })
 ```
 
 ### Common Methods
@@ -211,7 +210,7 @@ Return a copy of the entity options.
 ## NhieEntity
 
 ```ts
-const nhie = client.Nhie()
+const nhie = client.nhie
 ```
 
 ### Fields
@@ -230,7 +229,7 @@ const nhie = client.Nhie()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Nhie().load({ id: 'nhie_id' })
+const result = await client.nhie.load({ id: 'nhie_id' })
 ```
 
 ### Common Methods
@@ -264,7 +263,7 @@ Return a copy of the entity options.
 ## ParanoiaEntity
 
 ```ts
-const paranoia = client.Paranoia()
+const paranoia = client.paranoia
 ```
 
 ### Fields
@@ -283,7 +282,7 @@ const paranoia = client.Paranoia()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Paranoia().load({ id: 'paranoia_id' })
+const result = await client.paranoia.load({ id: 'paranoia_id' })
 ```
 
 ### Common Methods
@@ -317,7 +316,7 @@ Return a copy of the entity options.
 ## TruthEntity
 
 ```ts
-const truth = client.Truth()
+const truth = client.truth
 ```
 
 ### Fields
@@ -336,7 +335,7 @@ const truth = client.Truth()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Truth().load({ id: 'truth_id' })
+const result = await client.truth.load({ id: 'truth_id' })
 ```
 
 ### Common Methods
@@ -370,7 +369,7 @@ Return a copy of the entity options.
 ## WyrEntity
 
 ```ts
-const wyr = client.Wyr()
+const wyr = client.wyr
 ```
 
 ### Fields
@@ -389,7 +388,7 @@ const wyr = client.Wyr()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wyr().load({ id: 'wyr_id' })
+const result = await client.wyr.load({ id: 'wyr_id' })
 ```
 
 ### Common Methods

@@ -45,6 +45,7 @@ class WyrEntity
     end
   end
 
+  # @return [Wyr, Hash] the current Wyr data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class WyrEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Wyr fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Wyr.
+  #
+  # @param reqmatch [WyrLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Wyr, Hash] the loaded Wyr; raises TruthOrDareError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

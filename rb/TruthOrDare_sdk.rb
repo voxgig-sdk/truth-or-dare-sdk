@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'TruthOrDare_types'
+
 
 class TruthOrDareSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class TruthOrDareSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class TruthOrDareSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue TruthOrDareError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = TruthOrDareHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class TruthOrDareSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,40 +198,75 @@ class TruthOrDareSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.dare.list / client.dare.load({ "id" => ... })
+  def dare
+    require_relative 'entity/dare_entity'
+    @dare ||= DareEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.dare instead.
   def Dare(data = nil)
     require_relative 'entity/dare_entity'
     DareEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.nhie.list / client.nhie.load({ "id" => ... })
+  def nhie
+    require_relative 'entity/nhie_entity'
+    @nhie ||= NhieEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.nhie instead.
   def Nhie(data = nil)
     require_relative 'entity/nhie_entity'
     NhieEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.paranoia.list / client.paranoia.load({ "id" => ... })
+  def paranoia
+    require_relative 'entity/paranoia_entity'
+    @paranoia ||= ParanoiaEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.paranoia instead.
   def Paranoia(data = nil)
     require_relative 'entity/paranoia_entity'
     ParanoiaEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.truth.list / client.truth.load({ "id" => ... })
+  def truth
+    require_relative 'entity/truth_entity'
+    @truth ||= TruthEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.truth instead.
   def Truth(data = nil)
     require_relative 'entity/truth_entity'
     TruthEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.wyr.list / client.wyr.load({ "id" => ... })
+  def wyr
+    require_relative 'entity/wyr_entity'
+    @wyr ||= WyrEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.wyr instead.
   def Wyr(data = nil)
     require_relative 'entity/wyr_entity'
     WyrEntity.new(self, data)

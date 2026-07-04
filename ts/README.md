@@ -9,9 +9,12 @@ The TypeScript SDK for the TruthOrDare API — a type-safe, entity-oriented clie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/truth-or-dare
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/truth-or-dare-sdk/releases](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TruthOrDareSDK } from 'truth-or-dare'
+import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare'
 
-const client = new TruthOrDareSDK({
-  apikey: process.env.TRUTH-OR-DARE_APIKEY,
-})
+const client = new TruthOrDareSDK()
 ```
 
 ### 3. Load a dare
 
 ```ts
-const result = await client.Dare().load({ id: 'example_id' })
+const result = await client.dare.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TruthOrDareSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.dare.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new TruthOrDareSDK({ apikey: '...' })
+const client = new TruthOrDareSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.dare
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new TruthOrDareSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new TruthOrDareSDK({
 Create a `.env.local` file at the project root:
 
 ```
-TRUTH-OR-DARE_TEST_LIVE=TRUE
-TRUTH-OR-DARE_APIKEY=<your-key>
+TRUTH_OR_DARE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new TruthOrDareSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new TruthOrDareSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -325,7 +322,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.Dare()`
+Create an instance: `const dare = client.dare`
 
 #### Operations
 
@@ -345,13 +342,13 @@ Create an instance: `const dare = client.Dare()`
 #### Example: Load
 
 ```ts
-const dare = await client.Dare().load({ id: 'dare_id' })
+const dare = await client.dare.load({ id: 'dare_id' })
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.Nhie()`
+Create an instance: `const nhie = client.nhie`
 
 #### Operations
 
@@ -371,13 +368,13 @@ Create an instance: `const nhie = client.Nhie()`
 #### Example: Load
 
 ```ts
-const nhie = await client.Nhie().load({ id: 'nhie_id' })
+const nhie = await client.nhie.load({ id: 'nhie_id' })
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.Paranoia()`
+Create an instance: `const paranoia = client.paranoia`
 
 #### Operations
 
@@ -397,13 +394,13 @@ Create an instance: `const paranoia = client.Paranoia()`
 #### Example: Load
 
 ```ts
-const paranoia = await client.Paranoia().load({ id: 'paranoia_id' })
+const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.Truth()`
+Create an instance: `const truth = client.truth`
 
 #### Operations
 
@@ -423,13 +420,13 @@ Create an instance: `const truth = client.Truth()`
 #### Example: Load
 
 ```ts
-const truth = await client.Truth().load({ id: 'truth_id' })
+const truth = await client.truth.load({ id: 'truth_id' })
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.Wyr()`
+Create an instance: `const wyr = client.wyr`
 
 #### Operations
 
@@ -449,7 +446,7 @@ Create an instance: `const wyr = client.Wyr()`
 #### Example: Load
 
 ```ts
-const wyr = await client.Wyr().load({ id: 'wyr_id' })
+const wyr = await client.wyr.load({ id: 'wyr_id' })
 ```
 
 
@@ -510,7 +507,7 @@ truth-or-dare/
 Import the SDK from the package root:
 
 ```ts
-import { TruthOrDareSDK } from 'truth-or-dare'
+import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare'
 ```
 
 ### Entity state
@@ -520,11 +517,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const dare = client.dare
+await dare.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// dare.data() now returns the loaded dare data
+// dare.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

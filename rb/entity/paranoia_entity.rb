@@ -45,6 +45,7 @@ class ParanoiaEntity
     end
   end
 
+  # @return [Paranoia, Hash] the current Paranoia data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class ParanoiaEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Paranoia fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Paranoia.
+  #
+  # @param reqmatch [ParanoiaLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Paranoia, Hash] the loaded Paranoia; raises TruthOrDareError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

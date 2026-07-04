@@ -51,8 +51,7 @@ class NhieEntityTest extends TestCase
         $nhie_ref01_match_dt0 = [
             "id" => $nhie_ref01_data["id"],
         ];
-        [$nhie_ref01_data_dt0_loaded, $err] = $nhie_ref01_ent->load($nhie_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $nhie_ref01_data_dt0_loaded = $nhie_ref01_ent->load($nhie_ref01_match_dt0, null);
         $nhie_ref01_data_dt0_load_result = Helpers::to_map($nhie_ref01_data_dt0_loaded);
         $this->assertNotNull($nhie_ref01_data_dt0_load_result);
         $this->assertEquals($nhie_ref01_data_dt0_load_result["id"], $nhie_ref01_data["id"]);
@@ -89,7 +88,6 @@ function nhie_basic_setup($extra)
         "TRUTHORDARE_TEST_NHIE_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function nhie_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);

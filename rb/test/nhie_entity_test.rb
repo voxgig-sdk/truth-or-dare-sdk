@@ -44,8 +44,7 @@ class NhieEntityTest < Minitest::Test
     nhie_ref01_match_dt0 = {
       "id" => nhie_ref01_data["id"],
     }
-    nhie_ref01_data_dt0_loaded, err = nhie_ref01_ent.load(nhie_ref01_match_dt0, nil)
-    assert_nil err
+    nhie_ref01_data_dt0_loaded = nhie_ref01_ent.load(nhie_ref01_match_dt0, nil)
     nhie_ref01_data_dt0_load_result = Helpers.to_map(nhie_ref01_data_dt0_loaded)
     assert !nhie_ref01_data_dt0_load_result.nil?
     assert_equal nhie_ref01_data_dt0_load_result["id"], nhie_ref01_data["id"]
@@ -86,7 +85,6 @@ def nhie_basic_setup(extra)
     "TRUTHORDARE_TEST_NHIE_ENTID" => idmap,
     "TRUTHORDARE_TEST_LIVE" => "FALSE",
     "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-    "TRUTHORDARE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def nhie_basic_setup(extra)
   if env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TRUTHORDARE_APIKEY"],
       },
       extra || {},
     ])

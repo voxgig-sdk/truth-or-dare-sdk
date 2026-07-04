@@ -144,16 +144,23 @@ class TruthOrDareSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class TruthOrDareSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,35 +212,90 @@ class TruthOrDareSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def dare(self):
+        """Idiomatic facade: client.dare.list() / client.dare.load({"id": ...})."""
+        from entity.dare_entity import DareEntity
+        cached = getattr(self, "_dare", None)
+        if cached is None:
+            cached = DareEntity(self, None)
+            self._dare = cached
+        return cached
 
     def Dare(self, data=None):
+        # Deprecated: use client.dare instead.
         from entity.dare_entity import DareEntity
         return DareEntity(self, data)
 
 
+    @property
+    def nhie(self):
+        """Idiomatic facade: client.nhie.list() / client.nhie.load({"id": ...})."""
+        from entity.nhie_entity import NhieEntity
+        cached = getattr(self, "_nhie", None)
+        if cached is None:
+            cached = NhieEntity(self, None)
+            self._nhie = cached
+        return cached
+
     def Nhie(self, data=None):
+        # Deprecated: use client.nhie instead.
         from entity.nhie_entity import NhieEntity
         return NhieEntity(self, data)
 
 
+    @property
+    def paranoia(self):
+        """Idiomatic facade: client.paranoia.list() / client.paranoia.load({"id": ...})."""
+        from entity.paranoia_entity import ParanoiaEntity
+        cached = getattr(self, "_paranoia", None)
+        if cached is None:
+            cached = ParanoiaEntity(self, None)
+            self._paranoia = cached
+        return cached
+
     def Paranoia(self, data=None):
+        # Deprecated: use client.paranoia instead.
         from entity.paranoia_entity import ParanoiaEntity
         return ParanoiaEntity(self, data)
 
 
+    @property
+    def truth(self):
+        """Idiomatic facade: client.truth.list() / client.truth.load({"id": ...})."""
+        from entity.truth_entity import TruthEntity
+        cached = getattr(self, "_truth", None)
+        if cached is None:
+            cached = TruthEntity(self, None)
+            self._truth = cached
+        return cached
+
     def Truth(self, data=None):
+        # Deprecated: use client.truth instead.
         from entity.truth_entity import TruthEntity
         return TruthEntity(self, data)
 
 
+    @property
+    def wyr(self):
+        """Idiomatic facade: client.wyr.list() / client.wyr.load({"id": ...})."""
+        from entity.wyr_entity import WyrEntity
+        cached = getattr(self, "_wyr", None)
+        if cached is None:
+            cached = WyrEntity(self, None)
+            self._wyr = cached
+        return cached
+
     def Wyr(self, data=None):
+        # Deprecated: use client.wyr instead.
         from entity.wyr_entity import WyrEntity
         return WyrEntity(self, data)
 

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch WyrLoadMatch
+---@param ctrl? table
+---@return Wyr
+---@return string? err
 function WyrEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

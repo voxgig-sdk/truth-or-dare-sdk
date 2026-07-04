@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ParanoiaLoadMatch
+---@param ctrl? table
+---@return Paranoia
+---@return string? err
 function ParanoiaEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

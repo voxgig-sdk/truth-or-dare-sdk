@@ -44,8 +44,7 @@ class WyrEntityTest < Minitest::Test
     wyr_ref01_match_dt0 = {
       "id" => wyr_ref01_data["id"],
     }
-    wyr_ref01_data_dt0_loaded, err = wyr_ref01_ent.load(wyr_ref01_match_dt0, nil)
-    assert_nil err
+    wyr_ref01_data_dt0_loaded = wyr_ref01_ent.load(wyr_ref01_match_dt0, nil)
     wyr_ref01_data_dt0_load_result = Helpers.to_map(wyr_ref01_data_dt0_loaded)
     assert !wyr_ref01_data_dt0_load_result.nil?
     assert_equal wyr_ref01_data_dt0_load_result["id"], wyr_ref01_data["id"]
@@ -86,7 +85,6 @@ def wyr_basic_setup(extra)
     "TRUTHORDARE_TEST_WYR_ENTID" => idmap,
     "TRUTHORDARE_TEST_LIVE" => "FALSE",
     "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-    "TRUTHORDARE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def wyr_basic_setup(extra)
   if env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TRUTHORDARE_APIKEY"],
       },
       extra || {},
     ])

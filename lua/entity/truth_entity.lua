@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TruthLoadMatch
+---@param ctrl? table
+---@return Truth
+---@return string? err
 function TruthEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

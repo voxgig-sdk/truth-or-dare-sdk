@@ -103,7 +103,7 @@ class TruthOrDareSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class TruthOrDareSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class TruthOrDareSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,52 +216,107 @@ class TruthOrDareSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function Dare($data = null)
+    private $_dare = null;
+
+    // Idiomatic facade: $client->dare()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Dare() (PHP method
+    // names are case-insensitive).
+    public function dare($data = null)
     {
         require_once __DIR__ . '/entity/dare_entity.php';
+        if ($data === null) {
+            if ($this->_dare === null) {
+                $this->_dare = new DareEntity($this, null);
+            }
+            return $this->_dare;
+        }
         return new DareEntity($this, $data);
     }
 
 
-    public function Nhie($data = null)
+    private $_nhie = null;
+
+    // Idiomatic facade: $client->nhie()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Nhie() (PHP method
+    // names are case-insensitive).
+    public function nhie($data = null)
     {
         require_once __DIR__ . '/entity/nhie_entity.php';
+        if ($data === null) {
+            if ($this->_nhie === null) {
+                $this->_nhie = new NhieEntity($this, null);
+            }
+            return $this->_nhie;
+        }
         return new NhieEntity($this, $data);
     }
 
 
-    public function Paranoia($data = null)
+    private $_paranoia = null;
+
+    // Idiomatic facade: $client->paranoia()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Paranoia() (PHP method
+    // names are case-insensitive).
+    public function paranoia($data = null)
     {
         require_once __DIR__ . '/entity/paranoia_entity.php';
+        if ($data === null) {
+            if ($this->_paranoia === null) {
+                $this->_paranoia = new ParanoiaEntity($this, null);
+            }
+            return $this->_paranoia;
+        }
         return new ParanoiaEntity($this, $data);
     }
 
 
-    public function Truth($data = null)
+    private $_truth = null;
+
+    // Idiomatic facade: $client->truth()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Truth() (PHP method
+    // names are case-insensitive).
+    public function truth($data = null)
     {
         require_once __DIR__ . '/entity/truth_entity.php';
+        if ($data === null) {
+            if ($this->_truth === null) {
+                $this->_truth = new TruthEntity($this, null);
+            }
+            return $this->_truth;
+        }
         return new TruthEntity($this, $data);
     }
 
 
-    public function Wyr($data = null)
+    private $_wyr = null;
+
+    // Idiomatic facade: $client->wyr()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Wyr() (PHP method
+    // names are case-insensitive).
+    public function wyr($data = null)
     {
         require_once __DIR__ . '/entity/wyr_entity.php';
+        if ($data === null) {
+            if ($this->_wyr === null) {
+                $this->_wyr = new WyrEntity($this, null);
+            }
+            return $this->_wyr;
+        }
         return new WyrEntity($this, $data);
     }
 

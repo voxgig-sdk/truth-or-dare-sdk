@@ -99,14 +99,12 @@ func dareDirectSetup(mockres any) *dareDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TRUTHORDARE_TEST_DARE_ENTID": map[string]any{},
 		"TRUTHORDARE_TEST_LIVE":    "FALSE",
-		"TRUTHORDARE_APIKEY":       "NONE",
 	})
 
 	live := env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["TRUTHORDARE_APIKEY"],
 		}
 		client := sdk.NewTruthOrDareSDK(mergedOpts)
 

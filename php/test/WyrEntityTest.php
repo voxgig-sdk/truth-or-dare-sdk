@@ -51,8 +51,7 @@ class WyrEntityTest extends TestCase
         $wyr_ref01_match_dt0 = [
             "id" => $wyr_ref01_data["id"],
         ];
-        [$wyr_ref01_data_dt0_loaded, $err] = $wyr_ref01_ent->load($wyr_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $wyr_ref01_data_dt0_loaded = $wyr_ref01_ent->load($wyr_ref01_match_dt0, null);
         $wyr_ref01_data_dt0_load_result = Helpers::to_map($wyr_ref01_data_dt0_loaded);
         $this->assertNotNull($wyr_ref01_data_dt0_load_result);
         $this->assertEquals($wyr_ref01_data_dt0_load_result["id"], $wyr_ref01_data["id"]);
@@ -89,7 +88,6 @@ function wyr_basic_setup($extra)
         "TRUTHORDARE_TEST_WYR_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function wyr_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);

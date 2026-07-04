@@ -51,8 +51,7 @@ class TestNhieEntity:
         nhie_ref01_match_dt0 = {
             "id": nhie_ref01_data["id"],
         }
-        nhie_ref01_data_dt0_loaded, err = nhie_ref01_ent.load(nhie_ref01_match_dt0, None)
-        assert err is None
+        nhie_ref01_data_dt0_loaded = nhie_ref01_ent.load(nhie_ref01_match_dt0, None)
         nhie_ref01_data_dt0_load_result = helpers.to_map(nhie_ref01_data_dt0_loaded)
         assert nhie_ref01_data_dt0_load_result is not None
         assert nhie_ref01_data_dt0_load_result["id"] == nhie_ref01_data["id"]
@@ -95,7 +94,6 @@ def _nhie_basic_setup(extra):
         "TRUTHORDARE_TEST_NHIE_ENTID": idmap,
         "TRUTHORDARE_TEST_LIVE": "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN": "FALSE",
-        "TRUTHORDARE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _nhie_basic_setup(extra):
     if env.get("TRUTHORDARE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TRUTHORDARE_APIKEY"),
             },
             extra or {},
         ])

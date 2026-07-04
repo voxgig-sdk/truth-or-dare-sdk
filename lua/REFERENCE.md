@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -100,7 +99,7 @@ same parameters as `direct()`.
 ## DareEntity
 
 ```lua
-local dare = client:Dare(nil)
+local dare = client:dare(nil)
 ```
 
 ### Fields
@@ -119,7 +118,7 @@ local dare = client:Dare(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Dare():load({ id = "dare_id" })
+local result, err = client:dare():load({ id = "dare_id" })
 ```
 
 ### Common Methods
@@ -155,7 +154,7 @@ Return the entity name.
 ## NhieEntity
 
 ```lua
-local nhie = client:Nhie(nil)
+local nhie = client:nhie(nil)
 ```
 
 ### Fields
@@ -174,7 +173,7 @@ local nhie = client:Nhie(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Nhie():load({ id = "nhie_id" })
+local result, err = client:nhie():load({ id = "nhie_id" })
 ```
 
 ### Common Methods
@@ -210,7 +209,7 @@ Return the entity name.
 ## ParanoiaEntity
 
 ```lua
-local paranoia = client:Paranoia(nil)
+local paranoia = client:paranoia(nil)
 ```
 
 ### Fields
@@ -229,7 +228,7 @@ local paranoia = client:Paranoia(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Paranoia():load({ id = "paranoia_id" })
+local result, err = client:paranoia():load({ id = "paranoia_id" })
 ```
 
 ### Common Methods
@@ -265,7 +264,7 @@ Return the entity name.
 ## TruthEntity
 
 ```lua
-local truth = client:Truth(nil)
+local truth = client:truth(nil)
 ```
 
 ### Fields
@@ -284,7 +283,7 @@ local truth = client:Truth(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Truth():load({ id = "truth_id" })
+local result, err = client:truth():load({ id = "truth_id" })
 ```
 
 ### Common Methods
@@ -320,7 +319,7 @@ Return the entity name.
 ## WyrEntity
 
 ```lua
-local wyr = client:Wyr(nil)
+local wyr = client:wyr(nil)
 ```
 
 ### Fields
@@ -339,7 +338,7 @@ local wyr = client:Wyr(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wyr():load({ id = "wyr_id" })
+local result, err = client:wyr():load({ id = "wyr_id" })
 ```
 
 ### Common Methods

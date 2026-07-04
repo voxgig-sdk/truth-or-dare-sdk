@@ -51,8 +51,7 @@ class DareEntityTest extends TestCase
         $dare_ref01_match_dt0 = [
             "id" => $dare_ref01_data["id"],
         ];
-        [$dare_ref01_data_dt0_loaded, $err] = $dare_ref01_ent->load($dare_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $dare_ref01_data_dt0_loaded = $dare_ref01_ent->load($dare_ref01_match_dt0, null);
         $dare_ref01_data_dt0_load_result = Helpers::to_map($dare_ref01_data_dt0_loaded);
         $this->assertNotNull($dare_ref01_data_dt0_load_result);
         $this->assertEquals($dare_ref01_data_dt0_load_result["id"], $dare_ref01_data["id"]);
@@ -89,7 +88,6 @@ function dare_basic_setup($extra)
         "TRUTHORDARE_TEST_DARE_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function dare_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);

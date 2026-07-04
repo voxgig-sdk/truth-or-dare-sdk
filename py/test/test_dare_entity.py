@@ -51,8 +51,7 @@ class TestDareEntity:
         dare_ref01_match_dt0 = {
             "id": dare_ref01_data["id"],
         }
-        dare_ref01_data_dt0_loaded, err = dare_ref01_ent.load(dare_ref01_match_dt0, None)
-        assert err is None
+        dare_ref01_data_dt0_loaded = dare_ref01_ent.load(dare_ref01_match_dt0, None)
         dare_ref01_data_dt0_load_result = helpers.to_map(dare_ref01_data_dt0_loaded)
         assert dare_ref01_data_dt0_load_result is not None
         assert dare_ref01_data_dt0_load_result["id"] == dare_ref01_data["id"]
@@ -95,7 +94,6 @@ def _dare_basic_setup(extra):
         "TRUTHORDARE_TEST_DARE_ENTID": idmap,
         "TRUTHORDARE_TEST_LIVE": "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN": "FALSE",
-        "TRUTHORDARE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _dare_basic_setup(extra):
     if env.get("TRUTHORDARE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TRUTHORDARE_APIKEY"),
             },
             extra or {},
         ])

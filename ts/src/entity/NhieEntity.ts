@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Nhie,
+  NhieLoadMatch,
+} from '../TruthOrDareTypes'
 
 // TODO: needs Entity superclass
-class NhieEntity extends TruthOrDareEntityBase {
+class NhieEntity extends TruthOrDareEntityBase<Nhie> {
 
   constructor(client: TruthOrDareSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class NhieEntity extends TruthOrDareEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: NhieLoadMatch, ctrl?: Control): Promise<Nhie> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class NhieEntity extends TruthOrDareEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Nhie> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

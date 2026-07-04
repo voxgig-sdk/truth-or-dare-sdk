@@ -245,26 +245,41 @@ func (sdk *TruthOrDareSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Dare returns a Dare entity bound to this client.
+// Idiomatic usage: client.Dare(nil).List(nil, nil) or
+// client.Dare(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TruthOrDareSDK) Dare(data map[string]any) TruthOrDareEntity {
 	return NewDareEntityFunc(sdk, data)
 }
 
 
+// Nhie returns a Nhie entity bound to this client.
+// Idiomatic usage: client.Nhie(nil).List(nil, nil) or
+// client.Nhie(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TruthOrDareSDK) Nhie(data map[string]any) TruthOrDareEntity {
 	return NewNhieEntityFunc(sdk, data)
 }
 
 
+// Paranoia returns a Paranoia entity bound to this client.
+// Idiomatic usage: client.Paranoia(nil).List(nil, nil) or
+// client.Paranoia(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TruthOrDareSDK) Paranoia(data map[string]any) TruthOrDareEntity {
 	return NewParanoiaEntityFunc(sdk, data)
 }
 
 
+// Truth returns a Truth entity bound to this client.
+// Idiomatic usage: client.Truth(nil).List(nil, nil) or
+// client.Truth(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TruthOrDareSDK) Truth(data map[string]any) TruthOrDareEntity {
 	return NewTruthEntityFunc(sdk, data)
 }
 
 
+// Wyr returns a Wyr entity bound to this client.
+// Idiomatic usage: client.Wyr(nil).List(nil, nil) or
+// client.Wyr(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TruthOrDareSDK) Wyr(data map[string]any) TruthOrDareEntity {
 	return NewWyrEntityFunc(sdk, data)
 }

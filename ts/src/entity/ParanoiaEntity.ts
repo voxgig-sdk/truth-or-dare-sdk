@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Paranoia,
+  ParanoiaLoadMatch,
+} from '../TruthOrDareTypes'
 
 // TODO: needs Entity superclass
-class ParanoiaEntity extends TruthOrDareEntityBase {
+class ParanoiaEntity extends TruthOrDareEntityBase<Paranoia> {
 
   constructor(client: TruthOrDareSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ParanoiaEntity extends TruthOrDareEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ParanoiaLoadMatch, ctrl?: Control): Promise<Paranoia> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ParanoiaEntity extends TruthOrDareEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Paranoia> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

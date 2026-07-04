@@ -20,9 +20,6 @@ class TruthOrDareConfig
             ],
             "options" => [
                 "base" => "https://api.truthordarebot.xyz/v1",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

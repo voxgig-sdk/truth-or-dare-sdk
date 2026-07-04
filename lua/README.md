@@ -9,12 +9,9 @@ The Lua SDK for the TruthOrDare API — an entity-oriented client using Lua conv
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-truth-or-dare
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("truth-or-dare_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("TRUTH-OR-DARE_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a dare
 
 ```lua
-local result, err = client:Dare():load({ id = "example_id" })
+local result, err = client:dare():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:TruthOrDare():load({ id = "test01" })
+local result, err = client:dare():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-TRUTH-OR-DARE_TEST_LIVE=TRUE
-TRUTH-OR-DARE_APIKEY=<your-key>
+TRUTH_OR_DARE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -280,7 +273,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.Dare()`
+Create an instance: `const dare = client.dare`
 
 #### Operations
 
@@ -300,13 +293,13 @@ Create an instance: `const dare = client.Dare()`
 #### Example: Load
 
 ```ts
-const dare = await client.Dare().load({ id: 'dare_id' })
+const dare = await client.dare.load({ id: 'dare_id' })
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.Nhie()`
+Create an instance: `const nhie = client.nhie`
 
 #### Operations
 
@@ -326,13 +319,13 @@ Create an instance: `const nhie = client.Nhie()`
 #### Example: Load
 
 ```ts
-const nhie = await client.Nhie().load({ id: 'nhie_id' })
+const nhie = await client.nhie.load({ id: 'nhie_id' })
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.Paranoia()`
+Create an instance: `const paranoia = client.paranoia`
 
 #### Operations
 
@@ -352,13 +345,13 @@ Create an instance: `const paranoia = client.Paranoia()`
 #### Example: Load
 
 ```ts
-const paranoia = await client.Paranoia().load({ id: 'paranoia_id' })
+const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.Truth()`
+Create an instance: `const truth = client.truth`
 
 #### Operations
 
@@ -378,13 +371,13 @@ Create an instance: `const truth = client.Truth()`
 #### Example: Load
 
 ```ts
-const truth = await client.Truth().load({ id: 'truth_id' })
+const truth = await client.truth.load({ id: 'truth_id' })
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.Wyr()`
+Create an instance: `const wyr = client.wyr`
 
 #### Operations
 
@@ -404,7 +397,7 @@ Create an instance: `const wyr = client.Wyr()`
 #### Example: Load
 
 ```ts
-const wyr = await client.Wyr().load({ id: 'wyr_id' })
+const wyr = await client.wyr.load({ id: 'wyr_id' })
 ```
 
 
@@ -479,11 +472,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local dare = client:dare()
+dare:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- dare:data_get() now returns the loaded dare data
+-- dare:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

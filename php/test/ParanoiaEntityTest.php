@@ -51,8 +51,7 @@ class ParanoiaEntityTest extends TestCase
         $paranoia_ref01_match_dt0 = [
             "id" => $paranoia_ref01_data["id"],
         ];
-        [$paranoia_ref01_data_dt0_loaded, $err] = $paranoia_ref01_ent->load($paranoia_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $paranoia_ref01_data_dt0_loaded = $paranoia_ref01_ent->load($paranoia_ref01_match_dt0, null);
         $paranoia_ref01_data_dt0_load_result = Helpers::to_map($paranoia_ref01_data_dt0_loaded);
         $this->assertNotNull($paranoia_ref01_data_dt0_load_result);
         $this->assertEquals($paranoia_ref01_data_dt0_load_result["id"], $paranoia_ref01_data["id"]);
@@ -89,7 +88,6 @@ function paranoia_basic_setup($extra)
         "TRUTHORDARE_TEST_PARANOIA_ENTID" => $idmap,
         "TRUTHORDARE_TEST_LIVE" => "FALSE",
         "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
-        "TRUTHORDARE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function paranoia_basic_setup($extra)
     if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TRUTHORDARE_APIKEY"],
             ],
             $extra ?? [],
         ]);
