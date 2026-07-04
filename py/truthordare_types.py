@@ -4,89 +4,83 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Dare:
+class Dare(TypedDict):
     id: str
     question: str
     rating: str
     type: str
 
 
-@dataclass
-class DareLoadMatch:
-    id: Optional[str] = None
-    question: Optional[str] = None
-    rating: Optional[str] = None
-    type: Optional[str] = None
-
-
-@dataclass
-class Nhie:
+class DareLoadMatch(TypedDict, total=False):
     id: str
     question: str
     rating: str
     type: str
 
 
-@dataclass
-class NhieLoadMatch:
-    id: Optional[str] = None
-    question: Optional[str] = None
-    rating: Optional[str] = None
-    type: Optional[str] = None
-
-
-@dataclass
-class Paranoia:
+class Nhie(TypedDict):
     id: str
     question: str
     rating: str
     type: str
 
 
-@dataclass
-class ParanoiaLoadMatch:
-    id: Optional[str] = None
-    question: Optional[str] = None
-    rating: Optional[str] = None
-    type: Optional[str] = None
-
-
-@dataclass
-class Truth:
+class NhieLoadMatch(TypedDict, total=False):
     id: str
     question: str
     rating: str
     type: str
 
 
-@dataclass
-class TruthLoadMatch:
-    id: Optional[str] = None
-    question: Optional[str] = None
-    rating: Optional[str] = None
-    type: Optional[str] = None
-
-
-@dataclass
-class Wyr:
+class Paranoia(TypedDict):
     id: str
     question: str
     rating: str
     type: str
 
 
-@dataclass
-class WyrLoadMatch:
-    id: Optional[str] = None
-    question: Optional[str] = None
-    rating: Optional[str] = None
-    type: Optional[str] = None
+class ParanoiaLoadMatch(TypedDict, total=False):
+    id: str
+    question: str
+    rating: str
+    type: str
 
+
+class Truth(TypedDict):
+    id: str
+    question: str
+    rating: str
+    type: str
+
+
+class TruthLoadMatch(TypedDict, total=False):
+    id: str
+    question: str
+    rating: str
+    type: str
+
+
+class Wyr(TypedDict):
+    id: str
+    question: str
+    rating: str
+    type: str
+
+
+class WyrLoadMatch(TypedDict, total=False):
+    id: str
+    question: str
+    rating: str
+    type: str

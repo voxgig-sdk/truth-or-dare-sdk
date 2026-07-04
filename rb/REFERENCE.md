@@ -102,7 +102,7 @@ same parameters as `direct()`. Raises on error.
 ## DareEntity
 
 ```ruby
-dare = client.dare
+dare = client.Dare
 ```
 
 ### Fields
@@ -121,7 +121,7 @@ dare = client.dare
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.dare.load({ "id" => "dare_id" })
+result = client.Dare.load({ "id" => "dare_id" })
 ```
 
 ### Common Methods
@@ -157,7 +157,7 @@ Return the entity name.
 ## NhieEntity
 
 ```ruby
-nhie = client.nhie
+nhie = client.Nhie
 ```
 
 ### Fields
@@ -176,7 +176,7 @@ nhie = client.nhie
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.nhie.load({ "id" => "nhie_id" })
+result = client.Nhie.load({ "id" => "nhie_id" })
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ Return the entity name.
 ## ParanoiaEntity
 
 ```ruby
-paranoia = client.paranoia
+paranoia = client.Paranoia
 ```
 
 ### Fields
@@ -231,7 +231,7 @@ paranoia = client.paranoia
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.paranoia.load({ "id" => "paranoia_id" })
+result = client.Paranoia.load({ "id" => "paranoia_id" })
 ```
 
 ### Common Methods
@@ -267,7 +267,7 @@ Return the entity name.
 ## TruthEntity
 
 ```ruby
-truth = client.truth
+truth = client.Truth
 ```
 
 ### Fields
@@ -286,7 +286,7 @@ truth = client.truth
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.truth.load({ "id" => "truth_id" })
+result = client.Truth.load({ "id" => "truth_id" })
 ```
 
 ### Common Methods
@@ -322,7 +322,7 @@ Return the entity name.
 ## WyrEntity
 
 ```ruby
-wyr = client.wyr
+wyr = client.Wyr
 ```
 
 ### Fields
@@ -341,7 +341,7 @@ wyr = client.wyr
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.wyr.load({ "id" => "wyr_id" })
+result = client.Wyr.load({ "id" => "wyr_id" })
 ```
 
 ### Common Methods

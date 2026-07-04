@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:dare():list() / client:dare():load({ id = ... })
-function TruthOrDareSDK:dare(data)
+-- Idiomatic facade: client:Dare():list() / client:Dare():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TruthOrDareSDK:Dare(data)
   local EntityMod = require("entity.dare_entity")
   if data == nil then
     if self._dare == nil then
@@ -256,15 +257,10 @@ function TruthOrDareSDK:dare(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:dare() instead.
-function TruthOrDareSDK:Dare(data)
-  local EntityMod = require("entity.dare_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:nhie():list() / client:nhie():load({ id = ... })
-function TruthOrDareSDK:nhie(data)
+-- Idiomatic facade: client:Nhie():list() / client:Nhie():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TruthOrDareSDK:Nhie(data)
   local EntityMod = require("entity.nhie_entity")
   if data == nil then
     if self._nhie == nil then
@@ -275,15 +271,10 @@ function TruthOrDareSDK:nhie(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:nhie() instead.
-function TruthOrDareSDK:Nhie(data)
-  local EntityMod = require("entity.nhie_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:paranoia():list() / client:paranoia():load({ id = ... })
-function TruthOrDareSDK:paranoia(data)
+-- Idiomatic facade: client:Paranoia():list() / client:Paranoia():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TruthOrDareSDK:Paranoia(data)
   local EntityMod = require("entity.paranoia_entity")
   if data == nil then
     if self._paranoia == nil then
@@ -294,15 +285,10 @@ function TruthOrDareSDK:paranoia(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:paranoia() instead.
-function TruthOrDareSDK:Paranoia(data)
-  local EntityMod = require("entity.paranoia_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:truth():list() / client:truth():load({ id = ... })
-function TruthOrDareSDK:truth(data)
+-- Idiomatic facade: client:Truth():list() / client:Truth():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TruthOrDareSDK:Truth(data)
   local EntityMod = require("entity.truth_entity")
   if data == nil then
     if self._truth == nil then
@@ -313,15 +299,10 @@ function TruthOrDareSDK:truth(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:truth() instead.
-function TruthOrDareSDK:Truth(data)
-  local EntityMod = require("entity.truth_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wyr():list() / client:wyr():load({ id = ... })
-function TruthOrDareSDK:wyr(data)
+-- Idiomatic facade: client:Wyr():list() / client:Wyr():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function TruthOrDareSDK:Wyr(data)
   local EntityMod = require("entity.wyr_entity")
   if data == nil then
     if self._wyr == nil then
@@ -329,12 +310,6 @@ function TruthOrDareSDK:wyr(data)
     end
     return self._wyr
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:wyr() instead.
-function TruthOrDareSDK:Wyr(data)
-  local EntityMod = require("entity.wyr_entity")
   return EntityMod.new(self, data)
 end
 

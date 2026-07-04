@@ -157,7 +157,7 @@ Alias for `TruthOrDareSDK.test()`.
 ## DareEntity
 
 ```ts
-const dare = client.dare
+const dare = client.Dare()
 ```
 
 ### Fields
@@ -176,7 +176,7 @@ const dare = client.dare
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.dare.load({ id: 'dare_id' })
+const result = await client.Dare().load({ id: 'dare_id' })
 ```
 
 ### Common Methods
@@ -210,7 +210,7 @@ Return a copy of the entity options.
 ## NhieEntity
 
 ```ts
-const nhie = client.nhie
+const nhie = client.Nhie()
 ```
 
 ### Fields
@@ -229,7 +229,7 @@ const nhie = client.nhie
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.nhie.load({ id: 'nhie_id' })
+const result = await client.Nhie().load({ id: 'nhie_id' })
 ```
 
 ### Common Methods
@@ -263,7 +263,7 @@ Return a copy of the entity options.
 ## ParanoiaEntity
 
 ```ts
-const paranoia = client.paranoia
+const paranoia = client.Paranoia()
 ```
 
 ### Fields
@@ -282,7 +282,7 @@ const paranoia = client.paranoia
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.paranoia.load({ id: 'paranoia_id' })
+const result = await client.Paranoia().load({ id: 'paranoia_id' })
 ```
 
 ### Common Methods
@@ -316,7 +316,7 @@ Return a copy of the entity options.
 ## TruthEntity
 
 ```ts
-const truth = client.truth
+const truth = client.Truth()
 ```
 
 ### Fields
@@ -335,7 +335,7 @@ const truth = client.truth
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.truth.load({ id: 'truth_id' })
+const result = await client.Truth().load({ id: 'truth_id' })
 ```
 
 ### Common Methods
@@ -369,7 +369,7 @@ Return a copy of the entity options.
 ## WyrEntity
 
 ```ts
-const wyr = client.wyr
+const wyr = client.Wyr()
 ```
 
 ### Fields
@@ -388,7 +388,7 @@ const wyr = client.wyr
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.wyr.load({ id: 'wyr_id' })
+const result = await client.Wyr().load({ id: 'wyr_id' })
 ```
 
 ### Common Methods

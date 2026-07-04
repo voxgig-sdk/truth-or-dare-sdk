@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a dare
 
 ```lua
-local result, err = client:dare():load({ id = "example_id" })
+local dare, err = client:Dare():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(dare)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:dare():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Dare():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -187,17 +187,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local dare, err = client:Dare():load({ id = "example_id" })
+    if err then error(err) end
+    -- dare is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -273,7 +278,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `local dare = client:Dare(nil)`
 
 #### Operations
 
@@ -292,14 +297,14 @@ Create an instance: `const dare = client.dare`
 
 #### Example: Load
 
-```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+```lua
+local dare, err = client:Dare():load({ id = "dare_id" })
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.nhie`
+Create an instance: `local nhie = client:Nhie(nil)`
 
 #### Operations
 
@@ -318,14 +323,14 @@ Create an instance: `const nhie = client.nhie`
 
 #### Example: Load
 
-```ts
-const nhie = await client.nhie.load({ id: 'nhie_id' })
+```lua
+local nhie, err = client:Nhie():load({ id = "nhie_id" })
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.paranoia`
+Create an instance: `local paranoia = client:Paranoia(nil)`
 
 #### Operations
 
@@ -344,14 +349,14 @@ Create an instance: `const paranoia = client.paranoia`
 
 #### Example: Load
 
-```ts
-const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
+```lua
+local paranoia, err = client:Paranoia():load({ id = "paranoia_id" })
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.truth`
+Create an instance: `local truth = client:Truth(nil)`
 
 #### Operations
 
@@ -370,14 +375,14 @@ Create an instance: `const truth = client.truth`
 
 #### Example: Load
 
-```ts
-const truth = await client.truth.load({ id: 'truth_id' })
+```lua
+local truth, err = client:Truth():load({ id = "truth_id" })
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.wyr`
+Create an instance: `local wyr = client:Wyr(nil)`
 
 #### Operations
 
@@ -396,8 +401,8 @@ Create an instance: `const wyr = client.wyr`
 
 #### Example: Load
 
-```ts
-const wyr = await client.wyr.load({ id: 'wyr_id' })
+```lua
+local wyr, err = client:Wyr():load({ id = "wyr_id" })
 ```
 
 
@@ -472,7 +477,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local dare = client:dare()
+local dare = client:Dare()
 dare:load({ id = "example_id" })
 
 -- dare:data_get() now returns the loaded dare data

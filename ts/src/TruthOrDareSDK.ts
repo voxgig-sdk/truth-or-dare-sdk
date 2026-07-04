@@ -208,70 +208,35 @@ class TruthOrDareSDK {
 
 
 
-  _dare?: DareEntity
-
-  // Idiomatic facade: `client.dare.list()` / `client.dare.load({ id })`.
-  get dare(): DareEntity {
-    return (this._dare ??= new DareEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.dare` instead. */
+  // Entity access: `client.Dare().list()` / `client.Dare().load({ id })`.
   Dare(data?: any) {
     const self = this
     return new DareEntity(self,data)
   }
 
 
-  _nhie?: NhieEntity
-
-  // Idiomatic facade: `client.nhie.list()` / `client.nhie.load({ id })`.
-  get nhie(): NhieEntity {
-    return (this._nhie ??= new NhieEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.nhie` instead. */
+  // Entity access: `client.Nhie().list()` / `client.Nhie().load({ id })`.
   Nhie(data?: any) {
     const self = this
     return new NhieEntity(self,data)
   }
 
 
-  _paranoia?: ParanoiaEntity
-
-  // Idiomatic facade: `client.paranoia.list()` / `client.paranoia.load({ id })`.
-  get paranoia(): ParanoiaEntity {
-    return (this._paranoia ??= new ParanoiaEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.paranoia` instead. */
+  // Entity access: `client.Paranoia().list()` / `client.Paranoia().load({ id })`.
   Paranoia(data?: any) {
     const self = this
     return new ParanoiaEntity(self,data)
   }
 
 
-  _truth?: TruthEntity
-
-  // Idiomatic facade: `client.truth.list()` / `client.truth.load({ id })`.
-  get truth(): TruthEntity {
-    return (this._truth ??= new TruthEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.truth` instead. */
+  // Entity access: `client.Truth().list()` / `client.Truth().load({ id })`.
   Truth(data?: any) {
     const self = this
     return new TruthEntity(self,data)
   }
 
 
-  _wyr?: WyrEntity
-
-  // Idiomatic facade: `client.wyr.list()` / `client.wyr.load({ id })`.
-  get wyr(): WyrEntity {
-    return (this._wyr ??= new WyrEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.wyr` instead. */
+  // Entity access: `client.Wyr().list()` / `client.Wyr().load({ id })`.
   Wyr(data?: any) {
     const self = this
     return new WyrEntity(self,data)

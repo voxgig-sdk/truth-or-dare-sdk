@@ -30,36 +30,30 @@ go mod edit -replace github.com/voxgig-sdk/truth-or-dare-sdk/go=../truth-or-dare
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/truth-or-dare-sdk/go"
-    "github.com/voxgig-sdk/truth-or-dare-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 3. Load a dare
-
-```go
-    result, err = client.Dare(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single dare — the value is the loaded record.
+    dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(dare)
 }
 ```
 
@@ -110,10 +104,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Dare(nil).Load(
+dare, err := client.Dare(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(dare) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -214,17 +211,24 @@ All entities implement the `TruthOrDareEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // dare is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -320,7 +324,11 @@ Create an instance: `dare := client.Dare(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+dare, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(dare) // the loaded record
 ```
 
 
@@ -346,7 +354,11 @@ Create an instance: `nhie := client.Nhie(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Nhie(nil).Load(map[string]any{"id": "nhie_id"}, nil)
+nhie, err := client.Nhie(nil).Load(map[string]any{"id": "nhie_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(nhie) // the loaded record
 ```
 
 
@@ -372,7 +384,11 @@ Create an instance: `paranoia := client.Paranoia(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Paranoia(nil).Load(map[string]any{"id": "paranoia_id"}, nil)
+paranoia, err := client.Paranoia(nil).Load(map[string]any{"id": "paranoia_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(paranoia) // the loaded record
 ```
 
 
@@ -398,7 +414,11 @@ Create an instance: `truth := client.Truth(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Truth(nil).Load(map[string]any{"id": "truth_id"}, nil)
+truth, err := client.Truth(nil).Load(map[string]any{"id": "truth_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(truth) // the loaded record
 ```
 
 
@@ -424,7 +444,11 @@ Create an instance: `wyr := client.Wyr(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wyr(nil).Load(map[string]any{"id": "wyr_id"}, nil)
+wyr, err := client.Wyr(nil).Load(map[string]any{"id": "wyr_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wyr) // the loaded record
 ```
 
 

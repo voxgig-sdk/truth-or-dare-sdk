@@ -32,8 +32,9 @@ client = TruthOrDareSDK.new
 
 ```ruby
 begin
-  result = client.dare.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Dare record (raises on error).
+  dare = client.Dare.load({ "id" => "example_id" })
+  puts dare
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = TruthOrDareSDK.test
+client = TruthOrDareSDK.test({
+  "entity" => { "dare" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.dare.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+dare = client.Dare.load({ "id" => "test01" })
+puts dare
 ```
 
 ### Use a custom fetch function
@@ -277,7 +282,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `dare = client.Dare`
 
 #### Operations
 
@@ -296,14 +301,15 @@ Create an instance: `const dare = client.dare`
 
 #### Example: Load
 
-```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+```ruby
+# load returns the bare Dare record (raises on error).
+dare = client.Dare.load({ "id" => "dare_id" })
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.nhie`
+Create an instance: `nhie = client.Nhie`
 
 #### Operations
 
@@ -322,14 +328,15 @@ Create an instance: `const nhie = client.nhie`
 
 #### Example: Load
 
-```ts
-const nhie = await client.nhie.load({ id: 'nhie_id' })
+```ruby
+# load returns the bare Nhie record (raises on error).
+nhie = client.Nhie.load({ "id" => "nhie_id" })
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.paranoia`
+Create an instance: `paranoia = client.Paranoia`
 
 #### Operations
 
@@ -348,14 +355,15 @@ Create an instance: `const paranoia = client.paranoia`
 
 #### Example: Load
 
-```ts
-const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
+```ruby
+# load returns the bare Paranoia record (raises on error).
+paranoia = client.Paranoia.load({ "id" => "paranoia_id" })
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.truth`
+Create an instance: `truth = client.Truth`
 
 #### Operations
 
@@ -374,14 +382,15 @@ Create an instance: `const truth = client.truth`
 
 #### Example: Load
 
-```ts
-const truth = await client.truth.load({ id: 'truth_id' })
+```ruby
+# load returns the bare Truth record (raises on error).
+truth = client.Truth.load({ "id" => "truth_id" })
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.wyr`
+Create an instance: `wyr = client.Wyr`
 
 #### Operations
 
@@ -400,8 +409,9 @@ Create an instance: `const wyr = client.wyr`
 
 #### Example: Load
 
-```ts
-const wyr = await client.wyr.load({ id: 'wyr_id' })
+```ruby
+# load returns the bare Wyr record (raises on error).
+wyr = client.Wyr.load({ "id" => "wyr_id" })
 ```
 
 
@@ -476,7 +486,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-dare = client.dare
+dare = client.Dare
 dare.load({ "id" => "example_id" })
 
 # dare.data_get now returns the loaded dare data

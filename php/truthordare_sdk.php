@@ -233,10 +233,10 @@ class TruthOrDareSDK
 
     private $_dare = null;
 
-    // Idiomatic facade: $client->dare()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Dare() (PHP method
-    // names are case-insensitive).
-    public function dare($data = null)
+    // Canonical facade: $client->Dare()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->dare()
+    // resolves here too.
+    public function Dare($data = null)
     {
         require_once __DIR__ . '/entity/dare_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class TruthOrDareSDK
 
     private $_nhie = null;
 
-    // Idiomatic facade: $client->nhie()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Nhie() (PHP method
-    // names are case-insensitive).
-    public function nhie($data = null)
+    // Canonical facade: $client->Nhie()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->nhie()
+    // resolves here too.
+    public function Nhie($data = null)
     {
         require_once __DIR__ . '/entity/nhie_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class TruthOrDareSDK
 
     private $_paranoia = null;
 
-    // Idiomatic facade: $client->paranoia()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Paranoia() (PHP method
-    // names are case-insensitive).
-    public function paranoia($data = null)
+    // Canonical facade: $client->Paranoia()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->paranoia()
+    // resolves here too.
+    public function Paranoia($data = null)
     {
         require_once __DIR__ . '/entity/paranoia_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class TruthOrDareSDK
 
     private $_truth = null;
 
-    // Idiomatic facade: $client->truth()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Truth() (PHP method
-    // names are case-insensitive).
-    public function truth($data = null)
+    // Canonical facade: $client->Truth()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->truth()
+    // resolves here too.
+    public function Truth($data = null)
     {
         require_once __DIR__ . '/entity/truth_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class TruthOrDareSDK
 
     private $_wyr = null;
 
-    // Idiomatic facade: $client->wyr()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wyr() (PHP method
-    // names are case-insensitive).
-    public function wyr($data = null)
+    // Canonical facade: $client->Wyr()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wyr()
+    // resolves here too.
+    public function Wyr($data = null)
     {
         require_once __DIR__ . '/entity/wyr_entity.php';
         if ($data === null) {

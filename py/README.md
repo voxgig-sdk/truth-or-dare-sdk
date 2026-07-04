@@ -33,10 +33,12 @@ client = TruthOrDareSDK()
 
 ### 3. Load a dare
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.dare.load({"id": "example_id"})
-    print(result)
+    dare = client.Dare().load({"id": "example_id"})
+    print(dare)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = TruthOrDareSDK.test()
 
-result = client.dare.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+dare = client.Dare().load({"id": "test01"})
+# dare contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -277,7 +280,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `dare = client.Dare()`
 
 #### Operations
 
@@ -296,14 +299,14 @@ Create an instance: `const dare = client.dare`
 
 #### Example: Load
 
-```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+```python
+dare = client.Dare().load({"id": "dare_id"})
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.nhie`
+Create an instance: `nhie = client.Nhie()`
 
 #### Operations
 
@@ -322,14 +325,14 @@ Create an instance: `const nhie = client.nhie`
 
 #### Example: Load
 
-```ts
-const nhie = await client.nhie.load({ id: 'nhie_id' })
+```python
+nhie = client.Nhie().load({"id": "nhie_id"})
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.paranoia`
+Create an instance: `paranoia = client.Paranoia()`
 
 #### Operations
 
@@ -348,14 +351,14 @@ Create an instance: `const paranoia = client.paranoia`
 
 #### Example: Load
 
-```ts
-const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
+```python
+paranoia = client.Paranoia().load({"id": "paranoia_id"})
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.truth`
+Create an instance: `truth = client.Truth()`
 
 #### Operations
 
@@ -374,14 +377,14 @@ Create an instance: `const truth = client.truth`
 
 #### Example: Load
 
-```ts
-const truth = await client.truth.load({ id: 'truth_id' })
+```python
+truth = client.Truth().load({"id": "truth_id"})
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.wyr`
+Create an instance: `wyr = client.Wyr()`
 
 #### Operations
 
@@ -400,8 +403,8 @@ Create an instance: `const wyr = client.wyr`
 
 #### Example: Load
 
-```ts
-const wyr = await client.wyr.load({ id: 'wyr_id' })
+```python
+wyr = client.Wyr().load({"id": "wyr_id"})
 ```
 
 
@@ -475,7 +478,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-dare = client.dare
+dare = client.Dare()
 dare.load({"id": "example_id"})
 
 # dare.data_get() now returns the loaded dare data

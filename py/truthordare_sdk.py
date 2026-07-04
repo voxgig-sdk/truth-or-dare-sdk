@@ -220,89 +220,39 @@ class TruthOrDareSDK:
         }
 
 
-    @property
-    def dare(self):
-        """Idiomatic facade: client.dare.list() / client.dare.load({"id": ...})."""
-        from entity.dare_entity import DareEntity
-        cached = getattr(self, "_dare", None)
-        if cached is None:
-            cached = DareEntity(self, None)
-            self._dare = cached
-        return cached
-
-    def Dare(self, data=None):
-        # Deprecated: use client.dare instead.
+    def Dare(self, data=None) -> "DareEntity":
+        """Entity factory: client.Dare().list({}) / client.Dare().load({"id": ...})."""
         from entity.dare_entity import DareEntity
         return DareEntity(self, data)
 
 
-    @property
-    def nhie(self):
-        """Idiomatic facade: client.nhie.list() / client.nhie.load({"id": ...})."""
-        from entity.nhie_entity import NhieEntity
-        cached = getattr(self, "_nhie", None)
-        if cached is None:
-            cached = NhieEntity(self, None)
-            self._nhie = cached
-        return cached
-
-    def Nhie(self, data=None):
-        # Deprecated: use client.nhie instead.
+    def Nhie(self, data=None) -> "NhieEntity":
+        """Entity factory: client.Nhie().list({}) / client.Nhie().load({"id": ...})."""
         from entity.nhie_entity import NhieEntity
         return NhieEntity(self, data)
 
 
-    @property
-    def paranoia(self):
-        """Idiomatic facade: client.paranoia.list() / client.paranoia.load({"id": ...})."""
-        from entity.paranoia_entity import ParanoiaEntity
-        cached = getattr(self, "_paranoia", None)
-        if cached is None:
-            cached = ParanoiaEntity(self, None)
-            self._paranoia = cached
-        return cached
-
-    def Paranoia(self, data=None):
-        # Deprecated: use client.paranoia instead.
+    def Paranoia(self, data=None) -> "ParanoiaEntity":
+        """Entity factory: client.Paranoia().list({}) / client.Paranoia().load({"id": ...})."""
         from entity.paranoia_entity import ParanoiaEntity
         return ParanoiaEntity(self, data)
 
 
-    @property
-    def truth(self):
-        """Idiomatic facade: client.truth.list() / client.truth.load({"id": ...})."""
-        from entity.truth_entity import TruthEntity
-        cached = getattr(self, "_truth", None)
-        if cached is None:
-            cached = TruthEntity(self, None)
-            self._truth = cached
-        return cached
-
-    def Truth(self, data=None):
-        # Deprecated: use client.truth instead.
+    def Truth(self, data=None) -> "TruthEntity":
+        """Entity factory: client.Truth().list({}) / client.Truth().load({"id": ...})."""
         from entity.truth_entity import TruthEntity
         return TruthEntity(self, data)
 
 
-    @property
-    def wyr(self):
-        """Idiomatic facade: client.wyr.list() / client.wyr.load({"id": ...})."""
-        from entity.wyr_entity import WyrEntity
-        cached = getattr(self, "_wyr", None)
-        if cached is None:
-            cached = WyrEntity(self, None)
-            self._wyr = cached
-        return cached
-
-    def Wyr(self, data=None):
-        # Deprecated: use client.wyr instead.
+    def Wyr(self, data=None) -> "WyrEntity":
+        """Entity factory: client.Wyr().list({}) / client.Wyr().load({"id": ...})."""
         from entity.wyr_entity import WyrEntity
         return WyrEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "TruthOrDareSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -322,3 +272,13 @@ class TruthOrDareSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.dare_entity import DareEntity
+    from entity.nhie_entity import NhieEntity
+    from entity.paranoia_entity import ParanoiaEntity
+    from entity.truth_entity import TruthEntity
+    from entity.wyr_entity import WyrEntity

@@ -26,9 +26,9 @@ import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare'
 
 const client = new TruthOrDareSDK()
 
-// Load dare data
-const dare = await client.dare.load({})
-console.log(dare.data)
+// Load dare data (returns a Dare)
+const dare = await client.Dare().load()
+console.log(dare)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -88,8 +88,8 @@ from truthordare_sdk import TruthOrDareSDK
 client = TruthOrDareSDK()
 
 
-# Load a specific dare
-dare = client.dare.load({"id": "example_id"})
+# Load a specific dare (returns the record, raises on error)
+dare = client.Dare().load({"id": "example_id"})
 print(dare)
 ```
 
@@ -102,8 +102,8 @@ require_once 'truthordare_sdk.php';
 $client = new TruthOrDareSDK();
 
 
-// Load a specific dare
-$dare = $client->dare()->load(["id" => "example_id"]);
+// Load a specific dare (returns the bare record; throws on error)
+$dare = $client->Dare()->load(["id" => "example_id"]);
 print_r($dare);
 ```
 
@@ -127,8 +127,8 @@ require_relative "TruthOrDare_sdk"
 client = TruthOrDareSDK.new
 
 
-# Load a specific dare
-dare = client.dare.load({ "id" => "example_id" })
+# Load a specific dare (returns the bare record; raises on error)
+dare = client.Dare.load({ "id" => "example_id" })
 puts dare
 ```
 
@@ -141,7 +141,7 @@ local client = sdk.new()
 
 
 -- Load a specific dare
-local dare, err = client:dare():load({ id = "example_id" })
+local dare, err = client:Dare():load({ id = "example_id" })
 print(dare)
 ```
 
@@ -154,22 +154,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = TruthOrDareSDK.test()
-const result = await client.dare.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const dare = await client.Dare().load({ id: 'test01' })
+// dare is a bare Dare populated with mock data
+console.log(dare)
 ```
 
 ### Python
 
 ```python
 client = TruthOrDareSDK.test()
-result = client.dare.load({"id": "test01"})
+dare = client.Dare().load({"id": "test01"})
+print(dare)
 ```
 
 ### PHP
 
 ```php
-$client = TruthOrDareSDK::test();
-$result = $client->dare()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = TruthOrDareSDK::test([
+    "entity" => ["dare" => ["test01" => ["id" => "test01"]]],
+]);
+$dare = $client->Dare()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -184,15 +189,18 @@ result, err := client.Dare(nil).Load(
 ### Ruby
 
 ```ruby
-client = TruthOrDareSDK.test
-result = client.dare.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = TruthOrDareSDK.test({
+  "entity" => { "dare" => { "test01" => { "id" => "test01" } } },
+})
+dare = client.Dare.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:dare():load({ id = "test01" })
+local result, err = client:Dare():load({ id = "test01" })
 ```
 
 ## How it works
@@ -240,6 +248,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

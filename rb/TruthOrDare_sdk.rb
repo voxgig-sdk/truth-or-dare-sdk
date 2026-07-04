@@ -208,65 +208,35 @@ class TruthOrDareSDK
   end
 
 
-  # Idiomatic facade: client.dare.list / client.dare.load({ "id" => ... })
-  def dare
-    require_relative 'entity/dare_entity'
-    @dare ||= DareEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.dare instead.
+  # Canonical facade: client.Dare.list / client.Dare.load({ "id" => ... })
   def Dare(data = nil)
     require_relative 'entity/dare_entity'
     DareEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.nhie.list / client.nhie.load({ "id" => ... })
-  def nhie
-    require_relative 'entity/nhie_entity'
-    @nhie ||= NhieEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.nhie instead.
+  # Canonical facade: client.Nhie.list / client.Nhie.load({ "id" => ... })
   def Nhie(data = nil)
     require_relative 'entity/nhie_entity'
     NhieEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.paranoia.list / client.paranoia.load({ "id" => ... })
-  def paranoia
-    require_relative 'entity/paranoia_entity'
-    @paranoia ||= ParanoiaEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.paranoia instead.
+  # Canonical facade: client.Paranoia.list / client.Paranoia.load({ "id" => ... })
   def Paranoia(data = nil)
     require_relative 'entity/paranoia_entity'
     ParanoiaEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.truth.list / client.truth.load({ "id" => ... })
-  def truth
-    require_relative 'entity/truth_entity'
-    @truth ||= TruthEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.truth instead.
+  # Canonical facade: client.Truth.list / client.Truth.load({ "id" => ... })
   def Truth(data = nil)
     require_relative 'entity/truth_entity'
     TruthEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.wyr.list / client.wyr.load({ "id" => ... })
-  def wyr
-    require_relative 'entity/wyr_entity'
-    @wyr ||= WyrEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.wyr instead.
+  # Canonical facade: client.Wyr.list / client.Wyr.load({ "id" => ... })
   def Wyr(data = nil)
     require_relative 'entity/wyr_entity'
     WyrEntity.new(self, data)

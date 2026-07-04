@@ -30,11 +30,14 @@ const client = new TruthOrDareSDK()
 
 ### 3. Load a dare
 
-```ts
-const result = await client.dare.load({ id: 'example_id' })
+`load()` returns the entity directly and throws on failure:
 
-if (result.ok) {
-  console.log(result.data)
+```ts
+try {
+  const dare = await client.Dare().load({ id: 'example_id' })
+  console.log(dare)
+} catch (err) {
+  console.error('load failed:', err)
 }
 ```
 
@@ -52,6 +55,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -80,9 +86,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TruthOrDareSDK.test()
 
-const result = await client.dare.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const dare = await client.Dare().load({ id: 'test01' })
+// dare is a bare entity populated with mock response data
+console.log(dare)
 ```
 
 You can also use the instance method:
@@ -97,7 +103,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.dare
+const entity = client.Dare()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -196,29 +202,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): TruthOrDareSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -322,7 +329,7 @@ API path: `/wyr`
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `const dare = client.Dare()`
 
 #### Operations
 
@@ -342,13 +349,13 @@ Create an instance: `const dare = client.dare`
 #### Example: Load
 
 ```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+const dare = await client.Dare().load({ id: 'dare_id' })
 ```
 
 
 ### Nhie
 
-Create an instance: `const nhie = client.nhie`
+Create an instance: `const nhie = client.Nhie()`
 
 #### Operations
 
@@ -368,13 +375,13 @@ Create an instance: `const nhie = client.nhie`
 #### Example: Load
 
 ```ts
-const nhie = await client.nhie.load({ id: 'nhie_id' })
+const nhie = await client.Nhie().load({ id: 'nhie_id' })
 ```
 
 
 ### Paranoia
 
-Create an instance: `const paranoia = client.paranoia`
+Create an instance: `const paranoia = client.Paranoia()`
 
 #### Operations
 
@@ -394,13 +401,13 @@ Create an instance: `const paranoia = client.paranoia`
 #### Example: Load
 
 ```ts
-const paranoia = await client.paranoia.load({ id: 'paranoia_id' })
+const paranoia = await client.Paranoia().load({ id: 'paranoia_id' })
 ```
 
 
 ### Truth
 
-Create an instance: `const truth = client.truth`
+Create an instance: `const truth = client.Truth()`
 
 #### Operations
 
@@ -420,13 +427,13 @@ Create an instance: `const truth = client.truth`
 #### Example: Load
 
 ```ts
-const truth = await client.truth.load({ id: 'truth_id' })
+const truth = await client.Truth().load({ id: 'truth_id' })
 ```
 
 
 ### Wyr
 
-Create an instance: `const wyr = client.wyr`
+Create an instance: `const wyr = client.Wyr()`
 
 #### Operations
 
@@ -446,7 +453,7 @@ Create an instance: `const wyr = client.wyr`
 #### Example: Load
 
 ```ts
-const wyr = await client.wyr.load({ id: 'wyr_id' })
+const wyr = await client.Wyr().load({ id: 'wyr_id' })
 ```
 
 
@@ -517,7 +524,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const dare = client.dare
+const dare = client.Dare()
 await dare.load({ id: "example_id" })
 
 // dare.data() now returns the loaded dare data

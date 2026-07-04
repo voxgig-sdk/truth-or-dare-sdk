@@ -99,7 +99,7 @@ same parameters as `direct()`.
 ## DareEntity
 
 ```lua
-local dare = client:dare(nil)
+local dare = client:Dare(nil)
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ local dare = client:dare(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:dare():load({ id = "dare_id" })
+local result, err = client:Dare():load({ id = "dare_id" })
 ```
 
 ### Common Methods
@@ -154,7 +154,7 @@ Return the entity name.
 ## NhieEntity
 
 ```lua
-local nhie = client:nhie(nil)
+local nhie = client:Nhie(nil)
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ local nhie = client:nhie(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:nhie():load({ id = "nhie_id" })
+local result, err = client:Nhie():load({ id = "nhie_id" })
 ```
 
 ### Common Methods
@@ -209,7 +209,7 @@ Return the entity name.
 ## ParanoiaEntity
 
 ```lua
-local paranoia = client:paranoia(nil)
+local paranoia = client:Paranoia(nil)
 ```
 
 ### Fields
@@ -228,7 +228,7 @@ local paranoia = client:paranoia(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:paranoia():load({ id = "paranoia_id" })
+local result, err = client:Paranoia():load({ id = "paranoia_id" })
 ```
 
 ### Common Methods
@@ -264,7 +264,7 @@ Return the entity name.
 ## TruthEntity
 
 ```lua
-local truth = client:truth(nil)
+local truth = client:Truth(nil)
 ```
 
 ### Fields
@@ -283,7 +283,7 @@ local truth = client:truth(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:truth():load({ id = "truth_id" })
+local result, err = client:Truth():load({ id = "truth_id" })
 ```
 
 ### Common Methods
@@ -319,7 +319,7 @@ Return the entity name.
 ## WyrEntity
 
 ```lua
-local wyr = client:wyr(nil)
+local wyr = client:Wyr(nil)
 ```
 
 ### Fields
@@ -338,7 +338,7 @@ local wyr = client:wyr(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:wyr():load({ id = "wyr_id" })
+local result, err = client:Wyr():load({ id = "wyr_id" })
 ```
 
 ### Common Methods
