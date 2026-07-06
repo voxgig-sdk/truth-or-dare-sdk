@@ -16,10 +16,9 @@ type Dare struct {
 	Type string `json:"type"`
 }
 
-// DareLoadMatch mirrors the dare fields as an all-optional match
-// filter (Go analog of Partial<Dare>).
+// DareLoadMatch is the typed request payload for Dare.LoadTyped.
 type DareLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -33,10 +32,9 @@ type Nhie struct {
 	Type string `json:"type"`
 }
 
-// NhieLoadMatch mirrors the nhie fields as an all-optional match
-// filter (Go analog of Partial<Nhie>).
+// NhieLoadMatch is the typed request payload for Nhie.LoadTyped.
 type NhieLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -50,10 +48,9 @@ type Paranoia struct {
 	Type string `json:"type"`
 }
 
-// ParanoiaLoadMatch mirrors the paranoia fields as an all-optional match
-// filter (Go analog of Partial<Paranoia>).
+// ParanoiaLoadMatch is the typed request payload for Paranoia.LoadTyped.
 type ParanoiaLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -67,10 +64,9 @@ type Truth struct {
 	Type string `json:"type"`
 }
 
-// TruthLoadMatch mirrors the truth fields as an all-optional match
-// filter (Go analog of Partial<Truth>).
+// TruthLoadMatch is the typed request payload for Truth.LoadTyped.
 type TruthLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -84,10 +80,9 @@ type Wyr struct {
 	Type string `json:"type"`
 }
 
-// WyrLoadMatch mirrors the wyr fields as an all-optional match
-// filter (Go analog of Partial<Wyr>).
+// WyrLoadMatch is the typed request payload for Wyr.LoadTyped.
 type WyrLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
 	Type *string `json:"type,omitempty"`

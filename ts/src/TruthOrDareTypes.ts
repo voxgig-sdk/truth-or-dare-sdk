@@ -12,7 +12,12 @@ export interface Dare {
   type: string
 }
 
-export type DareLoadMatch = Partial<Dare>
+export interface DareLoadMatch {
+  id: string
+  question?: string
+  rating?: string
+  type?: string
+}
 
 export interface Nhie {
   id: string
@@ -21,7 +26,12 @@ export interface Nhie {
   type: string
 }
 
-export type NhieLoadMatch = Partial<Nhie>
+export interface NhieLoadMatch {
+  id: string
+  question?: string
+  rating?: string
+  type?: string
+}
 
 export interface Paranoia {
   id: string
@@ -30,7 +40,12 @@ export interface Paranoia {
   type: string
 }
 
-export type ParanoiaLoadMatch = Partial<Paranoia>
+export interface ParanoiaLoadMatch {
+  id: string
+  question?: string
+  rating?: string
+  type?: string
+}
 
 export interface Truth {
   id: string
@@ -39,7 +54,12 @@ export interface Truth {
   type: string
 }
 
-export type TruthLoadMatch = Partial<Truth>
+export interface TruthLoadMatch {
+  id: string
+  question?: string
+  rating?: string
+  type?: string
+}
 
 export interface Wyr {
   id: string
@@ -48,5 +68,10 @@ export interface Wyr {
   type: string
 }
 
-export type WyrLoadMatch = Partial<Wyr>
+export interface WyrLoadMatch {
+  id: string
+  question?: string
+  rating?: string
+  type?: string
+}
 

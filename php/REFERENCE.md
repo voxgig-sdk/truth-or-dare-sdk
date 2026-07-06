@@ -8,7 +8,7 @@ Complete API reference for the TruthOrDare PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/truth-or-dare_sdk.php';
+require_once __DIR__ . '/truthordare_sdk.php';
 
 $client = new TruthOrDareSDK($options);
 ```
@@ -61,11 +61,11 @@ Create a new `TruthEntity` instance. Pass `null` for no initial data.
 
 Create a new `WyrEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): TruthOrDareUtility`
 
 Return a copy of the SDK utility object.
 
@@ -108,10 +108,10 @@ $dare = $client->Dare();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -125,19 +125,19 @@ $result = $client->Dare()->load(["id" => "dare_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -146,7 +146,7 @@ Set the entity match criteria.
 Create a new `DareEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -163,10 +163,10 @@ $nhie = $client->Nhie();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -180,19 +180,19 @@ $result = $client->Nhie()->load(["id" => "nhie_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -201,7 +201,7 @@ Set the entity match criteria.
 Create a new `NhieEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -218,10 +218,10 @@ $paranoia = $client->Paranoia();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -235,19 +235,19 @@ $result = $client->Paranoia()->load(["id" => "paranoia_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -256,7 +256,7 @@ Set the entity match criteria.
 Create a new `ParanoiaEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -273,10 +273,10 @@ $truth = $client->Truth();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -290,19 +290,19 @@ $result = $client->Truth()->load(["id" => "truth_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -311,7 +311,7 @@ Set the entity match criteria.
 Create a new `TruthEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -328,10 +328,10 @@ $wyr = $client->Wyr();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -345,19 +345,19 @@ $result = $client->Wyr()->load(["id" => "wyr_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -366,7 +366,7 @@ Set the entity match criteria.
 Create a new `WyrEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

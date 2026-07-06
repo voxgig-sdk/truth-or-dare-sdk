@@ -8,7 +8,7 @@ Complete API reference for the TruthOrDare Python SDK.
 ### Constructor
 
 ```python
-from truth-or-dare_sdk import TruthOrDareSDK
+from truthordare_sdk import TruthOrDareSDK
 
 client = TruthOrDareSDK(options)
 ```
@@ -103,10 +103,10 @@ dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
+| `rating` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
@@ -157,10 +157,10 @@ nhie = client.Nhie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
+| `rating` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
@@ -211,10 +211,10 @@ paranoia = client.Paranoia()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
+| `rating` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
@@ -265,10 +265,10 @@ truth = client.Truth()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
+| `rating` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
@@ -319,10 +319,10 @@ wyr = client.Wyr()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
+| `rating` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 

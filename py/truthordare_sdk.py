@@ -221,31 +221,31 @@ class TruthOrDareSDK:
 
 
     def Dare(self, data=None) -> "DareEntity":
-        """Entity factory: client.Dare().list({}) / client.Dare().load({"id": ...})."""
+        """Entity factory: client.Dare().list() / client.Dare().load({"id": ...})."""
         from entity.dare_entity import DareEntity
         return DareEntity(self, data)
 
 
     def Nhie(self, data=None) -> "NhieEntity":
-        """Entity factory: client.Nhie().list({}) / client.Nhie().load({"id": ...})."""
+        """Entity factory: client.Nhie().list() / client.Nhie().load({"id": ...})."""
         from entity.nhie_entity import NhieEntity
         return NhieEntity(self, data)
 
 
     def Paranoia(self, data=None) -> "ParanoiaEntity":
-        """Entity factory: client.Paranoia().list({}) / client.Paranoia().load({"id": ...})."""
+        """Entity factory: client.Paranoia().list() / client.Paranoia().load({"id": ...})."""
         from entity.paranoia_entity import ParanoiaEntity
         return ParanoiaEntity(self, data)
 
 
     def Truth(self, data=None) -> "TruthEntity":
-        """Entity factory: client.Truth().list({}) / client.Truth().load({"id": ...})."""
+        """Entity factory: client.Truth().list() / client.Truth().load({"id": ...})."""
         from entity.truth_entity import TruthEntity
         return TruthEntity(self, data)
 
 
     def Wyr(self, data=None) -> "WyrEntity":
-        """Entity factory: client.Wyr().list({}) / client.Wyr().load({"id": ...})."""
+        """Entity factory: client.Wyr().list() / client.Wyr().load({"id": ...})."""
         from entity.wyr_entity import WyrEntity
         return WyrEntity(self, data)
 

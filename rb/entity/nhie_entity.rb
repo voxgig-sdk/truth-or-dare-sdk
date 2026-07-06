@@ -67,10 +67,12 @@ class NhieEntity
   
   # Load a single Nhie.
   #
-  # @param reqmatch [NhieLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param reqmatch [NhieLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.Nhie.load works with no args).
   # @param ctrl [Object, nil] optional per-call control
   # @return [Nhie, Hash] the loaded Nhie; raises TruthOrDareError on failure
-  def load(reqmatch, ctrl = nil)
+  def load(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
       "opname" => "load",

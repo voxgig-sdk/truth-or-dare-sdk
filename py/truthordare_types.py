@@ -23,8 +23,11 @@ class Dare(TypedDict):
     type: str
 
 
-class DareLoadMatch(TypedDict, total=False):
+class DareLoadMatchRequired(TypedDict):
     id: str
+
+
+class DareLoadMatch(DareLoadMatchRequired, total=False):
     question: str
     rating: str
     type: str
@@ -37,8 +40,11 @@ class Nhie(TypedDict):
     type: str
 
 
-class NhieLoadMatch(TypedDict, total=False):
+class NhieLoadMatchRequired(TypedDict):
     id: str
+
+
+class NhieLoadMatch(NhieLoadMatchRequired, total=False):
     question: str
     rating: str
     type: str
@@ -51,8 +57,11 @@ class Paranoia(TypedDict):
     type: str
 
 
-class ParanoiaLoadMatch(TypedDict, total=False):
+class ParanoiaLoadMatchRequired(TypedDict):
     id: str
+
+
+class ParanoiaLoadMatch(ParanoiaLoadMatchRequired, total=False):
     question: str
     rating: str
     type: str
@@ -65,8 +74,11 @@ class Truth(TypedDict):
     type: str
 
 
-class TruthLoadMatch(TypedDict, total=False):
+class TruthLoadMatchRequired(TypedDict):
     id: str
+
+
+class TruthLoadMatch(TruthLoadMatchRequired, total=False):
     question: str
     rating: str
     type: str
@@ -79,8 +91,11 @@ class Wyr(TypedDict):
     type: str
 
 
-class WyrLoadMatch(TypedDict, total=False):
+class WyrLoadMatchRequired(TypedDict):
     id: str
+
+
+class WyrLoadMatch(WyrLoadMatchRequired, total=False):
     question: str
     rating: str
     type: str

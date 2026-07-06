@@ -113,10 +113,10 @@ dare := client.Dare(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -162,10 +162,10 @@ nhie := client.Nhie(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -211,10 +211,10 @@ paranoia := client.Paranoia(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -260,10 +260,10 @@ truth := client.Truth(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -309,10 +309,10 @@ wyr := client.Wyr(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 

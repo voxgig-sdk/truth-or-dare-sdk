@@ -21,10 +21,10 @@ class Dare
     public string $type;
 }
 
-/** Match filter for Dare#load (any subset of Dare fields). */
+/** Request payload for Dare#load. */
 class DareLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $question = null;
     public ?string $rating = null;
     public ?string $type = null;
@@ -39,10 +39,10 @@ class Nhie
     public string $type;
 }
 
-/** Match filter for Nhie#load (any subset of Nhie fields). */
+/** Request payload for Nhie#load. */
 class NhieLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $question = null;
     public ?string $rating = null;
     public ?string $type = null;
@@ -57,10 +57,10 @@ class Paranoia
     public string $type;
 }
 
-/** Match filter for Paranoia#load (any subset of Paranoia fields). */
+/** Request payload for Paranoia#load. */
 class ParanoiaLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $question = null;
     public ?string $rating = null;
     public ?string $type = null;
@@ -75,10 +75,10 @@ class Truth
     public string $type;
 }
 
-/** Match filter for Truth#load (any subset of Truth fields). */
+/** Request payload for Truth#load. */
 class TruthLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $question = null;
     public ?string $rating = null;
     public ?string $type = null;
@@ -93,10 +93,10 @@ class Wyr
     public string $type;
 }
 
-/** Match filter for Wyr#load (any subset of Wyr fields). */
+/** Request payload for Wyr#load. */
 class WyrLoadMatch
 {
-    public ?string $id = null;
+    public string $id;
     public ?string $question = null;
     public ?string $rating = null;
     public ?string $type = null;

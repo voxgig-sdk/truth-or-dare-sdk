@@ -29,10 +29,10 @@ Dare = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Dare#load (any subset of Dare fields).
+# Request payload for Dare#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] question
 #   @return [String, nil]
@@ -71,10 +71,10 @@ Nhie = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Nhie#load (any subset of Nhie fields).
+# Request payload for Nhie#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] question
 #   @return [String, nil]
@@ -113,10 +113,10 @@ Paranoia = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Paranoia#load (any subset of Paranoia fields).
+# Request payload for Paranoia#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] question
 #   @return [String, nil]
@@ -155,10 +155,10 @@ Truth = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Truth#load (any subset of Truth fields).
+# Request payload for Truth#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] question
 #   @return [String, nil]
@@ -197,10 +197,10 @@ Wyr = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Wyr#load (any subset of Wyr fields).
+# Request payload for Wyr#load.
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] question
 #   @return [String, nil]

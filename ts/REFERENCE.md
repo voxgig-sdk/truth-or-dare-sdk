@@ -164,10 +164,10 @@ const dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -217,10 +217,10 @@ const nhie = client.Nhie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -270,10 +270,10 @@ const paranoia = client.Paranoia()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -323,10 +323,10 @@ const truth = client.Truth()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -376,10 +376,10 @@ const wyr = client.Wyr()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `rating` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `id` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
+| `rating` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
