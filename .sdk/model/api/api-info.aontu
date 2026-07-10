@@ -15,9 +15,9 @@ main: {
           url: "https://api.truthordarebot.xyz/v1"
         }
       ]
+      summary: "API for truth, dare, would you rather, never have I ever, and paranoia questions with different ratings available."
       title: "Truth or Dare API"
       version: "1.0.0"
+      website: "https://docs.truthordarebot.xyz/api-docs"
     }
   }
-}
-

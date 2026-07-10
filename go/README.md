@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single dare — the value is the loaded record.
-    dare, err := client.Dare(nil).Load(map[string]any{"id": "example"}, nil)
+    dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

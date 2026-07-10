@@ -107,6 +107,7 @@ same parameters as `Direct()`.
 
 ```go
 dare := client.Dare(nil)
+fmt.Println(dare.GetName()) // "dare"
 ```
 
 ### Fields
@@ -126,6 +127,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -156,6 +161,7 @@ Return the entity name.
 
 ```go
 nhie := client.Nhie(nil)
+fmt.Println(nhie.GetName()) // "nhie"
 ```
 
 ### Fields
@@ -175,6 +181,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Nhie(nil).Load(map[string]any{"id": "nhie_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -205,6 +215,7 @@ Return the entity name.
 
 ```go
 paranoia := client.Paranoia(nil)
+fmt.Println(paranoia.GetName()) // "paranoia"
 ```
 
 ### Fields
@@ -224,6 +235,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Paranoia(nil).Load(map[string]any{"id": "paranoia_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -254,6 +269,7 @@ Return the entity name.
 
 ```go
 truth := client.Truth(nil)
+fmt.Println(truth.GetName()) // "truth"
 ```
 
 ### Fields
@@ -273,6 +289,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Truth(nil).Load(map[string]any{"id": "truth_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -303,6 +323,7 @@ Return the entity name.
 
 ```go
 wyr := client.Wyr(nil)
+fmt.Println(wyr.GetName()) // "wyr"
 ```
 
 ### Fields
@@ -322,6 +343,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Wyr(nil).Load(map[string]any{"id": "wyr_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
