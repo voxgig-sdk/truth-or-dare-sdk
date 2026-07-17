@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- TruthOrDare SDK exists test
 
 local sdk = require("truth-or-dare_sdk")
 
