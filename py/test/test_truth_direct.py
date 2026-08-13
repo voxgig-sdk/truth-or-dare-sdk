@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from truthordare_sdk.utility.voxgig_struct import voxgig_struct as vs
 from truthordare_sdk import TruthOrDareSDK
-from core import helpers
+from truthordare_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _truth_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "TRUTHORDARE_TEST_TRUTH_ENTID": {},
-        "TRUTHORDARE_TEST_LIVE": "FALSE",
+        "TRUTH_OR_DARE_TEST_TRUTH_ENTID": {},
+        "TRUTH_OR_DARE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("TRUTHORDARE_TEST_LIVE") == "TRUE"
+    live = env.get("TRUTH_OR_DARE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

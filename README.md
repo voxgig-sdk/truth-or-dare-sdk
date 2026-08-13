@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new TruthOrDareSDK()
-const dare = await client.Dare().load()
+const dare = await client.Dare().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = TruthOrDareSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = TruthOrDareSDK.test({
+  entity: {
+    dare: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const dare = await client.Dare().load({ id: 'test01' })
-// dare is a bare Dare populated with mock data
+// dare is the Dare entity, populated with mock data
+// — call dare.data() for the record itself
 console.log(dare)
 ```
 
@@ -186,7 +195,7 @@ require_once 'truthordare_sdk.php';
 $client = new TruthOrDareSDK();
 
 
-// Load a specific dare (returns the bare record; throws on error)
+// Load a specific dare (returns the ENTITY; call data_get() for the record; throws on error)
 $dare = $client->Dare()->load(["id" => "example_id"]);
 print_r($dare);
 ```
@@ -214,7 +223,7 @@ require_relative "TruthOrDare_sdk"
 client = TruthOrDareSDK.new
 
 
-# Load a specific dare (returns the bare record; raises on error)
+# Load a specific dare (returns the ENTITY; call data_get for the record)
 dare = client.Dare.load({ "id" => "example_id" })
 puts dare
 ```
@@ -348,6 +357,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://docs.truthordarebot.xyz/api-docs](https://docs.truthordarebot.xyz/api-docs)
 

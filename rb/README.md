@@ -34,7 +34,7 @@ client = TruthOrDareSDK.new
 
 ```ruby
 begin
-  # load returns the bare Dare record (raises on error).
+  # load returns the ENTITY — call data_get for the Dare record (raises on error).
   dare = client.Dare.load({ "id" => "example_id" })
   puts dare
 rescue => err
@@ -120,7 +120,8 @@ client = TruthOrDareSDK.test({
   "entity" => { "dare" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 dare = client.Dare.load({ "id" => "test01" })
 puts dare
 ```
@@ -329,7 +330,7 @@ Create an instance: `dare = client.Dare`
 #### Example: Load
 
 ```ruby
-# load returns the bare Dare record (raises on error).
+# load returns the ENTITY — call data_get for the Dare record (raises on error).
 dare = client.Dare.load({ "id" => "dare_id" })
 ```
 
@@ -356,7 +357,7 @@ Create an instance: `nhie = client.Nhie`
 #### Example: Load
 
 ```ruby
-# load returns the bare Nhie record (raises on error).
+# load returns the ENTITY — call data_get for the Nhie record (raises on error).
 nhie = client.Nhie.load({ "id" => "nhie_id" })
 ```
 
@@ -383,7 +384,7 @@ Create an instance: `paranoia = client.Paranoia`
 #### Example: Load
 
 ```ruby
-# load returns the bare Paranoia record (raises on error).
+# load returns the ENTITY — call data_get for the Paranoia record (raises on error).
 paranoia = client.Paranoia.load({ "id" => "paranoia_id" })
 ```
 
@@ -410,7 +411,7 @@ Create an instance: `truth = client.Truth`
 #### Example: Load
 
 ```ruby
-# load returns the bare Truth record (raises on error).
+# load returns the ENTITY — call data_get for the Truth record (raises on error).
 truth = client.Truth.load({ "id" => "truth_id" })
 ```
 
@@ -437,7 +438,7 @@ Create an instance: `wyr = client.Wyr`
 #### Example: Load
 
 ```ruby
-# load returns the bare Wyr record (raises on error).
+# load returns the ENTITY — call data_get for the Wyr record (raises on error).
 wyr = client.Wyr.load({ "id" => "wyr_id" })
 ```
 

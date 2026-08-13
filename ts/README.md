@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = TruthOrDareSDK.test()
 
 const dare = await client.Dare().load({ id: 'test01' })
-// dare is a bare entity populated with mock response data
+// dare is the entity, populated with mock response data
+// — call dare.data() for the record itself
 console.log(dare)
 ```
 

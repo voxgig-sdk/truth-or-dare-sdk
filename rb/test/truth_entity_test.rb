@@ -26,7 +26,7 @@ class TruthEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set TRUTHORDARE_TEST_TRUTH_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set TRUTH_OR_DARE_TEST_TRUTH_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -45,7 +45,7 @@ class TruthEntityTest < Minitest::Test
       "id" => truth_ref01_data["id"],
     }
     truth_ref01_data_dt0_loaded = truth_ref01_ent.load(truth_ref01_match_dt0, nil)
-    truth_ref01_data_dt0_load_result = Helpers.to_map(truth_ref01_data_dt0_loaded)
+    truth_ref01_data_dt0_load_result = Helpers.to_map(truth_ref01_data_dt0_loaded.respond_to?(:data_get) ? truth_ref01_data_dt0_loaded.data_get : truth_ref01_data_dt0_loaded)
     assert !truth_ref01_data_dt0_load_result.nil?
     assert_equal truth_ref01_data_dt0_load_result["id"], truth_ref01_data["id"]
 
@@ -78,22 +78,22 @@ def truth_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["TRUTHORDARE_TEST_TRUTH_ENTID"]
+  entid_env_raw = ENV["TRUTH_OR_DARE_TEST_TRUTH_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "TRUTHORDARE_TEST_TRUTH_ENTID" => idmap,
-    "TRUTHORDARE_TEST_LIVE" => "FALSE",
-    "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
+    "TRUTH_OR_DARE_TEST_TRUTH_ENTID" => idmap,
+    "TRUTH_OR_DARE_TEST_LIVE" => "FALSE",
+    "TRUTH_OR_DARE_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["TRUTHORDARE_TEST_TRUTH_ENTID"])
+    env["TRUTH_OR_DARE_TEST_TRUTH_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
+  if env["TRUTH_OR_DARE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -102,13 +102,13 @@ def truth_basic_setup(extra)
     client = TruthOrDareSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
+  live = env["TRUTH_OR_DARE_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["TRUTHORDARE_TEST_EXPLAIN"] == "TRUE",
+    explain: env["TRUTH_OR_DARE_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

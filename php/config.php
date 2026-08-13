@@ -83,6 +83,7 @@ class TruthOrDareConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/dare',
                   'parts' => [
@@ -158,6 +159,7 @@ class TruthOrDareConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/nhie',
                   'parts' => [
@@ -233,6 +235,7 @@ class TruthOrDareConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/paranoia',
                   'parts' => [
@@ -308,6 +311,7 @@ class TruthOrDareConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/truth',
                   'parts' => [
@@ -383,6 +387,7 @@ class TruthOrDareConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/wyr',
                   'parts' => [

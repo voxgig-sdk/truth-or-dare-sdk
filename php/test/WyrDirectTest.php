@@ -65,11 +65,11 @@ function wyr_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "TRUTHORDARE_TEST_WYR_ENTID" => [],
-        "TRUTHORDARE_TEST_LIVE" => "FALSE",
+        "TRUTH_OR_DARE_TEST_WYR_ENTID" => [],
+        "TRUTH_OR_DARE_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["TRUTHORDARE_TEST_LIVE"] === "TRUE";
+    $live = $env["TRUTH_OR_DARE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

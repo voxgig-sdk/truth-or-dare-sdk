@@ -33,7 +33,7 @@ class ParanoiaEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set TRUTHORDARE_TEST_PARANOIA_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set TRUTH_OR_DARE_TEST_PARANOIA_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -52,7 +52,7 @@ class ParanoiaEntityTest extends TestCase
             "id" => $paranoia_ref01_data["id"],
         ];
         $paranoia_ref01_data_dt0_loaded = $paranoia_ref01_ent->load($paranoia_ref01_match_dt0, null);
-        $paranoia_ref01_data_dt0_load_result = Helpers::to_map($paranoia_ref01_data_dt0_loaded);
+        $paranoia_ref01_data_dt0_load_result = Helpers::to_map(is_object($paranoia_ref01_data_dt0_loaded) && method_exists($paranoia_ref01_data_dt0_loaded, 'data_get') ? $paranoia_ref01_data_dt0_loaded->data_get() : $paranoia_ref01_data_dt0_loaded);
         $this->assertNotNull($paranoia_ref01_data_dt0_load_result);
         $this->assertEquals($paranoia_ref01_data_dt0_load_result["id"], $paranoia_ref01_data["id"]);
 
@@ -81,22 +81,22 @@ function paranoia_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("TRUTHORDARE_TEST_PARANOIA_ENTID");
+    $entid_env_raw = getenv("TRUTH_OR_DARE_TEST_PARANOIA_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "TRUTHORDARE_TEST_PARANOIA_ENTID" => $idmap,
-        "TRUTHORDARE_TEST_LIVE" => "FALSE",
-        "TRUTHORDARE_TEST_EXPLAIN" => "FALSE",
+        "TRUTH_OR_DARE_TEST_PARANOIA_ENTID" => $idmap,
+        "TRUTH_OR_DARE_TEST_LIVE" => "FALSE",
+        "TRUTH_OR_DARE_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["TRUTHORDARE_TEST_PARANOIA_ENTID"]);
+        $env["TRUTH_OR_DARE_TEST_PARANOIA_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["TRUTHORDARE_TEST_LIVE"] === "TRUE") {
+    if ($env["TRUTH_OR_DARE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -105,13 +105,13 @@ function paranoia_basic_setup($extra)
         $client = new TruthOrDareSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["TRUTHORDARE_TEST_LIVE"] === "TRUE";
+    $live = $env["TRUTH_OR_DARE_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["TRUTHORDARE_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["TRUTH_OR_DARE_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

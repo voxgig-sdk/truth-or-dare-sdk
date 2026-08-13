@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# TruthOrDare SDK exists test
 
 import pytest
 from truthordare_sdk import TruthOrDareSDK

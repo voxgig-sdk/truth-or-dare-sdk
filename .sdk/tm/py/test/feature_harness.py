@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import TruthOrDareControl
-from core.error import TruthOrDareError
-from core.result import TruthOrDareResult
-from core.spec import TruthOrDareSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import TruthOrDareControl
+from projectname_sdk.core.error import TruthOrDareError
+from projectname_sdk.core.result import TruthOrDareResult
+from projectname_sdk.core.spec import TruthOrDareSpec
 
 
 # True when this SDK was generated with the named feature.

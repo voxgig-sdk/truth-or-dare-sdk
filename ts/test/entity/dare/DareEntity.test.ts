@@ -26,8 +26,8 @@ import {
 describe('DareEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TRUTHORDARE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TRUTHORDARE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TRUTH_OR_DARE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TRUTH_OR_DARE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TruthOrDareSDK.test()
@@ -63,7 +63,7 @@ describe('DareEntity', async () => {
     const dare_ref01_ent = client.Dare()
     const dare_ref01_match_dt0: any = {}
     dare_ref01_match_dt0.id = dare_ref01_data.id
-    const dare_ref01_data_dt0 = await dare_ref01_ent.load(dare_ref01_match_dt0)
+    const dare_ref01_data_dt0 = (await dare_ref01_ent.load(dare_ref01_match_dt0)).data()
     assert(dare_ref01_data_dt0.id === dare_ref01_data.id)
 
 

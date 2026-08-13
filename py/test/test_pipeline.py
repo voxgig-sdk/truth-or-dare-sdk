@@ -16,11 +16,11 @@
 import pytest
 
 from truthordare_sdk import TruthOrDareSDK
-from core.error import TruthOrDareError
-from core.result import TruthOrDareResult
-from core.response import TruthOrDareResponse
-from core.spec import TruthOrDareSpec
-from feature.base_feature import TruthOrDareBaseFeature
+from truthordare_sdk.core.error import TruthOrDareError
+from truthordare_sdk.core.result import TruthOrDareResult
+from truthordare_sdk.core.response import TruthOrDareResponse
+from truthordare_sdk.core.spec import TruthOrDareSpec
+from truthordare_sdk.feature.base_feature import TruthOrDareBaseFeature
 
 
 def _client():

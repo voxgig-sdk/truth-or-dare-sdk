@@ -26,8 +26,8 @@ import {
 describe('NhieEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TRUTHORDARE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TRUTHORDARE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TRUTH_OR_DARE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TRUTH_OR_DARE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TruthOrDareSDK.test()
@@ -63,7 +63,7 @@ describe('NhieEntity', async () => {
     const nhie_ref01_ent = client.Nhie()
     const nhie_ref01_match_dt0: any = {}
     nhie_ref01_match_dt0.id = nhie_ref01_data.id
-    const nhie_ref01_data_dt0 = await nhie_ref01_ent.load(nhie_ref01_match_dt0)
+    const nhie_ref01_data_dt0 = (await nhie_ref01_ent.load(nhie_ref01_match_dt0)).data()
     assert(nhie_ref01_data_dt0.id === nhie_ref01_data.id)
 
 

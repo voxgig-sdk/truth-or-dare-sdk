@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ TruthOrDareUtility.registrar = ->(u) {
   u.prepare_params = TruthOrDareUtilities::PrepareParams
   u.prepare_path = TruthOrDareUtilities::PreparePath
   u.prepare_query = TruthOrDareUtilities::PrepareQuery
+  u.graphql_body = TruthOrDareUtilities::GraphqlBody
+  u.graphql_errors = TruthOrDareUtilities::GraphqlErrors
   u.result_basic = TruthOrDareUtilities::ResultBasic
   u.result_body = TruthOrDareUtilities::ResultBody
   u.result_headers = TruthOrDareUtilities::ResultHeaders

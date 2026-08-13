@@ -78,6 +78,7 @@ module TruthOrDareConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dare",
                   "parts" => [
@@ -153,6 +154,7 @@ module TruthOrDareConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/nhie",
                   "parts" => [
@@ -228,6 +230,7 @@ module TruthOrDareConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/paranoia",
                   "parts" => [
@@ -303,6 +306,7 @@ module TruthOrDareConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/truth",
                   "parts" => [
@@ -378,6 +382,7 @@ module TruthOrDareConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wyr",
                   "parts" => [

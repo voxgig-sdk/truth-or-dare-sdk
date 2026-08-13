@@ -44,7 +44,7 @@ func TestTruthEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set TRUTHORDARE_TEST_TRUTH_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set TRUTH_OR_DARE_TEST_TRUTH_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -68,7 +68,7 @@ func TestTruthEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		truthRef01DataDt0LoadResult := core.ToMapAny(truthRef01DataDt0Loaded)
+		truthRef01DataDt0LoadResult := core.ToMapAny(entityData(truthRef01DataDt0Loaded))
 		if truthRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}
@@ -116,21 +116,21 @@ func truthBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("TRUTHORDARE_TEST_TRUTH_ENTID")
+	entidEnvRaw := os.Getenv("TRUTH_OR_DARE_TEST_TRUTH_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"TRUTHORDARE_TEST_TRUTH_ENTID": idmap,
-		"TRUTHORDARE_TEST_LIVE":      "FALSE",
-		"TRUTHORDARE_TEST_EXPLAIN":   "FALSE",
+		"TRUTH_OR_DARE_TEST_TRUTH_ENTID": idmap,
+		"TRUTH_OR_DARE_TEST_LIVE":      "FALSE",
+		"TRUTH_OR_DARE_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["TRUTHORDARE_TEST_TRUTH_ENTID"])
+	idmapResolved := core.ToMapAny(env["TRUTH_OR_DARE_TEST_TRUTH_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["TRUTHORDARE_TEST_LIVE"] == "TRUE" {
+	if env["TRUTH_OR_DARE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -139,13 +139,13 @@ func truthBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewTruthOrDareSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
+	live := env["TRUTH_OR_DARE_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["TRUTHORDARE_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["TRUTH_OR_DARE_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

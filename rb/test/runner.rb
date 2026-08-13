@@ -23,8 +23,8 @@ module TruthOrDareTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("TRUTHORDARE_TEST_LIVE")
-    override = getenv("TRUTHORDARE_TEST_OVERRIDE")
+    live = getenv("TRUTH_OR_DARE_TEST_LIVE")
+    override = getenv("TRUTH_OR_DARE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module TruthOrDareTestRunner
       end
     end
 
-    explain = getenv("TRUTHORDARE_TEST_EXPLAIN")
-    m["TRUTHORDARE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("TRUTH_OR_DARE_TEST_EXPLAIN")
+    m["TRUTH_OR_DARE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

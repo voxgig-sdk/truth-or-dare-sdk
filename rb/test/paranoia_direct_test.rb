@@ -59,11 +59,11 @@ def paranoia_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "TRUTHORDARE_TEST_PARANOIA_ENTID" => {},
-    "TRUTHORDARE_TEST_LIVE" => "FALSE",
+    "TRUTH_OR_DARE_TEST_PARANOIA_ENTID" => {},
+    "TRUTH_OR_DARE_TEST_LIVE" => "FALSE",
   })
 
-  live = env["TRUTHORDARE_TEST_LIVE"] == "TRUE"
+  live = env["TRUTH_OR_DARE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

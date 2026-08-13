@@ -35,7 +35,7 @@ $client = new TruthOrDareSDK();
 
 ```php
 try {
-    // load() returns the bare Dare record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Dare record (throws on error).
     $dare = $client->Dare()->load(["id" => "example_id"]);
     print_r($dare);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = TruthOrDareSDK::test([
     "entity" => ["dare" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $dare = $client->Dare()->load(["id" => "test01"]);
 print_r($dare);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -339,7 +340,7 @@ Create an instance: `$dare = $client->Dare();`
 #### Example: Load
 
 ```php
-// load() returns the bare Dare record (throws on error).
+// load() returns the ENTITY — call data_get() for the Dare record (throws on error).
 $dare = $client->Dare()->load(["id" => "dare_id"]);
 ```
 
@@ -366,7 +367,7 @@ Create an instance: `$nhie = $client->Nhie();`
 #### Example: Load
 
 ```php
-// load() returns the bare Nhie record (throws on error).
+// load() returns the ENTITY — call data_get() for the Nhie record (throws on error).
 $nhie = $client->Nhie()->load(["id" => "nhie_id"]);
 ```
 
@@ -393,7 +394,7 @@ Create an instance: `$paranoia = $client->Paranoia();`
 #### Example: Load
 
 ```php
-// load() returns the bare Paranoia record (throws on error).
+// load() returns the ENTITY — call data_get() for the Paranoia record (throws on error).
 $paranoia = $client->Paranoia()->load(["id" => "paranoia_id"]);
 ```
 
@@ -420,7 +421,7 @@ Create an instance: `$truth = $client->Truth();`
 #### Example: Load
 
 ```php
-// load() returns the bare Truth record (throws on error).
+// load() returns the ENTITY — call data_get() for the Truth record (throws on error).
 $truth = $client->Truth()->load(["id" => "truth_id"]);
 ```
 
@@ -447,7 +448,7 @@ Create an instance: `$wyr = $client->Wyr();`
 #### Example: Load
 
 ```php
-// load() returns the bare Wyr record (throws on error).
+// load() returns the ENTITY — call data_get() for the Wyr record (throws on error).
 $wyr = $client->Wyr()->load(["id" => "wyr_id"]);
 ```
 

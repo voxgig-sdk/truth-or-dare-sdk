@@ -26,8 +26,8 @@ import {
 describe('WyrEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TRUTHORDARE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TRUTHORDARE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TRUTH_OR_DARE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TRUTH_OR_DARE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = TruthOrDareSDK.test()
@@ -63,7 +63,7 @@ describe('WyrEntity', async () => {
     const wyr_ref01_ent = client.Wyr()
     const wyr_ref01_match_dt0: any = {}
     wyr_ref01_match_dt0.id = wyr_ref01_data.id
-    const wyr_ref01_data_dt0 = await wyr_ref01_ent.load(wyr_ref01_match_dt0)
+    const wyr_ref01_data_dt0 = (await wyr_ref01_ent.load(wyr_ref01_match_dt0)).data()
     assert(wyr_ref01_data_dt0.id === wyr_ref01_data.id)
 
 

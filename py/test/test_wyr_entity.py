@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from truthordare_sdk.utility.voxgig_struct import voxgig_struct as vs
 from truthordare_sdk import TruthOrDareSDK
-from core import helpers
+from truthordare_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -36,7 +36,7 @@ class TestWyrEntity:
         # without an *_ENTID env override, those IDs hit the live API and 4xx.
         if setup.get("synthetic_only"):
             pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set TRUTHORDARE_TEST_WYR_ENTID JSON to run live")
+                        "set TRUTH_OR_DARE_TEST_WYR_ENTID JSON to run live")
         client = setup["client"]
 
         # Bootstrap entity data from existing test data.
@@ -52,7 +52,7 @@ class TestWyrEntity:
             "id": wyr_ref01_data["id"],
         }
         wyr_ref01_data_dt0_loaded = wyr_ref01_ent.load(wyr_ref01_match_dt0, None)
-        wyr_ref01_data_dt0_load_result = helpers.to_map(wyr_ref01_data_dt0_loaded)
+        wyr_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(wyr_ref01_data_dt0_loaded))
         assert wyr_ref01_data_dt0_load_result is not None
         assert wyr_ref01_data_dt0_load_result["id"] == wyr_ref01_data["id"]
 
@@ -87,21 +87,21 @@ def _wyr_basic_setup(extra):
     # mode is on without a real override, the basic test runs against synthetic
     # IDs from the fixture and 4xx's. We surface this so the test can skip.
     _entid_env_raw = os.environ.get(
-        "TRUTHORDARE_TEST_WYR_ENTID")
+        "TRUTH_OR_DARE_TEST_WYR_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
 
     env = runner.env_override({
-        "TRUTHORDARE_TEST_WYR_ENTID": idmap,
-        "TRUTHORDARE_TEST_LIVE": "FALSE",
-        "TRUTHORDARE_TEST_EXPLAIN": "FALSE",
+        "TRUTH_OR_DARE_TEST_WYR_ENTID": idmap,
+        "TRUTH_OR_DARE_TEST_LIVE": "FALSE",
+        "TRUTH_OR_DARE_TEST_EXPLAIN": "FALSE",
     })
 
     idmap_resolved = helpers.to_map(
-        env.get("TRUTHORDARE_TEST_WYR_ENTID"))
+        env.get("TRUTH_OR_DARE_TEST_WYR_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
 
-    if env.get("TRUTHORDARE_TEST_LIVE") == "TRUE":
+    if env.get("TRUTH_OR_DARE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
             },
@@ -109,13 +109,13 @@ def _wyr_basic_setup(extra):
         ])
         client = TruthOrDareSDK(helpers.to_map(merged_opts))
 
-    _live = env.get("TRUTHORDARE_TEST_LIVE") == "TRUE"
+    _live = env.get("TRUTH_OR_DARE_TEST_LIVE") == "TRUE"
     return {
         "client": client,
         "data": entity_data,
         "idmap": idmap_resolved,
         "env": env,
-        "explain": env.get("TRUTHORDARE_TEST_EXPLAIN") == "TRUE",
+        "explain": env.get("TRUTH_OR_DARE_TEST_EXPLAIN") == "TRUE",
         "live": _live,
         "synthetic_only": _live and not _idmap_overridden,
         "now": int(time.time() * 1000),
