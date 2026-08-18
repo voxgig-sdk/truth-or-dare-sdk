@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class TruthOrDareConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -35,32 +58,24 @@ class TruthOrDareConfig
         'dare' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'rating',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
           ],
           'name' => 'dare',
@@ -70,15 +85,12 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'rating',
                         'orig' => 'rating',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -98,10 +110,8 @@ class TruthOrDareConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -111,32 +121,24 @@ class TruthOrDareConfig
         'nhie' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'rating',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
           ],
           'name' => 'nhie',
@@ -146,15 +148,12 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'rating',
                         'orig' => 'rating',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -174,10 +173,8 @@ class TruthOrDareConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -187,32 +184,24 @@ class TruthOrDareConfig
         'paranoia' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'rating',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
           ],
           'name' => 'paranoia',
@@ -222,15 +211,12 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'rating',
                         'orig' => 'rating',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -250,10 +236,8 @@ class TruthOrDareConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -263,32 +247,24 @@ class TruthOrDareConfig
         'truth' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'rating',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
           ],
           'name' => 'truth',
@@ -298,15 +274,12 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'rating',
                         'orig' => 'rating',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -326,10 +299,8 @@ class TruthOrDareConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -339,32 +310,24 @@ class TruthOrDareConfig
         'wyr' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'rating',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
           ],
           'name' => 'wyr',
@@ -374,15 +337,12 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'rating',
                         'orig' => 'rating',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -402,10 +362,8 @@ class TruthOrDareConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [

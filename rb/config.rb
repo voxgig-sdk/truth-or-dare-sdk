@@ -1,6 +1,20 @@
 # TruthOrDare SDK configuration
 
 module TruthOrDareConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -30,32 +44,24 @@ module TruthOrDareConfig
         "dare" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "rating",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "dare",
@@ -65,15 +71,12 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "rating",
                         "orig" => "rating",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -93,10 +96,8 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -106,32 +107,24 @@ module TruthOrDareConfig
         "nhie" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "rating",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "nhie",
@@ -141,15 +134,12 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "rating",
                         "orig" => "rating",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -169,10 +159,8 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -182,32 +170,24 @@ module TruthOrDareConfig
         "paranoia" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "rating",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "paranoia",
@@ -217,15 +197,12 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "rating",
                         "orig" => "rating",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -245,10 +222,8 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -258,32 +233,24 @@ module TruthOrDareConfig
         "truth" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "rating",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "truth",
@@ -293,15 +260,12 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "rating",
                         "orig" => "rating",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -321,10 +285,8 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -334,32 +296,24 @@ module TruthOrDareConfig
         "wyr" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "question",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "rating",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "wyr",
@@ -369,15 +323,12 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "rating",
                         "orig" => "rating",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -397,10 +348,8 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

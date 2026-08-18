@@ -40,7 +40,7 @@ class TruthOrDareSDK
         $utility = new TruthOrDareUtility();
         $this->_utility = $utility;
 
-        $config = TruthOrDareConfig::make_config();
+        $config = TruthOrDareConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

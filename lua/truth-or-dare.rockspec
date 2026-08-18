@@ -23,6 +23,7 @@ build = {
   modules = {
     ["truth-or-dare_sdk"] = "truth-or-dare_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

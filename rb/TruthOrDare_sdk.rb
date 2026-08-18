@@ -28,7 +28,7 @@ class TruthOrDareSDK
     utility = TruthOrDareUtility.new
     @_utility = utility
 
-    config = TruthOrDareConfig.make_config
+    config = TruthOrDareConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

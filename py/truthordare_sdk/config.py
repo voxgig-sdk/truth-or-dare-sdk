@@ -1,7 +1,30 @@
 # TruthOrDare SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "TruthOrDare",
@@ -30,32 +53,24 @@ def make_config():
       "dare": {
         "fields": [
           {
-            "active": True,
             "name": "id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "rating",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "dare",
@@ -65,15 +80,12 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "rating",
                       "orig": "rating",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -93,10 +105,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -106,32 +116,24 @@ def make_config():
       "nhie": {
         "fields": [
           {
-            "active": True,
             "name": "id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "rating",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "nhie",
@@ -141,15 +143,12 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "rating",
                       "orig": "rating",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -169,10 +168,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -182,32 +179,24 @@ def make_config():
       "paranoia": {
         "fields": [
           {
-            "active": True,
             "name": "id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "rating",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "paranoia",
@@ -217,15 +206,12 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "rating",
                       "orig": "rating",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -245,10 +231,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -258,32 +242,24 @@ def make_config():
       "truth": {
         "fields": [
           {
-            "active": True,
             "name": "id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "rating",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "truth",
@@ -293,15 +269,12 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "rating",
                       "orig": "rating",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -321,10 +294,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -334,32 +305,24 @@ def make_config():
       "wyr": {
         "fields": [
           {
-            "active": True,
             "name": "id",
             "req": True,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "rating",
             "req": True,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "index$": 3,
           },
         ],
         "name": "wyr",
@@ -369,15 +332,12 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "rating",
                       "orig": "rating",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                   ],
@@ -397,10 +357,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
