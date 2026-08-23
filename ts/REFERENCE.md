@@ -164,10 +164,10 @@ const dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -217,10 +217,10 @@ const nhie = client.Nhie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -270,10 +270,10 @@ const paranoia = client.Paranoia()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -323,10 +323,10 @@ const truth = client.Truth()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -376,10 +376,10 @@ const wyr = client.Wyr()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "TruthOrDare",
+            "slug": "truth-or-dare",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -55,21 +58,25 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the question",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text",
             "type": "`$STRING`",
           },
           {
             "name": "rating",
             "req": True,
+            "short": "The rating of the question",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],
@@ -118,21 +125,25 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the question",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text",
             "type": "`$STRING`",
           },
           {
             "name": "rating",
             "req": True,
+            "short": "The rating of the question",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],
@@ -181,21 +192,25 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the question",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text",
             "type": "`$STRING`",
           },
           {
             "name": "rating",
             "req": True,
+            "short": "The rating of the question",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],
@@ -244,21 +259,25 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the question",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text",
             "type": "`$STRING`",
           },
           {
             "name": "rating",
             "req": True,
+            "short": "The rating of the question",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],
@@ -307,21 +326,25 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the question",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text",
             "type": "`$STRING`",
           },
           {
             "name": "rating",
             "req": True,
+            "short": "The rating of the question",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],

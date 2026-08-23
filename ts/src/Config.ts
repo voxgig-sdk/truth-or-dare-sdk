@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'TruthOrDare',
+        slug: "truth-or-dare",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -69,21 +80,25 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the question",
           "type": "`$STRING`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text",
           "type": "`$STRING`"
         },
         {
           "name": "rating",
           "req": true,
+          "short": "The rating of the question",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],
@@ -132,21 +147,25 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the question",
           "type": "`$STRING`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text",
           "type": "`$STRING`"
         },
         {
           "name": "rating",
           "req": true,
+          "short": "The rating of the question",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],
@@ -195,21 +214,25 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the question",
           "type": "`$STRING`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text",
           "type": "`$STRING`"
         },
         {
           "name": "rating",
           "req": true,
+          "short": "The rating of the question",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],
@@ -258,21 +281,25 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the question",
           "type": "`$STRING`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text",
           "type": "`$STRING`"
         },
         {
           "name": "rating",
           "req": true,
+          "short": "The rating of the question",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],
@@ -321,21 +348,25 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the question",
           "type": "`$STRING`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text",
           "type": "`$STRING`"
         },
         {
           "name": "rating",
           "req": true,
+          "short": "The rating of the question",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],

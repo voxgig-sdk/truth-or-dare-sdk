@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "TruthOrDare",
+			"slug": "truth-or-dare",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -38,21 +41,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
 						"req": true,
+						"short": "The rating of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},
@@ -101,21 +108,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
 						"req": true,
+						"short": "The rating of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},
@@ -164,21 +175,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
 						"req": true,
+						"short": "The rating of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},
@@ -227,21 +242,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
 						"req": true,
+						"short": "The rating of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},
@@ -290,21 +309,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
 						"req": true,
+						"short": "The rating of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},

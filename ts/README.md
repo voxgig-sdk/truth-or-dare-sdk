@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -289,10 +289,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: load.
 
@@ -302,10 +302,10 @@ API path: `/dare`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: load.
 
@@ -315,10 +315,10 @@ API path: `/nhie`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: load.
 
@@ -328,10 +328,10 @@ API path: `/paranoia`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: load.
 
@@ -341,10 +341,10 @@ API path: `/truth`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: load.
 
@@ -369,10 +369,10 @@ Create an instance: `const dare = client.Dare()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -395,10 +395,10 @@ Create an instance: `const nhie = client.Nhie()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -421,10 +421,10 @@ Create an instance: `const paranoia = client.Paranoia()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -447,10 +447,10 @@ Create an instance: `const truth = client.Truth()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -473,10 +473,10 @@ Create an instance: `const wyr = client.Wyr()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 

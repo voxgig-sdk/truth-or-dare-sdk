@@ -33,6 +33,9 @@ class TruthOrDareConfig
         return [
             "main" => [
                 "name" => "TruthOrDare",
+                "slug" => "truth-or-dare",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -60,21 +63,25 @@ class TruthOrDareConfig
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
               'req' => true,
+              'short' => 'The question text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
               'req' => true,
+              'short' => 'The rating of the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'The type of question',
               'type' => '`$STRING`',
             ],
           ],
@@ -123,21 +130,25 @@ class TruthOrDareConfig
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
               'req' => true,
+              'short' => 'The question text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
               'req' => true,
+              'short' => 'The rating of the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'The type of question',
               'type' => '`$STRING`',
             ],
           ],
@@ -186,21 +197,25 @@ class TruthOrDareConfig
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
               'req' => true,
+              'short' => 'The question text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
               'req' => true,
+              'short' => 'The rating of the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'The type of question',
               'type' => '`$STRING`',
             ],
           ],
@@ -249,21 +264,25 @@ class TruthOrDareConfig
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
               'req' => true,
+              'short' => 'The question text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
               'req' => true,
+              'short' => 'The rating of the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'The type of question',
               'type' => '`$STRING`',
             ],
           ],
@@ -312,21 +331,25 @@ class TruthOrDareConfig
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
               'req' => true,
+              'short' => 'The question text',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
               'req' => true,
+              'short' => 'The rating of the question',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'The type of question',
               'type' => '`$STRING`',
             ],
           ],

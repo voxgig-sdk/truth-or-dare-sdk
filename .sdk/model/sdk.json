@@ -36,24 +36,28 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": true,
+              "short": "The rating of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],
@@ -114,24 +118,28 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": true,
+              "short": "The rating of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],
@@ -192,24 +200,28 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": true,
+              "short": "The rating of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],
@@ -270,24 +282,28 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": true,
+              "short": "The rating of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],
@@ -348,24 +364,28 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rating",
               "req": true,
+              "short": "The rating of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],

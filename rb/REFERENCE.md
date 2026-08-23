@@ -109,10 +109,10 @@ dare = client.Dare
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
-| `rating` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `id` | `String` | Yes | Unique identifier for the question |
+| `question` | `String` | Yes | The question text |
+| `rating` | `String` | Yes | The rating of the question |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 
@@ -164,10 +164,10 @@ nhie = client.Nhie
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
-| `rating` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `id` | `String` | Yes | Unique identifier for the question |
+| `question` | `String` | Yes | The question text |
+| `rating` | `String` | Yes | The rating of the question |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 
@@ -219,10 +219,10 @@ paranoia = client.Paranoia
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
-| `rating` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `id` | `String` | Yes | Unique identifier for the question |
+| `question` | `String` | Yes | The question text |
+| `rating` | `String` | Yes | The rating of the question |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 
@@ -274,10 +274,10 @@ truth = client.Truth
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
-| `rating` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `id` | `String` | Yes | Unique identifier for the question |
+| `question` | `String` | Yes | The question text |
+| `rating` | `String` | Yes | The rating of the question |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 
@@ -329,10 +329,10 @@ wyr = client.Wyr
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
-| `rating` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `id` | `String` | Yes | Unique identifier for the question |
+| `question` | `String` | Yes | The question text |
+| `rating` | `String` | Yes | The rating of the question |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 

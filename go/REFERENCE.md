@@ -114,10 +114,10 @@ fmt.Println(dare.GetName()) // "dare"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -168,10 +168,10 @@ fmt.Println(nhie.GetName()) // "nhie"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -222,10 +222,10 @@ fmt.Println(paranoia.GetName()) // "paranoia"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -276,10 +276,10 @@ fmt.Println(truth.GetName()) // "truth"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -330,10 +330,10 @@ fmt.Println(wyr.GetName()) // "wyr"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 

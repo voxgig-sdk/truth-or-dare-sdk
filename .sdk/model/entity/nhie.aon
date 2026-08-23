@@ -1,0 +1,77 @@
+# Entity: nhie
+
+main: kit: entity: nhie: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "id"
+      req: true
+      short: "Unique identifier for the question"
+      type: "`$STRING`"
+    }
+    {
+      name: "question"
+      req: true
+      short: "The question text"
+      type: "`$STRING`"
+    }
+    {
+      name: "rating"
+      req: true
+      short: "The rating of the question"
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: true
+      short: "The type of question"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "nhie"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "rating"
+                orig: "rating"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/nhie"
+          parts: [
+            "nhie"
+          ]
+          select: {
+            exist: [
+              "rating"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

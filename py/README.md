@@ -245,10 +245,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: Load.
 
@@ -258,10 +258,10 @@ API path: `/dare`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: Load.
 
@@ -271,10 +271,10 @@ API path: `/nhie`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: Load.
 
@@ -284,10 +284,10 @@ API path: `/paranoia`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: Load.
 
@@ -297,10 +297,10 @@ API path: `/truth`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `question` |  |
-| `rating` |  |
-| `type` |  |
+| `id` | Unique identifier for the question |
+| `question` | The question text |
+| `rating` | The rating of the question |
+| `type` | The type of question |
 
 Operations: Load.
 
@@ -325,10 +325,10 @@ Create an instance: `dare = client.Dare()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `question` | `str` |  |
-| `rating` | `str` |  |
-| `type` | `str` |  |
+| `id` | `str` | Unique identifier for the question |
+| `question` | `str` | The question text |
+| `rating` | `str` | The rating of the question |
+| `type` | `str` | The type of question |
 
 #### Example: Load
 
@@ -351,10 +351,10 @@ Create an instance: `nhie = client.Nhie()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `question` | `str` |  |
-| `rating` | `str` |  |
-| `type` | `str` |  |
+| `id` | `str` | Unique identifier for the question |
+| `question` | `str` | The question text |
+| `rating` | `str` | The rating of the question |
+| `type` | `str` | The type of question |
 
 #### Example: Load
 
@@ -377,10 +377,10 @@ Create an instance: `paranoia = client.Paranoia()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `question` | `str` |  |
-| `rating` | `str` |  |
-| `type` | `str` |  |
+| `id` | `str` | Unique identifier for the question |
+| `question` | `str` | The question text |
+| `rating` | `str` | The rating of the question |
+| `type` | `str` | The type of question |
 
 #### Example: Load
 
@@ -403,10 +403,10 @@ Create an instance: `truth = client.Truth()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `question` | `str` |  |
-| `rating` | `str` |  |
-| `type` | `str` |  |
+| `id` | `str` | Unique identifier for the question |
+| `question` | `str` | The question text |
+| `rating` | `str` | The rating of the question |
+| `type` | `str` | The type of question |
 
 #### Example: Load
 
@@ -429,10 +429,10 @@ Create an instance: `wyr = client.Wyr()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `str` |  |
-| `question` | `str` |  |
-| `rating` | `str` |  |
-| `type` | `str` |  |
+| `id` | `str` | Unique identifier for the question |
+| `question` | `str` | The question text |
+| `rating` | `str` | The rating of the question |
+| `type` | `str` | The type of question |
 
 #### Example: Load
 

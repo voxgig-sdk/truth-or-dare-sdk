@@ -108,10 +108,10 @@ $dare = $client->Dare();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -163,10 +163,10 @@ $nhie = $client->Nhie();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -218,10 +218,10 @@ $paranoia = $client->Paranoia();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -273,10 +273,10 @@ $truth = $client->Truth();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -328,10 +328,10 @@ $wyr = $client->Wyr();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 

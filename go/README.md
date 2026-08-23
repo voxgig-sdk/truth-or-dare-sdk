@@ -6,7 +6,7 @@ The Golang SDK for the TruthOrDare API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Dare(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -262,10 +262,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"question"` |  |
-| `"rating"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the question |
+| `"question"` | The question text |
+| `"rating"` | The rating of the question |
+| `"type"` | The type of question |
 
 Operations: Load.
 
@@ -275,10 +275,10 @@ API path: `/dare`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"question"` |  |
-| `"rating"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the question |
+| `"question"` | The question text |
+| `"rating"` | The rating of the question |
+| `"type"` | The type of question |
 
 Operations: Load.
 
@@ -288,10 +288,10 @@ API path: `/nhie`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"question"` |  |
-| `"rating"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the question |
+| `"question"` | The question text |
+| `"rating"` | The rating of the question |
+| `"type"` | The type of question |
 
 Operations: Load.
 
@@ -301,10 +301,10 @@ API path: `/paranoia`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"question"` |  |
-| `"rating"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the question |
+| `"question"` | The question text |
+| `"rating"` | The rating of the question |
+| `"type"` | The type of question |
 
 Operations: Load.
 
@@ -314,10 +314,10 @@ API path: `/truth`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"question"` |  |
-| `"rating"` |  |
-| `"type"` |  |
+| `"id"` | Unique identifier for the question |
+| `"question"` | The question text |
+| `"rating"` | The rating of the question |
+| `"type"` | The type of question |
 
 Operations: Load.
 
@@ -342,10 +342,10 @@ Create an instance: `dare := client.Dare(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -372,10 +372,10 @@ Create an instance: `nhie := client.Nhie(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -402,10 +402,10 @@ Create an instance: `paranoia := client.Paranoia(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -432,10 +432,10 @@ Create an instance: `truth := client.Truth(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 
@@ -462,10 +462,10 @@ Create an instance: `wyr := client.Wyr(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `string` |  |
-| `question` | `string` |  |
-| `rating` | `string` |  |
-| `type` | `string` |  |
+| `id` | `string` | Unique identifier for the question |
+| `question` | `string` | The question text |
+| `rating` | `string` | The rating of the question |
+| `type` | `string` | The type of question |
 
 #### Example: Load
 

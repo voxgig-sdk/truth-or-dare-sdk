@@ -106,10 +106,10 @@ local dare = client:Dare(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -161,10 +161,10 @@ local nhie = client:Nhie(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -216,10 +216,10 @@ local paranoia = client:Paranoia(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -271,10 +271,10 @@ local truth = client:Truth(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -326,10 +326,10 @@ local wyr = client:Wyr(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
-| `rating` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `id` | `string` | Yes | Unique identifier for the question |
+| `question` | `string` | Yes | The question text |
+| `rating` | `string` | Yes | The rating of the question |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 

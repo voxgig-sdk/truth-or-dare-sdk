@@ -103,10 +103,10 @@ dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
-| `rating` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `id` | `str` | Yes | Unique identifier for the question |
+| `question` | `str` | Yes | The question text |
+| `rating` | `str` | Yes | The rating of the question |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
@@ -157,10 +157,10 @@ nhie = client.Nhie()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
-| `rating` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `id` | `str` | Yes | Unique identifier for the question |
+| `question` | `str` | Yes | The question text |
+| `rating` | `str` | Yes | The rating of the question |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
@@ -211,10 +211,10 @@ paranoia = client.Paranoia()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
-| `rating` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `id` | `str` | Yes | Unique identifier for the question |
+| `question` | `str` | Yes | The question text |
+| `rating` | `str` | Yes | The rating of the question |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
@@ -265,10 +265,10 @@ truth = client.Truth()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
-| `rating` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `id` | `str` | Yes | Unique identifier for the question |
+| `question` | `str` | Yes | The question text |
+| `rating` | `str` | Yes | The rating of the question |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
@@ -319,10 +319,10 @@ wyr = client.Wyr()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
-| `rating` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `id` | `str` | Yes | Unique identifier for the question |
+| `question` | `str` | Yes | The question text |
+| `rating` | `str` | Yes | The rating of the question |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
