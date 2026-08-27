@@ -42,6 +42,7 @@ class TruthOrDareConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
