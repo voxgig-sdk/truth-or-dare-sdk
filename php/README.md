@@ -36,7 +36,7 @@ $client = new TruthOrDareSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Dare record (throws on error).
-    $dare = $client->Dare()->load(["id" => "example_id"]);
+    $dare = $client->Dare()->load();
     print_r($dare);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $dare = $client->Dare()->load(["id" => "example_id"]);
+    $dare = $client->Dare()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -118,17 +118,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = TruthOrDareSDK::test([
-    "entity" => ["dare" => ["test01" => ["id" => "test01"]]],
-]);
+$client = TruthOrDareSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$dare = $client->Dare()->load(["id" => "test01"]);
+$dare = $client->Dare()->load();
 print_r($dare);
 ```
 
@@ -341,7 +338,7 @@ Create an instance: `$dare = $client->Dare();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Dare record (throws on error).
-$dare = $client->Dare()->load(["id" => "dare_id"]);
+$dare = $client->Dare()->load();
 ```
 
 
@@ -368,7 +365,7 @@ Create an instance: `$nhie = $client->Nhie();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Nhie record (throws on error).
-$nhie = $client->Nhie()->load(["id" => "nhie_id"]);
+$nhie = $client->Nhie()->load();
 ```
 
 
@@ -395,7 +392,7 @@ Create an instance: `$paranoia = $client->Paranoia();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Paranoia record (throws on error).
-$paranoia = $client->Paranoia()->load(["id" => "paranoia_id"]);
+$paranoia = $client->Paranoia()->load();
 ```
 
 
@@ -422,7 +419,7 @@ Create an instance: `$truth = $client->Truth();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Truth record (throws on error).
-$truth = $client->Truth()->load(["id" => "truth_id"]);
+$truth = $client->Truth()->load();
 ```
 
 
@@ -449,8 +446,31 @@ Create an instance: `$wyr = $client->Wyr();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Wyr record (throws on error).
-$wyr = $client->Wyr()->load(["id" => "wyr_id"]);
+$wyr = $client->Wyr()->load();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -530,7 +550,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $dare = $client->Dare();
-$dare->load(["id" => "example_id"]);
+$dare->load();
 
 // $dare->data_get() now returns the dare data from the last load
 // $dare->match_get() returns the last match criteria

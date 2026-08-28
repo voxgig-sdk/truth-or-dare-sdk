@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single dare — the value is the loaded record.
-    dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
+    dare, err := client.Dare(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
+dare, err := client.Dare(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 dare, err := client.Dare(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 if err != nil {
     panic(err)
@@ -249,7 +249,7 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    dare, err := client.Dare(nil).Load(map[string]any{"id": "example_id"}, nil)
+    dare, err := client.Dare(nil).Load(nil, nil)
     if err != nil { /* handle */ }
     // dare is the returned record
 
@@ -350,7 +350,7 @@ Create an instance: `dare := client.Dare(nil)`
 #### Example: Load
 
 ```go
-dare, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+dare, err := client.Dare(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -380,7 +380,7 @@ Create an instance: `nhie := client.Nhie(nil)`
 #### Example: Load
 
 ```go
-nhie, err := client.Nhie(nil).Load(map[string]any{"id": "nhie_id"}, nil)
+nhie, err := client.Nhie(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -410,7 +410,7 @@ Create an instance: `paranoia := client.Paranoia(nil)`
 #### Example: Load
 
 ```go
-paranoia, err := client.Paranoia(nil).Load(map[string]any{"id": "paranoia_id"}, nil)
+paranoia, err := client.Paranoia(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -440,7 +440,7 @@ Create an instance: `truth := client.Truth(nil)`
 #### Example: Load
 
 ```go
-truth, err := client.Truth(nil).Load(map[string]any{"id": "truth_id"}, nil)
+truth, err := client.Truth(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -470,12 +470,35 @@ Create an instance: `wyr := client.Wyr(nil)`
 #### Example: Load
 
 ```go
-wyr, err := client.Wyr(nil).Load(map[string]any{"id": "wyr_id"}, nil)
+wyr, err := client.Wyr(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(wyr) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -552,7 +575,7 @@ stores the returned data and match criteria internally.
 
 ```go
 dare := client.Dare(nil)
-dare.Load(map[string]any{"id": "example_id"}, nil)
+dare.Load(nil, nil)
 
 // dare.Data() now returns the dare data from the last load
 // dare.Match() returns the last match criteria

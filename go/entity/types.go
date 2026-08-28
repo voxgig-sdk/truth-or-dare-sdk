@@ -22,10 +22,7 @@ type Dare struct {
 
 // DareLoadMatch is the typed request payload for Dare.LoadTyped.
 type DareLoadMatch struct {
-	Id string `json:"id"`
-	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // Nhie is the typed data model for the nhie entity.
@@ -38,10 +35,7 @@ type Nhie struct {
 
 // NhieLoadMatch is the typed request payload for Nhie.LoadTyped.
 type NhieLoadMatch struct {
-	Id string `json:"id"`
-	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // Paranoia is the typed data model for the paranoia entity.
@@ -54,10 +48,7 @@ type Paranoia struct {
 
 // ParanoiaLoadMatch is the typed request payload for Paranoia.LoadTyped.
 type ParanoiaLoadMatch struct {
-	Id string `json:"id"`
-	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // Truth is the typed data model for the truth entity.
@@ -70,10 +61,7 @@ type Truth struct {
 
 // TruthLoadMatch is the typed request payload for Truth.LoadTyped.
 type TruthLoadMatch struct {
-	Id string `json:"id"`
-	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // Wyr is the typed data model for the wyr entity.
@@ -86,10 +74,7 @@ type Wyr struct {
 
 // WyrLoadMatch is the typed request payload for Wyr.LoadTyped.
 type WyrLoadMatch struct {
-	Id string `json:"id"`
-	Question *string `json:"question,omitempty"`
 	Rating *string `json:"rating,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

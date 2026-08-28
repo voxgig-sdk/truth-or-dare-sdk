@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a dare
 
 ```lua
-local dare, err = client:Dare():load({ id = "example_id" })
+local dare, err = client:Dare():load()
 if err then error(err) end
 print(dare)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local dare, err = client:Dare():load({ id = "example_id" })
+local dare, err = client:Dare():load()
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Dare():load({ id = "test01" })
+local result, err = client:Dare():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -216,7 +216,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local dare, err = client:Dare():load({ id = "example_id" })
+    local dare, err = client:Dare():load()
     if err then error(err) end
     -- dare is the loaded record
 
@@ -317,7 +317,7 @@ Create an instance: `local dare = client:Dare(nil)`
 #### Example: Load
 
 ```lua
-local dare, err = client:Dare():load({ id = "dare_id" })
+local dare, err = client:Dare():load()
 ```
 
 
@@ -343,7 +343,7 @@ Create an instance: `local nhie = client:Nhie(nil)`
 #### Example: Load
 
 ```lua
-local nhie, err = client:Nhie():load({ id = "nhie_id" })
+local nhie, err = client:Nhie():load()
 ```
 
 
@@ -369,7 +369,7 @@ Create an instance: `local paranoia = client:Paranoia(nil)`
 #### Example: Load
 
 ```lua
-local paranoia, err = client:Paranoia():load({ id = "paranoia_id" })
+local paranoia, err = client:Paranoia():load()
 ```
 
 
@@ -395,7 +395,7 @@ Create an instance: `local truth = client:Truth(nil)`
 #### Example: Load
 
 ```lua
-local truth, err = client:Truth():load({ id = "truth_id" })
+local truth, err = client:Truth():load()
 ```
 
 
@@ -421,8 +421,31 @@ Create an instance: `local wyr = client:Wyr(nil)`
 #### Example: Load
 
 ```lua
-local wyr, err = client:Wyr():load({ id = "wyr_id" })
+local wyr, err = client:Wyr():load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -502,7 +525,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local dare = client:Dare()
-dare:load({ id = "example_id" })
+dare:load()
 
 -- dare:data_get() now returns the dare data from the last load
 -- dare:match_get() returns the last match criteria

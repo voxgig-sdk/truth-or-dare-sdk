@@ -13,10 +13,7 @@
 ---@field type string
 
 ---@class DareLoadMatch
----@field id string
----@field question? string
 ---@field rating? string
----@field type? string
 
 ---@class Nhie
 ---@field id string
@@ -25,10 +22,7 @@
 ---@field type string
 
 ---@class NhieLoadMatch
----@field id string
----@field question? string
 ---@field rating? string
----@field type? string
 
 ---@class Paranoia
 ---@field id string
@@ -37,10 +31,7 @@
 ---@field type string
 
 ---@class ParanoiaLoadMatch
----@field id string
----@field question? string
 ---@field rating? string
----@field type? string
 
 ---@class Truth
 ---@field id string
@@ -49,10 +40,7 @@
 ---@field type string
 
 ---@class TruthLoadMatch
----@field id string
----@field question? string
 ---@field rating? string
----@field type? string
 
 ---@class Wyr
 ---@field id string
@@ -61,10 +49,7 @@
 ---@field type string
 
 ---@class WyrLoadMatch
----@field id string
----@field question? string
 ---@field rating? string
----@field type? string
 
 local M = {}
 

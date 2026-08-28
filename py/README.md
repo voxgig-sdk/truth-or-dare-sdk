@@ -42,7 +42,7 @@ client = TruthOrDareSDK()
 
 ```python
 try:
-    dare = client.Dare().load({"id": "example_id"})
+    dare = client.Dare().load()
     print(dare)
 except Exception as err:
     print(f"load failed: {err}")
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    dare = client.Dare().load({"id": "example_id"})
+    dare = client.Dare().load()
     print(dare)
 except Exception as err:
     print(f"load failed: {err}")
@@ -124,7 +124,7 @@ client = TruthOrDareSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-dare = client.Dare().load({"id": "test01"})
+dare = client.Dare().load()
 # dare contains the mock response record
 ```
 
@@ -333,7 +333,7 @@ Create an instance: `dare = client.Dare()`
 #### Example: Load
 
 ```python
-dare = client.Dare().load({"id": "dare_id"})
+dare = client.Dare().load()
 ```
 
 
@@ -359,7 +359,7 @@ Create an instance: `nhie = client.Nhie()`
 #### Example: Load
 
 ```python
-nhie = client.Nhie().load({"id": "nhie_id"})
+nhie = client.Nhie().load()
 ```
 
 
@@ -385,7 +385,7 @@ Create an instance: `paranoia = client.Paranoia()`
 #### Example: Load
 
 ```python
-paranoia = client.Paranoia().load({"id": "paranoia_id"})
+paranoia = client.Paranoia().load()
 ```
 
 
@@ -411,7 +411,7 @@ Create an instance: `truth = client.Truth()`
 #### Example: Load
 
 ```python
-truth = client.Truth().load({"id": "truth_id"})
+truth = client.Truth().load()
 ```
 
 
@@ -437,8 +437,31 @@ Create an instance: `wyr = client.Wyr()`
 #### Example: Load
 
 ```python
-wyr = client.Wyr().load({"id": "wyr_id"})
+wyr = client.Wyr().load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -517,7 +540,7 @@ stores the returned data and match criteria internally.
 
 ```python
 dare = client.Dare()
-dare.load({"id": "example_id"})
+dare.load()
 
 # dare.data_get() now returns the dare data from the last load
 # dare.match_get() returns the last match criteria

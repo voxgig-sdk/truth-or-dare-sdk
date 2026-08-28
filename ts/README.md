@@ -39,7 +39,7 @@ const client = new TruthOrDareSDK()
 
 ```ts
 try {
-  const dare = await client.Dare().load({ id: 'example_id' })
+  const dare = await client.Dare().load()
   console.log(dare)
 } catch (err) {
   console.error('load failed:', err)
@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const dare = await client.Dare().load({ id: "example_id" })
+  const dare = await client.Dare().load()
   console.log(dare)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TruthOrDareSDK.test()
 
-const dare = await client.Dare().load({ id: 'test01' })
+const dare = await client.Dare().load()
 // dare is the entity, populated with mock response data
 // — call dare.data() for the record itself
 console.log(dare)
@@ -141,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.Dare()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -377,7 +377,7 @@ Create an instance: `const dare = client.Dare()`
 #### Example: Load
 
 ```ts
-const dare = await client.Dare().load({ id: 'dare_id' })
+const dare = await client.Dare().load()
 ```
 
 
@@ -403,7 +403,7 @@ Create an instance: `const nhie = client.Nhie()`
 #### Example: Load
 
 ```ts
-const nhie = await client.Nhie().load({ id: 'nhie_id' })
+const nhie = await client.Nhie().load()
 ```
 
 
@@ -429,7 +429,7 @@ Create an instance: `const paranoia = client.Paranoia()`
 #### Example: Load
 
 ```ts
-const paranoia = await client.Paranoia().load({ id: 'paranoia_id' })
+const paranoia = await client.Paranoia().load()
 ```
 
 
@@ -455,7 +455,7 @@ Create an instance: `const truth = client.Truth()`
 #### Example: Load
 
 ```ts
-const truth = await client.Truth().load({ id: 'truth_id' })
+const truth = await client.Truth().load()
 ```
 
 
@@ -481,8 +481,31 @@ Create an instance: `const wyr = client.Wyr()`
 #### Example: Load
 
 ```ts
-const wyr = await client.Wyr().load({ id: 'wyr_id' })
+const wyr = await client.Wyr().load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -555,10 +578,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const dare = client.Dare()
-await dare.load({ id: "example_id" })
+await dare.load()
 
 // dare.data() now returns the dare data from the last `load`
-// dare.match() returns { id: "example_id" }
+// dare.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -24,10 +24,7 @@ class Dare
 /** Request payload for Dare#load. */
 class DareLoadMatch
 {
-    public string $id;
-    public ?string $question = null;
     public ?string $rating = null;
-    public ?string $type = null;
 }
 
 /** Nhie entity data model. */
@@ -42,10 +39,7 @@ class Nhie
 /** Request payload for Nhie#load. */
 class NhieLoadMatch
 {
-    public string $id;
-    public ?string $question = null;
     public ?string $rating = null;
-    public ?string $type = null;
 }
 
 /** Paranoia entity data model. */
@@ -60,10 +54,7 @@ class Paranoia
 /** Request payload for Paranoia#load. */
 class ParanoiaLoadMatch
 {
-    public string $id;
-    public ?string $question = null;
     public ?string $rating = null;
-    public ?string $type = null;
 }
 
 /** Truth entity data model. */
@@ -78,10 +69,7 @@ class Truth
 /** Request payload for Truth#load. */
 class TruthLoadMatch
 {
-    public string $id;
-    public ?string $question = null;
     public ?string $rating = null;
-    public ?string $type = null;
 }
 
 /** Wyr entity data model. */
@@ -96,9 +84,6 @@ class Wyr
 /** Request payload for Wyr#load. */
 class WyrLoadMatch
 {
-    public string $id;
-    public ?string $question = null;
     public ?string $rating = null;
-    public ?string $type = null;
 }
 

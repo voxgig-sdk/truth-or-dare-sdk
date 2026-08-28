@@ -31,22 +31,10 @@ Dare = Struct.new(
 
 # Request payload for Dare#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] question
-#   @return [String, nil]
-#
 # @!attribute [rw] rating
 #   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 DareLoadMatch = Struct.new(
-  :id,
-  :question,
   :rating,
-  :type,
   keyword_init: true
 )
 
@@ -73,22 +61,10 @@ Nhie = Struct.new(
 
 # Request payload for Nhie#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] question
-#   @return [String, nil]
-#
 # @!attribute [rw] rating
 #   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 NhieLoadMatch = Struct.new(
-  :id,
-  :question,
   :rating,
-  :type,
   keyword_init: true
 )
 
@@ -115,22 +91,10 @@ Paranoia = Struct.new(
 
 # Request payload for Paranoia#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] question
-#   @return [String, nil]
-#
 # @!attribute [rw] rating
 #   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 ParanoiaLoadMatch = Struct.new(
-  :id,
-  :question,
   :rating,
-  :type,
   keyword_init: true
 )
 
@@ -157,22 +121,10 @@ Truth = Struct.new(
 
 # Request payload for Truth#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] question
-#   @return [String, nil]
-#
 # @!attribute [rw] rating
 #   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 TruthLoadMatch = Struct.new(
-  :id,
-  :question,
   :rating,
-  :type,
   keyword_init: true
 )
 
@@ -199,22 +151,10 @@ Wyr = Struct.new(
 
 # Request payload for Wyr#load.
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] question
-#   @return [String, nil]
-#
 # @!attribute [rw] rating
 #   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
 WyrLoadMatch = Struct.new(
-  :id,
-  :question,
   :rating,
-  :type,
   keyword_init: true
 )
 

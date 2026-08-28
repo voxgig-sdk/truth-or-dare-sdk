@@ -13,10 +13,7 @@ export interface Dare {
 }
 
 export interface DareLoadMatch {
-  id: string
-  question?: string
   rating?: string
-  type?: string
 }
 
 export interface Nhie {
@@ -27,10 +24,7 @@ export interface Nhie {
 }
 
 export interface NhieLoadMatch {
-  id: string
-  question?: string
   rating?: string
-  type?: string
 }
 
 export interface Paranoia {
@@ -41,10 +35,7 @@ export interface Paranoia {
 }
 
 export interface ParanoiaLoadMatch {
-  id: string
-  question?: string
   rating?: string
-  type?: string
 }
 
 export interface Truth {
@@ -55,10 +46,7 @@ export interface Truth {
 }
 
 export interface TruthLoadMatch {
-  id: string
-  question?: string
   rating?: string
-  type?: string
 }
 
 export interface Wyr {
@@ -69,9 +57,6 @@ export interface Wyr {
 }
 
 export interface WyrLoadMatch {
-  id: string
-  question?: string
   rating?: string
-  type?: string
 }
 
