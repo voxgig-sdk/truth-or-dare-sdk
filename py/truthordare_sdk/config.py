@@ -1,6 +1,14 @@
 # TruthOrDare SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -81,6 +89,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "dare",
         "op": {
           "load": {
@@ -101,8 +113,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/dare",
-                "parts": [
-                  "dare",
+                "segments": [
+                  {
+                    "lit": "dare",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -113,6 +127,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "dare",
+                ],
               },
             ],
           },
@@ -148,6 +165,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "nhie",
         "op": {
           "load": {
@@ -168,8 +189,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/nhie",
-                "parts": [
-                  "nhie",
+                "segments": [
+                  {
+                    "lit": "nhie",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -180,6 +203,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "nhie",
+                ],
               },
             ],
           },
@@ -215,6 +241,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "paranoia",
         "op": {
           "load": {
@@ -235,8 +265,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/paranoia",
-                "parts": [
-                  "paranoia",
+                "segments": [
+                  {
+                    "lit": "paranoia",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -247,6 +279,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "paranoia",
+                ],
               },
             ],
           },
@@ -282,6 +317,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "truth",
         "op": {
           "load": {
@@ -302,8 +341,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/truth",
-                "parts": [
-                  "truth",
+                "segments": [
+                  {
+                    "lit": "truth",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -314,6 +355,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "truth",
+                ],
               },
             ],
           },
@@ -349,6 +393,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "wyr",
         "op": {
           "load": {
@@ -369,8 +417,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/wyr",
-                "parts": [
-                  "wyr",
+                "segments": [
+                  {
+                    "lit": "wyr",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -381,6 +431,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "wyr",
+                ],
               },
             ],
           },

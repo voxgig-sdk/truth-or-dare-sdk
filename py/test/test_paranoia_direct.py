@@ -63,8 +63,11 @@ def _paranoia_direct_setup(mockres):
     live = env.get("TRUTH_OR_DARE_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
-        }
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
+        })
         client = TruthOrDareSDK(merged_opts)
         return {
             "client": client,

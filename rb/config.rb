@@ -72,6 +72,10 @@ module TruthOrDareConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "dare",
           "op" => {
             "load" => {
@@ -92,8 +96,10 @@ module TruthOrDareConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dare",
-                  "parts" => [
-                    "dare",
+                  "segments" => [
+                    {
+                      "lit" => "dare",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -104,6 +110,9 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "dare",
+                  ],
                 },
               ],
             },
@@ -139,6 +148,10 @@ module TruthOrDareConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "nhie",
           "op" => {
             "load" => {
@@ -159,8 +172,10 @@ module TruthOrDareConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/nhie",
-                  "parts" => [
-                    "nhie",
+                  "segments" => [
+                    {
+                      "lit" => "nhie",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -171,6 +186,9 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "nhie",
+                  ],
                 },
               ],
             },
@@ -206,6 +224,10 @@ module TruthOrDareConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "paranoia",
           "op" => {
             "load" => {
@@ -226,8 +248,10 @@ module TruthOrDareConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/paranoia",
-                  "parts" => [
-                    "paranoia",
+                  "segments" => [
+                    {
+                      "lit" => "paranoia",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -238,6 +262,9 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "paranoia",
+                  ],
                 },
               ],
             },
@@ -273,6 +300,10 @@ module TruthOrDareConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "truth",
           "op" => {
             "load" => {
@@ -293,8 +324,10 @@ module TruthOrDareConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/truth",
-                  "parts" => [
-                    "truth",
+                  "segments" => [
+                    {
+                      "lit" => "truth",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -305,6 +338,9 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "truth",
+                  ],
                 },
               ],
             },
@@ -340,6 +376,10 @@ module TruthOrDareConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "wyr",
           "op" => {
             "load" => {
@@ -360,8 +400,10 @@ module TruthOrDareConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wyr",
-                  "parts" => [
-                    "wyr",
+                  "segments" => [
+                    {
+                      "lit" => "wyr",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -372,6 +414,9 @@ module TruthOrDareConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wyr",
+                  ],
                 },
               ],
             },

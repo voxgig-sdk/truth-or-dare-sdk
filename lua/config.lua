@@ -60,6 +60,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "dare",
         ["op"] = {
           ["load"] = {
@@ -80,8 +84,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dare",
-                ["parts"] = {
-                  "dare",
+                ["segments"] = {
+                  {
+                    ["lit"] = "dare",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -91,6 +97,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "dare",
                 },
               },
             },
@@ -127,6 +136,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "nhie",
         ["op"] = {
           ["load"] = {
@@ -147,8 +160,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/nhie",
-                ["parts"] = {
-                  "nhie",
+                ["segments"] = {
+                  {
+                    ["lit"] = "nhie",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -158,6 +173,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "nhie",
                 },
               },
             },
@@ -194,6 +212,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "paranoia",
         ["op"] = {
           ["load"] = {
@@ -214,8 +236,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/paranoia",
-                ["parts"] = {
-                  "paranoia",
+                ["segments"] = {
+                  {
+                    ["lit"] = "paranoia",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -225,6 +249,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "paranoia",
                 },
               },
             },
@@ -261,6 +288,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "truth",
         ["op"] = {
           ["load"] = {
@@ -281,8 +312,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/truth",
-                ["parts"] = {
-                  "truth",
+                ["segments"] = {
+                  {
+                    ["lit"] = "truth",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -292,6 +325,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "truth",
                 },
               },
             },
@@ -328,6 +364,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "wyr",
         ["op"] = {
           ["load"] = {
@@ -348,8 +388,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wyr",
-                ["parts"] = {
-                  "wyr",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wyr",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -359,6 +401,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wyr",
                 },
               },
             },

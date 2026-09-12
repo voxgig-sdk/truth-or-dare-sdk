@@ -55,8 +55,10 @@ main: kit: entity: paranoia: {
           }
           method: "GET"
           orig: "/paranoia"
-          parts: [
-            "paranoia"
+          segments: [
+            {
+              lit: "paranoia"
+            }
           ]
           select: {
             exist: [

@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -103,6 +114,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "dare",
       "op": {
         "load": {
@@ -123,8 +138,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/dare",
-              "parts": [
-                "dare"
+              "segments": [
+                {
+                  "lit": "dare"
+                }
               ],
               "select": {
                 "exist": [
@@ -134,7 +151,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "dare"
+              ]
             }
           ]
         }
@@ -170,6 +190,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "nhie",
       "op": {
         "load": {
@@ -190,8 +214,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/nhie",
-              "parts": [
-                "nhie"
+              "segments": [
+                {
+                  "lit": "nhie"
+                }
               ],
               "select": {
                 "exist": [
@@ -201,7 +227,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "nhie"
+              ]
             }
           ]
         }
@@ -237,6 +266,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "paranoia",
       "op": {
         "load": {
@@ -257,8 +290,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/paranoia",
-              "parts": [
-                "paranoia"
+              "segments": [
+                {
+                  "lit": "paranoia"
+                }
               ],
               "select": {
                 "exist": [
@@ -268,7 +303,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "paranoia"
+              ]
             }
           ]
         }
@@ -304,6 +342,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "truth",
       "op": {
         "load": {
@@ -324,8 +366,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/truth",
-              "parts": [
-                "truth"
+              "segments": [
+                {
+                  "lit": "truth"
+                }
               ],
               "select": {
                 "exist": [
@@ -335,7 +379,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "truth"
+              ]
             }
           ]
         }
@@ -371,6 +418,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "wyr",
       "op": {
         "load": {
@@ -391,8 +442,10 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/wyr",
-              "parts": [
-                "wyr"
+              "segments": [
+                {
+                  "lit": "wyr"
+                }
               ],
               "select": {
                 "exist": [
@@ -402,7 +455,10 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "wyr"
+              ]
             }
           ]
         }
@@ -418,6 +474,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

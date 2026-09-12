@@ -55,8 +55,10 @@ main: kit: entity: truth: {
           }
           method: "GET"
           orig: "/truth"
-          parts: [
-            "truth"
+          segments: [
+            {
+              lit: "truth"
+            }
           ]
           select: {
             exist: [

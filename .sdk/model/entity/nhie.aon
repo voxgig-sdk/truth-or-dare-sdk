@@ -55,8 +55,10 @@ main: kit: entity: nhie: {
           }
           method: "GET"
           orig: "/nhie"
-          parts: [
-            "nhie"
+          segments: [
+            {
+              lit: "nhie"
+            }
           ]
           select: {
             exist: [

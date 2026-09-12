@@ -55,8 +55,10 @@ main: kit: entity: wyr: {
           }
           method: "GET"
           orig: "/wyr"
-          parts: [
-            "wyr"
+          segments: [
+            {
+              lit: "wyr"
+            }
           ]
           select: {
             exist: [

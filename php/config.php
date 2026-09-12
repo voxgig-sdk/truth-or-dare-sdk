@@ -86,6 +86,10 @@ class TruthOrDareConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'dare',
           'op' => [
             'load' => [
@@ -106,8 +110,10 @@ class TruthOrDareConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/dare',
-                  'parts' => [
-                    'dare',
+                  'segments' => [
+                    [
+                      'lit' => 'dare',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -117,6 +123,9 @@ class TruthOrDareConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'dare',
                   ],
                 ],
               ],
@@ -153,6 +162,10 @@ class TruthOrDareConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'nhie',
           'op' => [
             'load' => [
@@ -173,8 +186,10 @@ class TruthOrDareConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/nhie',
-                  'parts' => [
-                    'nhie',
+                  'segments' => [
+                    [
+                      'lit' => 'nhie',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -184,6 +199,9 @@ class TruthOrDareConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'nhie',
                   ],
                 ],
               ],
@@ -220,6 +238,10 @@ class TruthOrDareConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'paranoia',
           'op' => [
             'load' => [
@@ -240,8 +262,10 @@ class TruthOrDareConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/paranoia',
-                  'parts' => [
-                    'paranoia',
+                  'segments' => [
+                    [
+                      'lit' => 'paranoia',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -251,6 +275,9 @@ class TruthOrDareConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'paranoia',
                   ],
                 ],
               ],
@@ -287,6 +314,10 @@ class TruthOrDareConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'truth',
           'op' => [
             'load' => [
@@ -307,8 +338,10 @@ class TruthOrDareConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/truth',
-                  'parts' => [
-                    'truth',
+                  'segments' => [
+                    [
+                      'lit' => 'truth',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -318,6 +351,9 @@ class TruthOrDareConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'truth',
                   ],
                 ],
               ],
@@ -354,6 +390,10 @@ class TruthOrDareConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'wyr',
           'op' => [
             'load' => [
@@ -374,8 +414,10 @@ class TruthOrDareConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/wyr',
-                  'parts' => [
-                    'wyr',
+                  'segments' => [
+                    [
+                      'lit' => 'wyr',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -385,6 +427,9 @@ class TruthOrDareConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'wyr',
                   ],
                 ],
               ],

@@ -55,8 +55,10 @@ main: kit: entity: dare: {
           }
           method: "GET"
           orig: "/dare"
-          parts: [
-            "dare"
+          segments: [
+            {
+              lit: "dare"
+            }
           ]
           select: {
             exist: [
