@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare'
+import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare-sdk'
 
 const client = new TruthOrDareSDK()
 ```
@@ -567,7 +567,7 @@ truth-or-dare/
 Import the SDK from the package root:
 
 ```ts
-import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare'
+import { TruthOrDareSDK } from '@voxgig-sdk/truth-or-dare-sdk'
 ```
 
 ### Entity state
