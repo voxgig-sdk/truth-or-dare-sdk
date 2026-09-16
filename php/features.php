@@ -4,7 +4,10 @@ declare(strict_types=1);
 // TruthOrDare SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class TruthOrDareFeatures
@@ -14,8 +17,14 @@ class TruthOrDareFeatures
         switch ($name) {
             case "base":
                 return new TruthOrDareBaseFeature();
+            case "ratelimit":
+                return new TruthOrDareRatelimitFeature();
+            case "retry":
+                return new TruthOrDareRetryFeature();
             case "test":
                 return new TruthOrDareTestFeature();
+            case "timeout":
+                return new TruthOrDareTimeoutFeature();
             default:
                 return new TruthOrDareBaseFeature();
         }
@@ -31,7 +40,10 @@ class TruthOrDareFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { TruthOrDareSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('NhieEntity', async () => {
 
     const live = 'TRUE' === process.env.TRUTH_OR_DARE_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'nhie.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'nhie.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set TRUTH_OR_DARE_TEST_NHIE_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"id","req":true,"short":"Unique identifier for the question","type":"`$STRING`","index$":0},{"active":true,"name":"question","req":true,"short":"The question text","type":"`$STRING`","index$":1},{"active":true,"name":"rating","req":true,"short":"The rating of the question","type":"`$STRING`","index$":2},{"active":true,"name":"type","req":true,"short":"The type of question","type":"`$STRING`","index$":3}],"id":{"field":"id","name":"id"},"name":"nhie","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"rating","orig":"rating","reqd":false,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /nhie","json":"{\"operationId\":\"getNeverHaveIEver\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpk74r5\",\"question\":\"Never have I ever dated someone in this server.\",\"rating\":\"PG13\",\"type\":\"NHIE\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/nhie","segments":[{"lit":"nhie"}],"select":{"exist":["rating"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"nhie","name__orig":"nhie","Name":"Nhie","name_":"nhie","name-":"nhie","NAME":"NHIE","index$":1}, {"active":true,"entity":"nhie","key$":"BasicNhieFlow","kind":"basic","name":"BasicNhieFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"nhie_ref01","srcdatavar":"nhie_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-nhie_ref01"}}],"index$":0}]}, 'Nhie')
     }
     const client = setup.client
     const struct = setup.struct
@@ -110,13 +109,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['TRUTH_OR_DARE_TEST_NHIE_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'TRUTH_OR_DARE_TEST_NHIE_ENTID': idmap,
     'TRUTH_OR_DARE_TEST_LIVE': 'FALSE',
@@ -127,7 +119,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.TRUTH_OR_DARE_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['TRUTH_OR_DARE_TEST_NHIE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new TruthOrDareSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -139,7 +137,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -152,7 +151,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.TRUTH_OR_DARE_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

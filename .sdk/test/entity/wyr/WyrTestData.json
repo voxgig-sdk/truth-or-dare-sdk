@@ -29,5 +29,85 @@
         "type": "sa3"
       }
     }
+  },
+  "requests": {
+    "GET /wyr": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getWouldYouRather",
+        "parameters": [
+          {
+            "description": "The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.",
+            "in": "query",
+            "name": "rating",
+            "required": false,
+            "schema": {
+              "enum": [
+                "pg",
+                "pg13",
+                "r"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "ku9abgpkd2mo",
+                  "question": "Would you rather be unhappily single OR unhappily married?",
+                  "rating": "PG13",
+                  "type": "WYR"
+                },
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "description": "Unique identifier for the question",
+                      "type": "string"
+                    },
+                    "question": {
+                      "description": "The question text",
+                      "type": "string"
+                    },
+                    "rating": {
+                      "description": "The rating of the question",
+                      "enum": [
+                        "PG",
+                        "PG13",
+                        "R"
+                      ],
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of question",
+                      "enum": [
+                        "TRUTH",
+                        "DARE",
+                        "WYR",
+                        "NHIE",
+                        "PARANOIA"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "rating",
+                    "question"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

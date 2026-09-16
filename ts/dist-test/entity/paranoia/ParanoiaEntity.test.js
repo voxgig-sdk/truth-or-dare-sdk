@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.TRUTH_OR_DARE_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'paranoia.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'paranoia.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set TRUTH_OR_DARE_TEST_PARANOIA_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "id", "req": true, "short": "Unique identifier for the question", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "question", "req": true, "short": "The question text", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "rating", "req": true, "short": "The rating of the question", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "type", "req": true, "short": "The type of question", "type": "`$STRING`", "index$": 3 }], "id": { "field": "id", "name": "id" }, "name": "paranoia", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "query": [{ "active": true, "kind": "query", "name": "rating", "orig": "rating", "reqd": false, "type": "`$STRING`", "index$": 0 }] }, "contract": { "id": "GET /paranoia", "json": "{\"operationId\":\"getParanoia\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpk00fs\",\"question\":\"Who's most likely to move to stay with a partner?\",\"rating\":\"PG13\",\"type\":\"PARANOIA\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/paranoia", "segments": [{ "lit": "paranoia" }], "select": { "exist": ["rating"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "paranoia", "name__orig": "paranoia", "Name": "Paranoia", "name_": "paranoia", "name-": "paranoia", "NAME": "PARANOIA", "index$": 2 }, { "active": true, "entity": "paranoia", "key$": "BasicParanoiaFlow", "kind": "basic", "name": "BasicParanoiaFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "paranoia_ref01", "srcdatavar": "paranoia_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-paranoia_ref01" } }], "index$": 0 }] }, 'Paranoia');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -103,12 +101,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['TRUTH_OR_DARE_TEST_PARANOIA_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'TRUTH_OR_DARE_TEST_PARANOIA_ENTID': idmap,
         'TRUTH_OR_DARE_TEST_LIVE': 'FALSE',
@@ -116,7 +108,13 @@ function basicSetup(extra) {
     });
     idmap = env['TRUTH_OR_DARE_TEST_PARANOIA_ENTID'];
     const live = 'TRUE' === env.TRUTH_OR_DARE_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['TRUTH_OR_DARE_TEST_PARANOIA_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.TruthOrDareSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -127,7 +125,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -139,7 +138,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.TRUTH_OR_DARE_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;
