@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      dare: {
-      },
-
-      nhie: {
-      },
-
-      paranoia: {
-      },
-
-      truth: {
-      },
-
-      wyr: {
-      },
-
+        dare: {
+        },
+  
+        nhie: {
+        },
+  
+        paranoia: {
+        },
+  
+        truth: {
+        },
+  
+        wyr: {
+        },
+  
     }
   }
 

@@ -105,12 +105,12 @@ local result, err = client:Dare():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/truth-or-dare-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases) |
-| Python | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases) |
-| PHP | `voxgig-sdk/truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases) |
+| TypeScript | `@voxgig-sdk/truth-or-dare-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/tags) |
+| Python | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/tags) |
+| PHP | `voxgig-sdk/truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/truth-or-dare-sdk/go` | `go get github.com/voxgig-sdk/truth-or-dare-sdk/go@latest` |
-| Ruby | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases) |
-| Lua | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/releases) |
+| Ruby | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/tags) |
+| Lua | `voxgig-sdk-truth-or-dare` | publish pending — [install from git tag](https://github.com/voxgig-sdk/truth-or-dare-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/truth-or-dare-sdk/go-cli` | `go install github.com/voxgig-sdk/truth-or-dare-sdk/go-cli/cmd/truth-or-dare@latest` |
 | Go MCP server | `github.com/voxgig-sdk/truth-or-dare-sdk/go-mcp` | `go get github.com/voxgig-sdk/truth-or-dare-sdk/go-mcp@latest` |
 
