@@ -91,27 +91,31 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Unique identifier for the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "question",
+            ["title"] = "Question",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The question text",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "rating",
+            ["title"] = "Rating",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The rating of the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The type of question",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -125,16 +129,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "rating",
-                      ["orig"] = "rating",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dare",
@@ -143,17 +137,28 @@ local function make_config()
                     ["lit"] = "dare",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "rating",
-                  },
+                ["parts"] = {
+                  "dare",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "dare",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "rating",
+                      ["orig"] = "rating",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "rating",
+                  },
                 },
               },
             },
@@ -167,27 +172,31 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Unique identifier for the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "question",
+            ["title"] = "Question",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The question text",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "rating",
+            ["title"] = "Rating",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The rating of the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The type of question",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -201,16 +210,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "rating",
-                      ["orig"] = "rating",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/nhie",
@@ -219,17 +218,28 @@ local function make_config()
                     ["lit"] = "nhie",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "rating",
-                  },
+                ["parts"] = {
+                  "nhie",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "nhie",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "rating",
+                      ["orig"] = "rating",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "rating",
+                  },
                 },
               },
             },
@@ -243,27 +253,31 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Unique identifier for the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "question",
+            ["title"] = "Question",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The question text",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "rating",
+            ["title"] = "Rating",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The rating of the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The type of question",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -277,16 +291,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "rating",
-                      ["orig"] = "rating",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/paranoia",
@@ -295,17 +299,28 @@ local function make_config()
                     ["lit"] = "paranoia",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "rating",
-                  },
+                ["parts"] = {
+                  "paranoia",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "paranoia",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "rating",
+                      ["orig"] = "rating",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "rating",
+                  },
                 },
               },
             },
@@ -319,27 +334,31 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Unique identifier for the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "question",
+            ["title"] = "Question",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The question text",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "rating",
+            ["title"] = "Rating",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The rating of the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The type of question",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -353,16 +372,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "rating",
-                      ["orig"] = "rating",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/truth",
@@ -371,17 +380,28 @@ local function make_config()
                     ["lit"] = "truth",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "rating",
-                  },
+                ["parts"] = {
+                  "truth",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "truth",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "rating",
+                      ["orig"] = "rating",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "rating",
+                  },
                 },
               },
             },
@@ -395,27 +415,31 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "id",
+            ["title"] = "Id",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "Unique identifier for the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "question",
+            ["title"] = "Question",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The question text",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "rating",
+            ["title"] = "Rating",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The rating of the question",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["title"] = "Type",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The type of question",
-            ["type"] = "`$STRING`",
           },
         },
         ["id"] = {
@@ -429,16 +453,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "rating",
-                      ["orig"] = "rating",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wyr",
@@ -447,17 +461,28 @@ local function make_config()
                     ["lit"] = "wyr",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "rating",
-                  },
+                ["parts"] = {
+                  "wyr",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "wyr",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "rating",
+                      ["orig"] = "rating",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "rating",
+                  },
                 },
               },
             },

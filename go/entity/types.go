@@ -1,7 +1,7 @@
 // Typed models for the TruthOrDare SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,10 +14,6 @@ import (
 
 // Dare is the typed data model for the dare entity.
 type Dare struct {
-	Id string `json:"id"`
-	Question string `json:"question"`
-	Rating string `json:"rating"`
-	Type string `json:"type"`
 }
 
 // DareLoadMatch is the typed request payload for Dare.LoadTyped.
@@ -27,10 +23,6 @@ type DareLoadMatch struct {
 
 // Nhie is the typed data model for the nhie entity.
 type Nhie struct {
-	Id string `json:"id"`
-	Question string `json:"question"`
-	Rating string `json:"rating"`
-	Type string `json:"type"`
 }
 
 // NhieLoadMatch is the typed request payload for Nhie.LoadTyped.
@@ -40,10 +32,6 @@ type NhieLoadMatch struct {
 
 // Paranoia is the typed data model for the paranoia entity.
 type Paranoia struct {
-	Id string `json:"id"`
-	Question string `json:"question"`
-	Rating string `json:"rating"`
-	Type string `json:"type"`
 }
 
 // ParanoiaLoadMatch is the typed request payload for Paranoia.LoadTyped.
@@ -53,10 +41,6 @@ type ParanoiaLoadMatch struct {
 
 // Truth is the typed data model for the truth entity.
 type Truth struct {
-	Id string `json:"id"`
-	Question string `json:"question"`
-	Rating string `json:"rating"`
-	Type string `json:"type"`
 }
 
 // TruthLoadMatch is the typed request payload for Truth.LoadTyped.
@@ -66,10 +50,6 @@ type TruthLoadMatch struct {
 
 // Wyr is the typed data model for the wyr entity.
 type Wyr struct {
-	Id string `json:"id"`
-	Question string `json:"question"`
-	Rating string `json:"rating"`
-	Type string `json:"type"`
 }
 
 // WyrLoadMatch is the typed request payload for Wyr.LoadTyped.

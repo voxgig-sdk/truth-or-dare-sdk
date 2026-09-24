@@ -120,27 +120,31 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the question",
-            "type": "`$STRING`",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The question text",
-            "type": "`$STRING`",
           },
           {
             "name": "rating",
+            "title": "Rating",
+            "type": "`$STRING`",
             "req": True,
             "short": "The rating of the question",
-            "type": "`$STRING`",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "The type of question",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -154,16 +158,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "rating",
-                      "orig": "rating",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/dare",
@@ -172,18 +166,29 @@ def make_config():
                     "lit": "dare",
                   },
                 ],
+                "parts": [
+                  "dare",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "rating",
+                      "orig": "rating",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "rating",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "dare",
-                ],
               },
             ],
           },
@@ -196,27 +201,31 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the question",
-            "type": "`$STRING`",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The question text",
-            "type": "`$STRING`",
           },
           {
             "name": "rating",
+            "title": "Rating",
+            "type": "`$STRING`",
             "req": True,
             "short": "The rating of the question",
-            "type": "`$STRING`",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "The type of question",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -230,16 +239,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "rating",
-                      "orig": "rating",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/nhie",
@@ -248,18 +247,29 @@ def make_config():
                     "lit": "nhie",
                   },
                 ],
+                "parts": [
+                  "nhie",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "rating",
+                      "orig": "rating",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "rating",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "nhie",
-                ],
               },
             ],
           },
@@ -272,27 +282,31 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the question",
-            "type": "`$STRING`",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The question text",
-            "type": "`$STRING`",
           },
           {
             "name": "rating",
+            "title": "Rating",
+            "type": "`$STRING`",
             "req": True,
             "short": "The rating of the question",
-            "type": "`$STRING`",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "The type of question",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -306,16 +320,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "rating",
-                      "orig": "rating",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/paranoia",
@@ -324,18 +328,29 @@ def make_config():
                     "lit": "paranoia",
                   },
                 ],
+                "parts": [
+                  "paranoia",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "rating",
+                      "orig": "rating",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "rating",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "paranoia",
-                ],
               },
             ],
           },
@@ -348,27 +363,31 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the question",
-            "type": "`$STRING`",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The question text",
-            "type": "`$STRING`",
           },
           {
             "name": "rating",
+            "title": "Rating",
+            "type": "`$STRING`",
             "req": True,
             "short": "The rating of the question",
-            "type": "`$STRING`",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "The type of question",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -382,16 +401,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "rating",
-                      "orig": "rating",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/truth",
@@ -400,18 +409,29 @@ def make_config():
                     "lit": "truth",
                   },
                 ],
+                "parts": [
+                  "truth",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "rating",
+                      "orig": "rating",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "rating",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "truth",
-                ],
               },
             ],
           },
@@ -424,27 +444,31 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the question",
-            "type": "`$STRING`",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The question text",
-            "type": "`$STRING`",
           },
           {
             "name": "rating",
+            "title": "Rating",
+            "type": "`$STRING`",
             "req": True,
             "short": "The rating of the question",
-            "type": "`$STRING`",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "The type of question",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -458,16 +482,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "rating",
-                      "orig": "rating",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/wyr",
@@ -476,18 +490,29 @@ def make_config():
                     "lit": "wyr",
                   },
                 ],
+                "parts": [
+                  "wyr",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "rating",
+                      "orig": "rating",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "rating",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "wyr",
-                ],
               },
             ],
           },

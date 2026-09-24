@@ -1,0 +1,28 @@
+# BasicParanoiaFlow
+
+main: kit: flow: BasicParanoiaFlow:
+{
+  entity: "paranoia",
+  kind: "basic",
+  name: "BasicParanoiaFlow",
+  step: [
+    {
+      i: {
+        ref: "paranoia_ref01",
+        srcdatavar: "paranoia_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-paranoia_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicParanoiaFlow"
+}

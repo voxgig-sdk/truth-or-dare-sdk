@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -151,27 +144,31 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the question",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the question"
         },
         {
           "name": "question",
+          "title": "Question",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The question text",
-          "type": "`$STRING`"
+          "short": "The question text"
         },
         {
           "name": "rating",
+          "title": "Rating",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The rating of the question",
-          "type": "`$STRING`"
+          "short": "The rating of the question"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of question",
-          "type": "`$STRING`"
+          "short": "The type of question"
         }
       ],
       "id": {
@@ -185,16 +182,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "rating",
-                    "orig": "rating",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/dare",
@@ -203,18 +190,29 @@ class Config {
                   "lit": "dare"
                 }
               ],
-              "select": {
-                "exist": [
-                  "rating"
-                ]
-              },
+              "parts": [
+                "dare"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "dare"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "rating",
+                    "orig": "rating",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "rating"
+                ]
+              }
             }
           ]
         }
@@ -227,27 +225,31 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the question",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the question"
         },
         {
           "name": "question",
+          "title": "Question",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The question text",
-          "type": "`$STRING`"
+          "short": "The question text"
         },
         {
           "name": "rating",
+          "title": "Rating",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The rating of the question",
-          "type": "`$STRING`"
+          "short": "The rating of the question"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of question",
-          "type": "`$STRING`"
+          "short": "The type of question"
         }
       ],
       "id": {
@@ -261,16 +263,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "rating",
-                    "orig": "rating",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/nhie",
@@ -279,18 +271,29 @@ class Config {
                   "lit": "nhie"
                 }
               ],
-              "select": {
-                "exist": [
-                  "rating"
-                ]
-              },
+              "parts": [
+                "nhie"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "nhie"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "rating",
+                    "orig": "rating",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "rating"
+                ]
+              }
             }
           ]
         }
@@ -303,27 +306,31 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the question",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the question"
         },
         {
           "name": "question",
+          "title": "Question",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The question text",
-          "type": "`$STRING`"
+          "short": "The question text"
         },
         {
           "name": "rating",
+          "title": "Rating",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The rating of the question",
-          "type": "`$STRING`"
+          "short": "The rating of the question"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of question",
-          "type": "`$STRING`"
+          "short": "The type of question"
         }
       ],
       "id": {
@@ -337,16 +344,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "rating",
-                    "orig": "rating",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/paranoia",
@@ -355,18 +352,29 @@ class Config {
                   "lit": "paranoia"
                 }
               ],
-              "select": {
-                "exist": [
-                  "rating"
-                ]
-              },
+              "parts": [
+                "paranoia"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "paranoia"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "rating",
+                    "orig": "rating",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "rating"
+                ]
+              }
             }
           ]
         }
@@ -379,27 +387,31 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the question",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the question"
         },
         {
           "name": "question",
+          "title": "Question",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The question text",
-          "type": "`$STRING`"
+          "short": "The question text"
         },
         {
           "name": "rating",
+          "title": "Rating",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The rating of the question",
-          "type": "`$STRING`"
+          "short": "The rating of the question"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of question",
-          "type": "`$STRING`"
+          "short": "The type of question"
         }
       ],
       "id": {
@@ -413,16 +425,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "rating",
-                    "orig": "rating",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/truth",
@@ -431,18 +433,29 @@ class Config {
                   "lit": "truth"
                 }
               ],
-              "select": {
-                "exist": [
-                  "rating"
-                ]
-              },
+              "parts": [
+                "truth"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "truth"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "rating",
+                    "orig": "rating",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "rating"
+                ]
+              }
             }
           ]
         }
@@ -455,27 +468,31 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the question",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the question"
         },
         {
           "name": "question",
+          "title": "Question",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The question text",
-          "type": "`$STRING`"
+          "short": "The question text"
         },
         {
           "name": "rating",
+          "title": "Rating",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The rating of the question",
-          "type": "`$STRING`"
+          "short": "The rating of the question"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The type of question",
-          "type": "`$STRING`"
+          "short": "The type of question"
         }
       ],
       "id": {
@@ -489,16 +506,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "rating",
-                    "orig": "rating",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/wyr",
@@ -507,18 +514,29 @@ class Config {
                   "lit": "wyr"
                 }
               ],
-              "select": {
-                "exist": [
-                  "rating"
-                ]
-              },
+              "parts": [
+                "wyr"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "wyr"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "rating",
+                    "orig": "rating",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "rating"
+                ]
+              }
             }
           ]
         }

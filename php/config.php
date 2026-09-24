@@ -117,27 +117,31 @@ class TruthOrDareConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'title' => 'Question',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The question text',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
+              'title' => 'Rating',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The rating of the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The type of question',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -151,16 +155,6 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'rating',
-                        'orig' => 'rating',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/dare',
@@ -169,17 +163,28 @@ class TruthOrDareConfig
                       'lit' => 'dare',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'rating',
-                    ],
+                  'parts' => [
+                    'dare',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'dare',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'rating',
+                        'orig' => 'rating',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'rating',
+                    ],
                   ],
                 ],
               ],
@@ -193,27 +198,31 @@ class TruthOrDareConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'title' => 'Question',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The question text',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
+              'title' => 'Rating',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The rating of the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The type of question',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -227,16 +236,6 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'rating',
-                        'orig' => 'rating',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/nhie',
@@ -245,17 +244,28 @@ class TruthOrDareConfig
                       'lit' => 'nhie',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'rating',
-                    ],
+                  'parts' => [
+                    'nhie',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'nhie',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'rating',
+                        'orig' => 'rating',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'rating',
+                    ],
                   ],
                 ],
               ],
@@ -269,27 +279,31 @@ class TruthOrDareConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'title' => 'Question',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The question text',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
+              'title' => 'Rating',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The rating of the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The type of question',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -303,16 +317,6 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'rating',
-                        'orig' => 'rating',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/paranoia',
@@ -321,17 +325,28 @@ class TruthOrDareConfig
                       'lit' => 'paranoia',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'rating',
-                    ],
+                  'parts' => [
+                    'paranoia',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'paranoia',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'rating',
+                        'orig' => 'rating',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'rating',
+                    ],
                   ],
                 ],
               ],
@@ -345,27 +360,31 @@ class TruthOrDareConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'title' => 'Question',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The question text',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
+              'title' => 'Rating',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The rating of the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The type of question',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -379,16 +398,6 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'rating',
-                        'orig' => 'rating',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/truth',
@@ -397,17 +406,28 @@ class TruthOrDareConfig
                       'lit' => 'truth',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'rating',
-                    ],
+                  'parts' => [
+                    'truth',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'truth',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'rating',
+                        'orig' => 'rating',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'rating',
+                    ],
                   ],
                 ],
               ],
@@ -421,27 +441,31 @@ class TruthOrDareConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'title' => 'Question',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The question text',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'rating',
+              'title' => 'Rating',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The rating of the question',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The type of question',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -455,16 +479,6 @@ class TruthOrDareConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'rating',
-                        'orig' => 'rating',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/wyr',
@@ -473,17 +487,28 @@ class TruthOrDareConfig
                       'lit' => 'wyr',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'rating',
-                    ],
+                  'parts' => [
+                    'wyr',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'wyr',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'rating',
+                        'orig' => 'rating',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'rating',
+                    ],
                   ],
                 ],
               ],

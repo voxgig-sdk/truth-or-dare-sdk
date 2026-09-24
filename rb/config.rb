@@ -103,27 +103,31 @@ module TruthOrDareConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The question text",
-              "type" => "`$STRING`",
             },
             {
               "name" => "rating",
+              "title" => "Rating",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The rating of the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "title" => "Type",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The type of question",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -137,16 +141,6 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rating",
-                        "orig" => "rating",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dare",
@@ -155,18 +149,29 @@ module TruthOrDareConfig
                       "lit" => "dare",
                     },
                   ],
+                  "parts" => [
+                    "dare",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rating",
+                        "orig" => "rating",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rating",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "dare",
-                  ],
                 },
               ],
             },
@@ -179,27 +184,31 @@ module TruthOrDareConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The question text",
-              "type" => "`$STRING`",
             },
             {
               "name" => "rating",
+              "title" => "Rating",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The rating of the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "title" => "Type",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The type of question",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -213,16 +222,6 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rating",
-                        "orig" => "rating",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/nhie",
@@ -231,18 +230,29 @@ module TruthOrDareConfig
                       "lit" => "nhie",
                     },
                   ],
+                  "parts" => [
+                    "nhie",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rating",
+                        "orig" => "rating",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rating",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "nhie",
-                  ],
                 },
               ],
             },
@@ -255,27 +265,31 @@ module TruthOrDareConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The question text",
-              "type" => "`$STRING`",
             },
             {
               "name" => "rating",
+              "title" => "Rating",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The rating of the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "title" => "Type",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The type of question",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -289,16 +303,6 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rating",
-                        "orig" => "rating",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/paranoia",
@@ -307,18 +311,29 @@ module TruthOrDareConfig
                       "lit" => "paranoia",
                     },
                   ],
+                  "parts" => [
+                    "paranoia",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rating",
+                        "orig" => "rating",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rating",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "paranoia",
-                  ],
                 },
               ],
             },
@@ -331,27 +346,31 @@ module TruthOrDareConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The question text",
-              "type" => "`$STRING`",
             },
             {
               "name" => "rating",
+              "title" => "Rating",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The rating of the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "title" => "Type",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The type of question",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -365,16 +384,6 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rating",
-                        "orig" => "rating",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/truth",
@@ -383,18 +392,29 @@ module TruthOrDareConfig
                       "lit" => "truth",
                     },
                   ],
+                  "parts" => [
+                    "truth",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rating",
+                        "orig" => "rating",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rating",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "truth",
-                  ],
                 },
               ],
             },
@@ -407,27 +427,31 @@ module TruthOrDareConfig
           "fields" => [
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The question text",
-              "type" => "`$STRING`",
             },
             {
               "name" => "rating",
+              "title" => "Rating",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The rating of the question",
-              "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "title" => "Type",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The type of question",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -441,16 +465,6 @@ module TruthOrDareConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "rating",
-                        "orig" => "rating",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wyr",
@@ -459,18 +473,29 @@ module TruthOrDareConfig
                       "lit" => "wyr",
                     },
                   ],
+                  "parts" => [
+                    "wyr",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "rating",
+                        "orig" => "rating",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "rating",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "wyr",
-                  ],
                 },
               ],
             },

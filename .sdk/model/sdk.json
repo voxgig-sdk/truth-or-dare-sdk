@@ -24,42 +24,112 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "dare": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the question",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "question",
-              "req": true,
-              "short": "The question text",
-              "type": "`$STRING`"
+            "question": {
+              "a": true,
+              "h": "Question",
+              "n": "question",
+              "r": true,
+              "sh": "The question text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rating",
-              "req": true,
-              "short": "The rating of the question",
-              "type": "`$STRING`"
+            "rating": {
+              "a": true,
+              "h": "Rating",
+              "n": "rating",
+              "r": true,
+              "sh": "The rating of the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "The type of question",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "The type of question",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -71,39 +141,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /dare",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rating",
-                        "orig": "rating",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rating",
+                        "or": "rating",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /dare",
-                    "json": "{\"operationId\":\"getDare\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpjs933\",\"question\":\"Rate everyone here 1-10 in terms of looks.\",\"rating\":\"PG13\",\"type\":\"DARE\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/dare",
-                  "segments": [
-                    {
-                      "lit": "dare"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/dare",
+                  "q": {
                     "exist": [
                       "rating"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "dare"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -120,36 +190,40 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the question",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "question",
-              "req": true,
-              "short": "The question text",
-              "type": "`$STRING`"
+            "question": {
+              "a": true,
+              "h": "Question",
+              "n": "question",
+              "r": true,
+              "sh": "The question text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rating",
-              "req": true,
-              "short": "The rating of the question",
-              "type": "`$STRING`"
+            "rating": {
+              "a": true,
+              "h": "Rating",
+              "n": "rating",
+              "r": true,
+              "sh": "The rating of the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "The type of question",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "The type of question",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -161,39 +235,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /nhie",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rating",
-                        "orig": "rating",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rating",
+                        "or": "rating",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /nhie",
-                    "json": "{\"operationId\":\"getNeverHaveIEver\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpk74r5\",\"question\":\"Never have I ever dated someone in this server.\",\"rating\":\"PG13\",\"type\":\"NHIE\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/nhie",
-                  "segments": [
-                    {
-                      "lit": "nhie"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/nhie",
+                  "q": {
                     "exist": [
                       "rating"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "nhie"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -210,36 +284,40 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the question",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "question",
-              "req": true,
-              "short": "The question text",
-              "type": "`$STRING`"
+            "question": {
+              "a": true,
+              "h": "Question",
+              "n": "question",
+              "r": true,
+              "sh": "The question text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rating",
-              "req": true,
-              "short": "The rating of the question",
-              "type": "`$STRING`"
+            "rating": {
+              "a": true,
+              "h": "Rating",
+              "n": "rating",
+              "r": true,
+              "sh": "The rating of the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "The type of question",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "The type of question",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -251,39 +329,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /paranoia",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rating",
-                        "orig": "rating",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rating",
+                        "or": "rating",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /paranoia",
-                    "json": "{\"operationId\":\"getParanoia\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpk00fs\",\"question\":\"Who's most likely to move to stay with a partner?\",\"rating\":\"PG13\",\"type\":\"PARANOIA\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/paranoia",
-                  "segments": [
-                    {
-                      "lit": "paranoia"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/paranoia",
+                  "q": {
                     "exist": [
                       "rating"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "paranoia"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -300,36 +378,40 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the question",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "question",
-              "req": true,
-              "short": "The question text",
-              "type": "`$STRING`"
+            "question": {
+              "a": true,
+              "h": "Question",
+              "n": "question",
+              "r": true,
+              "sh": "The question text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rating",
-              "req": true,
-              "short": "The rating of the question",
-              "type": "`$STRING`"
+            "rating": {
+              "a": true,
+              "h": "Rating",
+              "n": "rating",
+              "r": true,
+              "sh": "The rating of the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "The type of question",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "The type of question",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -341,39 +423,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /truth",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rating",
-                        "orig": "rating",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rating",
+                        "or": "rating",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /truth",
-                    "json": "{\"operationId\":\"getTruth\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpj6u59\",\"question\":\"Would you break up with someone over text?\",\"rating\":\"PG13\",\"type\":\"TRUTH\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/truth",
-                  "segments": [
-                    {
-                      "lit": "truth"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/truth",
+                  "q": {
                     "exist": [
                       "rating"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "truth"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -390,36 +472,40 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the question",
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "question",
-              "req": true,
-              "short": "The question text",
-              "type": "`$STRING`"
+            "question": {
+              "a": true,
+              "h": "Question",
+              "n": "question",
+              "r": true,
+              "sh": "The question text",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "rating",
-              "req": true,
-              "short": "The rating of the question",
-              "type": "`$STRING`"
+            "rating": {
+              "a": true,
+              "h": "Rating",
+              "n": "rating",
+              "r": true,
+              "sh": "The rating of the question",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "The type of question",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "The type of question",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -431,39 +517,39 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /wyr",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "rating",
-                        "orig": "rating",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "rating",
+                        "or": "rating",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /wyr",
-                    "json": "{\"operationId\":\"getWouldYouRather\",\"parameters\":[{\"description\":\"The rating of the question. Must be \\\"pg\\\", \\\"pg13\\\" or \\\"r\\\". You can use this query multiple times to get different ratings.\",\"in\":\"query\",\"name\":\"rating\",\"required\":false,\"schema\":{\"enum\":[\"pg\",\"pg13\",\"r\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"id\":\"ku9abgpkd2mo\",\"question\":\"Would you rather be unhappily single OR unhappily married?\",\"rating\":\"PG13\",\"type\":\"WYR\"},\"schema\":{\"properties\":{\"id\":{\"description\":\"Unique identifier for the question\",\"type\":\"string\"},\"question\":{\"description\":\"The question text\",\"type\":\"string\"},\"rating\":{\"description\":\"The rating of the question\",\"enum\":[\"PG\",\"PG13\",\"R\"],\"type\":\"string\"},\"type\":{\"description\":\"The type of question\",\"enum\":[\"TRUTH\",\"DARE\",\"WYR\",\"NHIE\",\"PARANOIA\"],\"type\":\"string\"}},\"required\":[\"id\",\"type\",\"rating\",\"question\"],\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/wyr",
-                  "segments": [
-                    {
-                      "lit": "wyr"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/wyr",
+                  "q": {
                     "exist": [
                       "rating"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "wyr"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -892,17 +978,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "dare_ref01",
                 "srcdatavar": "dare_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -922,17 +1008,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "nhie_ref01",
                 "srcdatavar": "nhie_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -952,17 +1038,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "paranoia_ref01",
                 "srcdatavar": "paranoia_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -982,17 +1068,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "truth_ref01",
                 "srcdatavar": "truth_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1012,17 +1098,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "wyr_ref01",
                 "srcdatavar": "wyr_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

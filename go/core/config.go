@@ -95,27 +95,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The question text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"title": "Rating",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The rating of the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of question",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -129,16 +133,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rating",
-											"orig": "rating",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/dare",
@@ -147,17 +141,28 @@ func MakeConfig() map[string]any {
 										"lit": "dare",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"rating",
-									},
+								"parts": []any{
+									"dare",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"dare",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rating",
+											"orig": "rating",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"rating",
+									},
 								},
 							},
 						},
@@ -171,27 +176,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The question text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"title": "Rating",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The rating of the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of question",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -205,16 +214,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rating",
-											"orig": "rating",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/nhie",
@@ -223,17 +222,28 @@ func MakeConfig() map[string]any {
 										"lit": "nhie",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"rating",
-									},
+								"parts": []any{
+									"nhie",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"nhie",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rating",
+											"orig": "rating",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"rating",
+									},
 								},
 							},
 						},
@@ -247,27 +257,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The question text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"title": "Rating",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The rating of the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of question",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -281,16 +295,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rating",
-											"orig": "rating",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/paranoia",
@@ -299,17 +303,28 @@ func MakeConfig() map[string]any {
 										"lit": "paranoia",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"rating",
-									},
+								"parts": []any{
+									"paranoia",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"paranoia",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rating",
+											"orig": "rating",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"rating",
+									},
 								},
 							},
 						},
@@ -323,27 +338,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The question text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"title": "Rating",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The rating of the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of question",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -357,16 +376,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rating",
-											"orig": "rating",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/truth",
@@ -375,17 +384,28 @@ func MakeConfig() map[string]any {
 										"lit": "truth",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"rating",
-									},
+								"parts": []any{
+									"truth",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"truth",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rating",
+											"orig": "rating",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"rating",
+									},
 								},
 							},
 						},
@@ -399,27 +419,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The question text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "rating",
+						"title": "Rating",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The rating of the question",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The type of question",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -433,16 +457,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "rating",
-											"orig": "rating",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/wyr",
@@ -451,17 +465,28 @@ func MakeConfig() map[string]any {
 										"lit": "wyr",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"rating",
-									},
+								"parts": []any{
+									"wyr",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"wyr",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "rating",
+											"orig": "rating",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"rating",
+									},
 								},
 							},
 						},
