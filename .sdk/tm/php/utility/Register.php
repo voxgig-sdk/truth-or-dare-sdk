@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 TruthOrDareUtility::setRegistrar(function (TruthOrDareUtility $u): void {
     $u->clean = [TruthOrDareClean::class, 'call'];
+    $u->clean_add = [TruthOrDareClean::class, 'add'];
+    $u->clean_explain = [TruthOrDareDone::class, 'clean_explain'];
     $u->done = [TruthOrDareDone::class, 'call'];
     $u->make_error = [TruthOrDareMakeError::class, 'call'];
     $u->feature_add = [TruthOrDareFeatureAdd::class, 'call'];

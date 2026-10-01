@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 TruthOrDareUtility.registrar = ->(u) {
   u.clean = TruthOrDareUtilities::Clean
+  u.clean_add = TruthOrDareUtilities::CleanAdd
+  u.clean_explain = TruthOrDareUtilities::CleanExplain
   u.done = TruthOrDareUtilities::Done
   u.make_error = TruthOrDareUtilities::MakeError
   u.feature_add = TruthOrDareUtilities::FeatureAdd
