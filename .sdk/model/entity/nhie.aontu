@@ -64,10 +64,9 @@ main: kit: entity: nhie: {
           }
           m: "GET"
           o: "/nhie"
-          q: {
-            exist: [
-              "rating"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

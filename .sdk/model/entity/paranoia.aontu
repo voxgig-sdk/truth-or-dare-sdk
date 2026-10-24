@@ -64,10 +64,9 @@ main: kit: entity: paranoia: {
           }
           m: "GET"
           o: "/paranoia"
-          q: {
-            exist: [
-              "rating"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

@@ -3,5 +3,16 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API for truth, dare, would you rather, never have I ever, and paranoia questions with different ratings available.",
+      "Production server",
+      "Successful response",
+      "The question text",
+      "The rating of the question",
+      "The type of question",
+      "Unique identifier for the question"
+    ]
+  }
 }

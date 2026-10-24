@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { TruthOrDareSDK, BaseFeature, stdutil } from '../../..'
+import { TruthOrDareSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('WyrEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = TruthOrDareSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Wyr().load({"rating":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.TRUTH_OR_DARE_TEST_LIVE
@@ -51,7 +63,7 @@ describe('WyrEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Unique identifier for the question","t":"`$STRING`","key$":"id","index$":0},"question":{"a":true,"h":"Question","n":"question","r":true,"sh":"The question text","t":"`$STRING`","key$":"question","index$":1},"rating":{"a":true,"h":"Rating","n":"rating","r":true,"sh":"The rating of the question","t":"`$STRING`","key$":"rating","index$":2},"type":{"a":true,"h":"Type","n":"type","r":true,"sh":"The type of question","t":"`$STRING`","key$":"type","index$":3}},"id":{"field":"id","name":"id"},"name":"wyr","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /wyr","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"rating","or":"rating","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/wyr","q":{"exist":["rating"]},"r":{},"s":[{"lit":"wyr"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"wyr","name__orig":"wyr","Name":"Wyr","name_":"wyr","name-":"wyr","NAME":"WYR","index$":4}, {"active":true,"entity":"wyr","key$":"BasicWyrFlow","kind":"basic","name":"BasicWyrFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"wyr_ref01","srcdatavar":"wyr_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-wyr_ref01"}}],"index$":0}]}, 'Wyr', {"GET /wyr":{"protocol":"http","parameters":[{"name":"rating","in":"query","description":"The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.","required":false,"schema":{"type":"string","enum":["pg","pg13","r"]},"index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Unique identifier for the question","t":"`$STRING`","key$":"id","index$":0},"question":{"a":true,"h":"Question","n":"question","r":true,"sh":"The question text","t":"`$STRING`","key$":"question","index$":1},"rating":{"a":true,"h":"Rating","n":"rating","r":true,"sh":"The rating of the question","t":"`$STRING`","key$":"rating","index$":2},"type":{"a":true,"h":"Type","n":"type","r":true,"sh":"The type of question","t":"`$STRING`","key$":"type","index$":3}},"id":{"field":"id","name":"id"},"name":"wyr","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /wyr","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"rating","or":"rating","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/wyr","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"wyr"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"wyr","name__orig":"wyr","Name":"Wyr","name_":"wyr","name-":"wyr","NAME":"WYR","index$":4}, {"active":true,"entity":"wyr","key$":"BasicWyrFlow","kind":"basic","name":"BasicWyrFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"wyr_ref01","srcdatavar":"wyr_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-wyr_ref01"}}],"index$":0}]}, 'Wyr', {"GET /wyr":{"protocol":"http","parameters":[{"name":"rating","in":"query","description":"The rating of the question. Must be \"pg\", \"pg13\" or \"r\". You can use this query multiple times to get different ratings.","required":false,"schema":{"type":"string","enum":["pg","pg13","r"]},"index$":0}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -73,6 +85,12 @@ describe('WyrEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

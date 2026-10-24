@@ -12,6 +12,8 @@ type TruthOrDareError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewTruthOrDareError(code string, msg string, ctx *Context) *TruthOrDareError {
@@ -21,7 +23,12 @@ func NewTruthOrDareError(code string, msg string, ctx *Context) *TruthOrDareErro
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *TruthOrDareError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *TruthOrDareError) Error() string {
@@ -35,6 +42,7 @@ func (e *TruthOrDareError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

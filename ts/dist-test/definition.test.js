@@ -19,8 +19,18 @@ const PLAN = [
             "rating": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "rating"
+        ],
+        "queryArgs": [
+            {
+                "name": "rating",
+                "wire": "rating"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -43,8 +53,18 @@ const PLAN = [
             "rating": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "rating"
+        ],
+        "queryArgs": [
+            {
+                "name": "rating",
+                "wire": "rating"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -67,8 +87,18 @@ const PLAN = [
             "rating": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "rating"
+        ],
+        "queryArgs": [
+            {
+                "name": "rating",
+                "wire": "rating"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -91,8 +121,18 @@ const PLAN = [
             "rating": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "rating"
+        ],
+        "queryArgs": [
+            {
+                "name": "rating",
+                "wire": "rating"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -115,8 +155,18 @@ const PLAN = [
             "rating": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "rating"
+        ],
+        "queryArgs": [
+            {
+                "name": "rating",
+                "wire": "rating"
+            }
         ],
         "auth": null,
         "status": 200,

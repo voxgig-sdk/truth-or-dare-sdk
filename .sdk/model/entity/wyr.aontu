@@ -64,10 +64,9 @@ main: kit: entity: wyr: {
           }
           m: "GET"
           o: "/wyr"
-          q: {
-            exist: [
-              "rating"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

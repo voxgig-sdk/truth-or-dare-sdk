@@ -64,10 +64,9 @@ main: kit: entity: truth: {
           }
           m: "GET"
           o: "/truth"
-          q: {
-            exist: [
-              "rating"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

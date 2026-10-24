@@ -64,10 +64,9 @@ main: kit: entity: dare: {
           }
           m: "GET"
           o: "/dare"
-          q: {
-            exist: [
-              "rating"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
